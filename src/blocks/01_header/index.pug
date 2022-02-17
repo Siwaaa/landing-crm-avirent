@@ -1,0 +1,35 @@
+include ../../components/button.pug
+include ../../components/input-button.pug
+
+header.header
+  .container
+    nav.header__nav.navpanel
+      .navpanel__container
+        .navpanel__logo
+          img(src="./img/logo.svg", alt="logo")
+          p Система автоматизации <br> автопрокатов и таксопарков
+        .navpanel__phone
+          .navpanel__phone-top
+            img(src="./img/icon_tel.svg")
+            a(href="tel:+74951184046") +7 (495) 118-40-46 
+          button(type="button") Заказать звонок
+        .navpanel__login 
+          +button('Войти', 'link', '/asdd', 'white')
+          +button("Попробовать бесплатно")
+    .header__main
+      .header__main-left
+        nav
+          ul
+            li Функционал
+            li Внедрение
+            li Тарифы
+            li Отзывы
+        h1 Помогаем получить максимум прибыли за счет внедрения CRM в ваш таксопарк
+        ul
+          li 80% снижение риска просрочки аренды автомобиля
+          li 20% снижение расходов на содержание автопарка
+          li 50% снижение фонда оплаты труда
+        +input-button('Попробовать бесплатно')
+      .header__main-right
+      img(src="./img/header.png", alt="")
+//- https://edu-cdto.ru/ - кнопка виджет

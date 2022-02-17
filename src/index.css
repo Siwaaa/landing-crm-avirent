@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+:root {
+  /* color */
+  --color-white: #FCFCFF;
+  --color-black: #3E2C46;
+  --color-orange: #F49A12;
+  --color-purple: #7A76E5;
+  --color-purple-light: #F0ECFF;
+  --color-purple-text: #8E72F6;
+  /* font  */
+  --fz: 14px;
+  --fz-h4: 18px;
+  --fz-h2: 28px;
+  /* content */
+  --content-width: 1200px;
+  --container-padding-h: 80px;
+  --container-padding-w: 30px;
+  --border-radius: 5px;
+}
+.container {
+  max-width: var(--content-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: var(--container-padding-w);
+  padding-right: var(--container-padding-w);
+  padding-bottom: var(--container-padding-h);
+}
+.head {
+  font-weight: 700;
+  font-size: var(--fz-h2);
+  line-height: 1.5;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 60px;
+    &_white {
+      color: #fff;
+    }
+}
+
+@import "./reset.css";
+@import "./blocks/**/*.css";
+@import "./components/*.css";

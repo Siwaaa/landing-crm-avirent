@@ -2,9 +2,12 @@
   "name": "landing-crm-avirent",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "source": "./src/index.pug",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "gulp start"
+    "start": "parcel",
+    "serve": "parcel serve --port 8080 --open chrome",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/Siwaaa/landing-crm-avirent/issues"
   },
-  "homepage": "https://github.com/Siwaaa/landing-crm-avirent#readme"
+  "homepage": "https://github.com/Siwaaa/landing-crm-avirent#readme",
+  "devDependencies": {
+    "@parcel/resolver-glob": "^2.2.1",
+    "@parcel/transformer-pug": "^2.2.1",
+    "autoprefixer": "^10.4.2",
+    "jstransformer-markdown-it": "^2.1.0",
+    "parcel": "^2.2.1",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-nested": "^5.0.6"
+  }
 }

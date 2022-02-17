@@ -1,0 +1,25 @@
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  font-size: var(--fz);
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  transition: all .5s ease-in-out;
+
+  &-orange {
+    background-color: var(--color-orange);
+    color: #fff;
+    box-shadow: 0px 8px 13px rgba(255, 195, 19, 0.3);
+  }
+  &-white {
+    background-color: transparent;
+    color: var(--color-black);
+    border: 1px solid #EEEEEE;
+  }
+
+
+  &:hover {
+    opacity: 0.95;
+    transform: translateY(3px);
+  }
+}

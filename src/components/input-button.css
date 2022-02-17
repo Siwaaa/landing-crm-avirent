@@ -1,0 +1,16 @@
+.inputbutton {
+  display: inline-block;
+  padding: 5px 5px 5px 20px;
+  border: 0.5px solid #F49A12;
+  border-radius: var(--border-radius);
+
+  & > input {
+    background: transparent;
+    margin-right: 60px;
+    cursor: text;
+
+    &::placeholder {
+      color: #C4C4C4;
+    }
+  }
+}

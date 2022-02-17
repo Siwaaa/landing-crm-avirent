@@ -1,0 +1,5 @@
+mixin button(title, type="button", href, color="orange")
+  if type!="link"
+    button(type=type, class=`btn btn-${color}`)= title 
+  else
+    a(href=href class=`btn btn-${color}`)= title 
