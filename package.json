@@ -7,7 +7,7 @@
   "scripts": {
     "start": "parcel",
     "serve": "parcel serve --port 8080 --open chrome",
-    "build": "parcel build"
+    "build": "parcel build --public-url ./"
   },
   "repository": {
     "type": "git",

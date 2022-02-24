@@ -1,7 +1,7 @@
 mixin item(title, text)
   .list-statistics__item 
     p=title 
-    span=text
+    span!=text
 
 
 section.statistics
@@ -9,5 +9,5 @@ section.statistics
     .statistics__body
       .list-statistics
         +item('7 лет', 'на рынке')
-        +item('2000+', 'автомобилей\nв системе')
-        +item('30+', 'городов\nв России и СНГ')
+        +item('2000+', 'автомобилей<br>в системе')
+        +item('30+', 'городов<br>в России и СНГ')
