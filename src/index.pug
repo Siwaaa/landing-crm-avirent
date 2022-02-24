@@ -7,7 +7,7 @@ html(lang="ru")
     meta(name="description", content="")
     meta(name="keywords", content="")
     //- link(rel="icon", href="favicon.ico", type="image/x-icon")
-    
+
     link(rel="stylesheet", href="index.css")
     link(rel="stylesheet", href="./js/swiper-bundle.min.css")
 
@@ -25,10 +25,10 @@ html(lang="ru")
       include blocks/09_5reasons.pug
       include blocks/10_price.pug
       include blocks/11_ceo.pug
-      include blocks/12_otzovy.pug
+      //- include blocks/12_otzovy.pug
       include blocks/13_faq.pug
     include blocks/14_footer.pug
     //- JS
     script(src='./js/index.js')
-    script(src='./js/swiper-bundle.min.js')
-    script(src='./js/swiper.js')
+    script(src='./js/swiper-bundle.min.js' type="module")
+    script(src='./js/swiper.js' type="module")

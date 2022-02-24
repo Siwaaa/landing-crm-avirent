@@ -8,16 +8,16 @@ section.problems
     .problems__head.head.head_white 
       h2 Занимаемся внедрением CRM с 2015 года и знаем с какими проблемами вы сталкиваетесь
     .problems__body 
-      .card-problems
+      div(class="card-problems" data-animate-on-scroll)
         +card("Используете 10 программ,\nчтобы контролировать процессы", "./img/cards-problems/1.png")
         +card("Не понимаете рентабельности машины и водителя", "./img/cards-problems/2.png")
         +card("80% времени уходит на рутину,\nа не на развитие компании", "./img/cards-problems/3.png")
-      .card-problems
+      div(class="card-problems" data-animate-on-scroll)
         +card("Сложно определить свободный автомобиль", "./img/cards-problems/4.png")
         +card("Водители не оплачивают аренду ТС и начинают копить долги.\nВ итоге машина работает в минус", "./img/cards-problems/5.png")
         +card("Отсутствие грамотного и прозрачного финансового учёта", "./img/cards-problems/6.png")
         +card("Много времени уходит на разнос и оплату штрафов", "./img/cards-problems/7.png")
-      .problems__swiper.swiper-container
+      div(class="problems__swiper swiper-container" data-animate-on-scroll)
         .swiper-wrapper
           .problems__swiper-item.swiper-slide
             +card("Используете 10 программ,\nчтобы контролировать процессы", "./img/cards-problems/1.png")

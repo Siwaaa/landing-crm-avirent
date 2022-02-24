@@ -1,3 +1,5 @@
+import Swiper from './swiper-bundle.min.js'
+
 const swiperProblems = new Swiper('.problems__swiper', {
   // Optional parameters
   slidesPerView: 1,

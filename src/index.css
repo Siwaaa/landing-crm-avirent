@@ -87,3 +87,23 @@ b {
 @import "./reset.css";
 @import "./blocks/*.css";
 @import "./components/*.css";
+
+/* Animation */
+*[data-animate-on-scroll] {
+  opacity: 0;
+}
+*[data-animate-on-scroll=animated] {
+  opacity: 1;
+  animation: wipe-enter 2s;
+}
+
+@keyframes wipe-enter {
+  0% {
+    opacity: 0;
+    transform: translate(0, -20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

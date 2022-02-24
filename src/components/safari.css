@@ -4,7 +4,8 @@
     --width: 85%;
     background: url(../img/safari.svg) top / contain no-repeat;
     width: var(--width);
-    height: calc(var(--width) / 1.67);
+    height: 54vw;
+    max-height: 646px;
     border: 0.5px solid #c3c3c3;
     box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.1), 0px 20px 50px 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;

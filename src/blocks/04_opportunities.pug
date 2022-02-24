@@ -11,42 +11,52 @@ section.opportunities
     .opportunities__head.head 
       h2 Упростите процесс управления таксопарком благодаря возможностям Avirent CRM
     .opportunities__body
+      .opportunities__nav 
+        select(class="my-select")
+          option(disabled value="") Выберите один из вариантов
+          option(value="1") Договора
+          option(value="2") Договора2
       .opportunities__item.opportunities__item-menu
         ul
-          li 
+          li.opportunities-desktop-li 
+            input(type="radio" id="oppo_desktop_1" name="oppo_desktop" value="1" checked)
             +check()
             | Клиентская база
-          li 
+          li.opportunities-desktop-li
+            input(type="radio" name="oppo_desktop" value="2" )
             +check()
             | Договора
-          li 
+          li.opportunities-desktop-li
+            input(type="radio" name="oppo_desktop" value="3") 
             +check()
             | Система биллинга
-          li 
+          li.opportunities-desktop-li
+            input(type="radio", name="oppo_desktop") 
             +check()
             | Штрафы ГИБДД
-          li 
+          li.opportunities-desktop-li 
+            input(type="radio", name="oppo_desktop")
             +check()
             | Тех. обслуживание
-          li 
+          li.opportunities-desktop-li 
             +check()
             | Система напоминаний
-          li 
+          li.opportunities-desktop-li
             +check()
             | Складской учёт
-          li 
+          li.opportunities-desktop-li 
             +check()
             | Сотрудники
-          li 
+          li.opportunities-desktop-li 
             +check()
             | Связь с Яндекс Такси
-          li 
+          li.opportunities-desktop-li 
             +check()
             | Фотоосмотры
-          li 
+          li.opportunities-desktop-li 
             +check()
             | Отчёты
-          li 
+          li.opportunities-desktop-li 
             +check()
             | Касса
       .opportunities__item.opportunities__item-info
