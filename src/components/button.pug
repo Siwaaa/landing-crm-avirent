@@ -1,5 +1,9 @@
-mixin button(title, type="button", href, color="orange")
+mixin button(title, size="m", type="button", href, color="orange", imgPath)
   if type!="link"
-    button(type=type, class=`btn btn-${color}`)= title 
+    button(type=type, class=`btn btn-${color} btn-${size}` )= title
+      if imgPath 
+        img(src=imgPath)
   else
-    a(href=href class=`btn btn-${color}`)= title 
+    a(href=href class=`btn btn-${color} btn-${size}`)= title 
+      if imgPath 
+        img(src=imgPath)

@@ -1,0 +1,64 @@
+include ../components/safari.pug
+include ../components/button.pug
+
+mixin check()
+  <svg width="11" height="8" viewBox="0 0 11 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4.58027 7.63513C4.12151 8.12162 3.37714 8.12162 2.9186 7.63513L0.344068 4.90491C-0.114689 4.41864 -0.114689 3.62926 0.344068 3.14299C0.802605 2.65649 1.54698 2.65649 2.00574 3.14299L3.53965 4.76943C3.65545 4.89199 3.84343 4.89199 3.95944 4.76943L8.11284 0.364874C8.57138 -0.121625 9.31575 -0.121625 9.77451 0.364874C9.99481 0.598497 10.1186 0.915473 10.1186 1.24583C10.1186 1.57619 9.99481 1.89317 9.77451 2.12679L4.58027 7.63513Z"/>
+  </svg>
+
+section.opportunities
+  .opportunities__container.container
+    .opportunities__head.head 
+      h2 Упростите процесс управления таксопарком благодаря возможностям Avirent CRM
+    .opportunities__body
+      .opportunities__item.opportunities__item-menu
+        ul
+          li 
+            +check()
+            | Клиентская база
+          li 
+            +check()
+            | Договора
+          li 
+            +check()
+            | Система биллинга
+          li 
+            +check()
+            | Штрафы ГИБДД
+          li 
+            +check()
+            | Тех. обслуживание
+          li 
+            +check()
+            | Система напоминаний
+          li 
+            +check()
+            | Складской учёт
+          li 
+            +check()
+            | Сотрудники
+          li 
+            +check()
+            | Связь с Яндекс Такси
+          li 
+            +check()
+            | Фотоосмотры
+          li 
+            +check()
+            | Отчёты
+          li 
+            +check()
+            | Касса
+      .opportunities__item.opportunities__item-info
+        h4 Договора
+        p Сократите время на выдачу автомобиля. Формирование и печать договора в 2 клика
+        a(href="#", target="_blank", rel="noopener noreferrer") Подробнее
+      .opportunities__item.opportunities__item-video
+        a(href="https://youtu.be/eMbnD2GGkEg" class="video")
+          .play-wrap
+            img(class="ls-is-cached lazyloaded", src="./img/play.svg")
+        p Функционал Avirent CRM
+      +safari()
+      +button('Начать бесплатно', 'xl')
+
+      

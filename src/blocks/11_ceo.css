@@ -1,0 +1,168 @@
+.ceo {
+  background-color: var(--color-purple-light);
+
+  &__container {
+    padding-top: 80px;
+  }
+
+  &__body {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    @media (--lg) {
+      padding: 30px;
+    }
+  } 
+
+  &__main {
+    flex-basis: 60%;
+    padding: 40px;
+
+    & > h4 {
+      font-weight: bold;
+      font-size: var(--fz-h2);
+      margin-bottom: 10px;
+    }
+    & > p {
+      margin-bottom: 40px;
+    }
+    & > i {
+      display: inline-block;
+      font-size: var(--fz);
+      font-style: italic;
+      margin-bottom: 40px;
+    }
+
+    & > .mobile {
+      position: relative;
+      display: none;
+      text-align: center;
+
+      & > img {
+        width: 100%;
+        object-fit: contain;
+      }
+
+      &::before {
+        content: 'Андрей Баранов';
+        position: absolute;
+        bottom: 7%;
+        left: 21%;
+        display: inline-block;
+        font-size: 14px;
+        padding: 15px 30px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        border-radius: var(--border-radius);
+        z-index: 5;
+        @media (--xs) {
+          padding: 15px;
+          left: 15%;
+          right: 15%;
+          bottom: 10%;
+        }
+      }
+      &::after {
+        content: 'Руководитель AvirentCRM';
+        position: absolute;
+        bottom: -2%;
+        left: 11%;
+        display: inline-block;
+        font-size: 14px;
+        padding: 15px 30px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(15px);
+        border-radius: var(--border-radius);
+
+        @media (--xs) {
+          padding: 15px;
+          left: 3%;
+          right: 3%;
+          bottom: 0;
+        }
+      }
+
+      @media (--md) {
+        display: block;
+        width: 324px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 40px;
+      }
+      @media (--xs) {
+        width: 100%;
+      }
+    }
+
+    @media (--xl) {
+      padding: 20px;
+    }
+    @media (--lg) {
+      padding: 0;
+      flex-basis: 100%;
+    }
+    @media (--xs) {
+      text-align: center;
+    }
+  }
+  &__form {
+
+    @media (--lg) {
+      width: 50%; 
+      margin-right: auto;
+      margin-left: auto;
+    }
+    @media (--sm) {
+      width: 100%;
+    }
+
+  }
+  &__img {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    width: 50%;
+    margin-top: -50px;
+    padding-right: 40px;
+    font-size: var(--fz);
+
+    & > img {
+      max-height: 614px;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &::before {
+      content: 'Андрей Баранов';
+      position: absolute;
+      bottom: 150px;
+      left: 30%;
+      display: inline-block;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border-radius: var(--border-radius);
+      z-index: 5;
+    }
+    &::after {
+      content: 'Руководитель AvirentCRM';
+      position: absolute;
+      bottom: 105px;
+      left: 23%;
+      display: inline-block;
+      padding: 15px 30px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(15px);
+      border-radius: var(--border-radius);
+    }
+
+    @media (--xl) {
+      padding-right: 20px;
+    }
+    @media (--lg) {
+      display: none;
+    }
+  }
+
+}

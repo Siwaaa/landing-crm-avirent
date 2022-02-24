@@ -1,7 +1,7 @@
 .btn {
   display: inline-block;
   font-weight: 500;
-  font-size: var(--fz);
+  font-size: var(--fz-btn);
   padding: 10px 20px;
   border-radius: var(--border-radius);
   transition: all .5s ease-in-out;
@@ -10,16 +10,24 @@
     background-color: var(--color-orange);
     color: #fff;
     box-shadow: 0px 8px 13px rgba(255, 195, 19, 0.3);
+
+    &:hover {
+      background-color: #F8AB38;
+      box-shadow: none;
+    }
   }
   &-white {
     background-color: transparent;
     color: var(--color-black);
     border: 1px solid #EEEEEE;
   }
-
-
-  &:hover {
-    opacity: 0.95;
-    transform: translateY(3px);
+  &-s {
+    padding: 10px 20px;
+  }
+  &-m {
+    padding: 15px 30px;
+  }
+  &-xl {
+    padding: 20px 60px;
   }
 }

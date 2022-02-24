@@ -1,0 +1,57 @@
+.footer {
+  background-color: #222;
+
+  &__container {
+    padding-top: 30px;
+    padding-bottom: 30px!important;
+  }
+
+  & .navpanel {
+    color: #fff;
+
+    & .btn-white {
+      color: inherit;
+    }
+    &__container {
+
+      @media (--lg) {
+        flex-wrap: wrap;
+      }
+      @media (--sm) {
+        flex-direction: column;
+        gap: 25px;
+      }
+    }
+    &__login > .btn{
+      @media (--xs) {
+        font-size: 10px;
+      }
+    }
+
+  }
+
+  &__links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: 12px;
+
+    & a {
+      text-decoration: underline;
+      transition: all .4s ease;
+
+      &:hover {
+        color: #b0b0b0;
+      }
+    }
+
+    @media (--sm) {
+      flex-direction: column;
+
+      gap: 10px;
+    }
+  }
+}

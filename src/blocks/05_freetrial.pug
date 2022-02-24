@@ -1,0 +1,15 @@
+include ../components/input-button.pug
+
+section.freetrial
+  .freetrial__container.container
+    .freetrial__body
+      .trialfrom.item-wrapper
+        .trialfrom__img 
+          img(src="./img/reg.png" class="")
+        .trialfrom__main
+          h3 Получите бесплатный пробный период прямо сейчас
+          p После регистрации <b>вам будет доступен полный функционал и персональный менеджер</b>, который поможет вам создавать карточку водителя и добавить автомобили
+          img(src="./img/reg.png" class="mobile")
+          .trialfrom__form
+            +input-button('Получить доступ', 'm', 'tel', 'Среднее время регистрации 2 минуты')
+      

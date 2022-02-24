@@ -1,0 +1,68 @@
+include ../components/button.pug
+include ../components/input-button.pug
+
+header.header
+  .header__container.container
+    nav.header__nav.navpanel
+      .navpanel__container
+        .navpanel__logo
+          img(src="./img/logo.svg", alt="logo")
+          p Система автоматизации <br> автопрокатов и таксопарков
+        .navpanel__phone
+          .navpanel__phone-top
+            img(src="./img/icon_tel.svg")
+            a(href="tel:+74951184046") +7 (495) 118-40-46 
+          button(type="button") Заказать звонок
+        .navpanel__login 
+          +button('Войти', 's', 'link', '/asdd', 'white')
+          +button('Попробовать бесплатно', 's')
+        .navpanel__mobile 
+          +button('', 's', 'link', '/asdd', 'orange', './img/enter.svg')
+          .navpanel__burger 
+            input(type="checkbox" name="burger" id="burger")
+            label(for="burger")
+              .burger_icon
+        .navpanel__menu 
+          p Навигация по сайту:
+          ul
+            li
+              a(href="#") Функционал
+            li 
+              a(href="#") Внедрение
+            li 
+              a(href="#") Тарифы
+            li 
+              a(href="#") Отзывы
+          .navpanel__phone
+            .navpanel__phone-top
+              img(src="./img/icon_tel.svg")
+              a(href="tel:+74951184046") +7 (495) 118-40-46 
+            button(type="button") Заказать звонок
+          +button('Попробовать бесплатно', 's')
+          +button('Войти', 's', 'link', '/asdd', 'white')
+
+    .header__main
+      .header__main-left
+        nav
+          ul
+            li 
+              a(href="#" id="link-active") Функционал
+            li 
+              a(href="#") Внедрение
+            li 
+              a(href="#") Тарифы
+            li 
+              a(href="#") Отзывы
+        h1 Помогаем получить максимум прибыли за счет внедрения CRM в ваш <strong data-multiname="auto">автопарк</strong>
+        ul
+          li <b>80%</b> снижение риска просрочки аренды автомобиля
+          li <b>20%</b> снижение расходов на содержание автопарка
+          li <b>50%</b> снижение фонда оплаты труда
+        .header__form 
+          +input-button('Попробовать бесплатно', 's', 'tel', 'Пользуйтесь бесплатно 14 дней')
+      .header__main-right
+        img(src="./img/header-infogragh/Obj4.png" class="infogragh-go" id="infogragh_1")
+        img(src="./img/header-infogragh/Obj11.png" class="infogragh-go" id="infogragh_2")
+        img(src="./img/header-infogragh/Obj.png" class="infogragh")
+        img(src="./img/header-infogragh/Obj12.png" class="infogragh-go" id="infogragh_3")
+//- https://edu-cdto.ru/ - кнопка виджет

@@ -1,0 +1,16 @@
+.input {
+  display: inline-block;
+  font-size: var(--fz);
+  color: #fff;
+  padding: 10px 20px;
+  border: 1px solid #FFFFFF;
+  border-radius: var(--border-radius);
+
+  &::placeholder {
+    color: #fff;
+  }
+
+  &:hover {
+    cursor: text;
+  }
+}

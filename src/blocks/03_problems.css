@@ -1,0 +1,110 @@
+.problems {
+  background-color: var(--color-purple);
+
+  &__container {
+    
+  }
+  &__body {
+    /* отключаем обычные карточки и включаем карусель */
+    @media (--sm) {
+      & > .card-problems {
+        display: none;
+      }
+    }
+  }
+
+  &__head {
+    max-width: 796px;
+  }
+  &__swiper {
+    display: none;
+
+    @media (--sm) {
+      display: block;
+    }
+
+    &-item {
+      height: auto!important;
+    }
+    & .card-problems__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+      padding: 25px;
+      text-align: center;
+
+      & > img {
+        float: none;
+        align-self: auto;
+      }
+    }
+  }
+  &__nav {
+    display: none;
+
+    @media (--sm) {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    & > .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      opacity: 1;
+      background-color: transparent;
+      border: 1px solid #fff;
+      margin-right: 10px;
+
+      &:first-child {
+        margin-left: 10px;
+      }
+      &-active {
+        background: #fff;
+      }
+    }
+  }
+}
+
+.card-problems {
+  display: grid;
+
+  &:first-child {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  &:nth-child(2) {
+    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+    gap: 15px;
+
+    @media (--lg) {
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: auto;
+    }
+  }
+  
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: var(--fz);
+    font-weight: 600;
+    background-color: #fff;
+    padding: 30px;
+  
+    & > p {
+      margin-bottom: 15px;
+      white-space: pre-wrap;
+    }
+    & > img {
+      object-fit: contain;
+      height: 80px;
+      float: right;
+      align-self: flex-end;
+    }
+  }
+}
+
+

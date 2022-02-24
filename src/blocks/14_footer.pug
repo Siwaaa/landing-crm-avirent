@@ -1,0 +1,19 @@
+footer.footer 
+  .footer__container.container
+    nav.footer__nav.navpanel
+      .navpanel__container
+        .navpanel__logo
+          img(src="./img/logo.svg", alt="logo")
+          p Система автоматизации <br> автопрокатов и таксопарков
+        .navpanel__phone
+          .navpanel__phone-top
+            img(src="./img/icon_tel.svg")
+            a(href="tel:+74951184046") +7 (495) 118-40-46 
+          button(type="button") Заказать звонок
+        .navpanel__login 
+          +button('Войти', 's', 'link', '/asdd', 'white')
+          +button('Попробовать бесплатно', 's')
+    .footer__links 
+      a(href="#") Политика конфиденциальности
+      p Сайт разработан: 
+        a(href="#") студия Максима Ларина 

@@ -1,0 +1,24 @@
+include ../components/button.pug
+
+mixin card(title, text, imgPath)
+  .list-help__item.item-wrapper
+    img(src=imgPath)
+    h4=title 
+    p=text
+
+section.help
+  .help__container.container
+    .help__head.head
+      h2 Помогаем с настройкой каждому клиенту
+    .help__body 
+      .list-help
+        +card('Познакомим с интерфейсом', 'Рассказываем, что лучше сделать, чтобы получить максимальный эффект от системы', './img/help/1.png')
+        +card('Поможем с настройкой', 'Покажем, как создать карточки водителей и автомобилей, поможем настроить тарифы и зальем ваш шаблон договора или предложим свой бесплатно', './img/help/2.png')
+      .speak-manager 
+        .speak-manager__card
+          i <b>“Попробуйте 2-х недельный тестовый период с полным функционалом бесплатно.</b> А во время тестового периода, поможем вам с настройкой и познакомим с интерфейсом” <br><br> Осуществим поддержку 24/7 в удобном для вас месте:
+          include ../components/messengers.pug
+        .speak-manager__img 
+          //- img(src="./img/help/help_man.png")
+    +button('Начать бесплатно', 'xl')
+      

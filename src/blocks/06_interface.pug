@@ -1,0 +1,22 @@
+include ../components/safari.pug
+include ../components/button.pug
+
+section.interface
+  .interface__container.container
+    .interface__head.head 
+      h2 Интерфейс CRM удобен и интуитивно понятен
+    .interface__body 
+      ul.interface__nav
+        li Главная страница
+        li Отчёты
+        li Карточка водителя
+        li Касса и платежи
+        li Тех. обслуживание
+      .interface__item.interface__item-action
+        h4 Весь бизнес на одной странице
+        p Прозрачная картина работы. Весь ваш парк, как на ладони
+        +button('Попробовать сейчас', 's')
+      .interface__item.interface__item-info
+        h4 Без лишних кнопок и действий
+        p Максимально быстрая и простая скорость работы
+      +safari()

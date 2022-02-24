@@ -1,16 +1,48 @@
 .inputbutton {
-  display: inline-block;
-  padding: 5px 5px 5px 20px;
-  border: 0.5px solid #F49A12;
+  --border: 1px solid #F49A12;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 5px 5px 3%;
+  border: var(--border);
   border-radius: var(--border-radius);
+  gap: 5px;
 
   & > input {
     background: transparent;
-    margin-right: 60px;
     cursor: text;
+    flex-basis: 45%;
 
     &::placeholder {
       color: #C4C4C4;
     }
+
+    @media (--xl) {
+      padding: 15px 10px;
+      border: var(--border);
+      border-radius: var(--border-radius);
+    }
+  }
+  & > .btn {
+    flex-basis: 55%;
+  }
+
+  &-helper {
+    display: block;
+    margin-top: 10px;
+    font-size: var(--fz);
+    color: rgba(62, 44, 70, 0.66);
+
+    @media (--xs) {
+      font-size: 12px;
+    }
+  }
+
+  @media (--xl) {
+    flex-direction: column;
+    padding: 0;
+    padding: 0;
+    border: none;
+    gap: 15pxж
   }
 }

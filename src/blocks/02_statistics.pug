@@ -1,0 +1,13 @@
+mixin item(title, text)
+  .list-statistics__item 
+    p=title 
+    span=text
+
+
+section.statistics
+  .statistics__container.container
+    .statistics__body
+      .list-statistics
+        +item('7 лет', 'на рынке')
+        +item('2000+', 'автомобилей\nв системе')
+        +item('30+', 'городов\nв России и СНГ')

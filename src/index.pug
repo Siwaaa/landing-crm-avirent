@@ -7,23 +7,28 @@ html(lang="ru")
     meta(name="description", content="")
     meta(name="keywords", content="")
     //- link(rel="icon", href="favicon.ico", type="image/x-icon")
-
+    
     link(rel="stylesheet", href="index.css")
+    link(rel="stylesheet", href="./js/swiper-bundle.min.css")
 
     title AVIRENT CRM – Комплексная автоматизация автопарка
   body
-    include blocks/01_header/index.pug
+    include blocks/01_header.pug
     main
-      include blocks/02_statistics/index.pug
-      include blocks/03_problems/index.pug
-      include blocks/04_opportunities/index.pug
-      include blocks/05_freetrial/index.pug
-      include blocks/06_interface/index.pug
-      include blocks/07_help/index.pug
-      include blocks/08_economy/index.pug
-      include blocks/09_5reasons/index.pug
-      include blocks/10_price/index.pug
-      include blocks/11_ceo/index.pug
-      include blocks/12_otzovy/index.pug
-      include blocks/13_faq/index.pug
-    include blocks/14_footer/index.pug
+      include blocks/02_statistics.pug
+      include blocks/03_problems.pug
+      include blocks/04_opportunities.pug
+      include blocks/05_freetrial.pug
+      include blocks/06_interface.pug
+      include blocks/07_help.pug
+      include blocks/08_economy.pug
+      include blocks/09_5reasons.pug
+      include blocks/10_price.pug
+      include blocks/11_ceo.pug
+      include blocks/12_otzovy.pug
+      include blocks/13_faq.pug
+    include blocks/14_footer.pug
+    //- JS
+    script(src='./js/index.js')
+    script(src='./js/swiper-bundle.min.js')
+    script(src='./js/swiper.js')

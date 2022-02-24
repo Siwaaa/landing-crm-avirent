@@ -4,6 +4,13 @@ html {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--color-white);
   color: var(--color-black);
+  font-size: 16px;
+  @media (--sm) {
+    font-size: 14px;
+  }
+}
+b {
+  font-weight: 600;
 }
 :root {
   /* color */
@@ -15,6 +22,7 @@ html {
   --color-purple-text: #8E72F6;
   /* font  */
   --fz: 14px;
+  --fz-btn: 16px;
   --fz-h4: 18px;
   --fz-h2: 28px;
   /* content */
@@ -22,6 +30,24 @@ html {
   --container-padding-h: 80px;
   --container-padding-w: 30px;
   --border-radius: 5px;
+
+  @media (--xl) {
+    
+  }
+  @media (--lg) {
+    --fz-h2: 24px;
+  }
+  @media (--md) {
+
+    --container-padding-w: 20px;
+  }
+  @media (--sm) {
+    --container-padding-w: 10px;
+    --container-padding-h: 50px;
+  }
+  @media (--xs) {
+    --fz-h2: 20px;
+  }
 }
 .container {
   max-width: var(--content-width);
@@ -32,17 +58,32 @@ html {
   padding-bottom: var(--container-padding-h);
 }
 .head {
-  font-weight: 700;
-  font-size: var(--fz-h2);
-  line-height: 1.5;
   text-align: center;
-  padding-top: 80px;
+  padding-top: var(--container-padding-h);
   padding-bottom: 60px;
-    &_white {
-      color: #fff;
-    }
+  margin-right: auto;
+  margin-left: auto;
+
+  & > h2 {
+    font-weight: 700;
+    font-size: var(--fz-h2);
+    line-height: 1.5;
+  }
+  & > p {
+    margin-top: 20px;
+  }
+
+  &_white {
+    color: #fff;
+  }
+}
+.item-wrapper {
+  background: linear-gradient(0deg, #FCFCFF, #FCFCFF), #F9F9F9;
+  border: 1px solid rgba(122, 118, 229, 0.5);
+  box-shadow: 0px 10px 30px rgba(62, 44, 70, 0.1);
+  border-radius: calc(2 * var(--border-radius));
 }
 
 @import "./reset.css";
-@import "./blocks/**/*.css";
+@import "./blocks/*.css";
 @import "./components/*.css";
