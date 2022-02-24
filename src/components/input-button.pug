@@ -4,4 +4,4 @@ mixin input-button(title, size="m", typeInput="tel", helperText)
   form.inputbutton
     input(type=typeInput placeholder="+7 (999) 999 99 99")
     +button(title, size)
-  span.inputbutton-helper=helperText
+  span.inputbutton-helper!=helperText

@@ -14,8 +14,8 @@
       background-color: var(--color-purple);
       z-index: -2;
 
-      @media (--sm) {
-        content: none;
+      @media (--xs) {
+        height: 70px;
       }
     }
   }
@@ -34,6 +34,18 @@
     background: url('../img/bg.svg') center/contain no-repeat;
     text-align: center;
     white-space: pre-wrap;
+
+    &:first-child {
+      @media (--xs) {
+        order: 0;
+        flex-basis: 100%;
+      }
+    }
+    &:nth-child(2) {
+      @media (--xs) {
+        order: 3;
+      }
+    }
 
     & > p {
       margin-top: 40px;

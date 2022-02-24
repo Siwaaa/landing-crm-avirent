@@ -5,7 +5,7 @@ section.interface
   .interface__container.container
     .interface__head.head 
       h2 Интерфейс CRM удобен и интуитивно понятен
-    .interface__body 
+    .interface__body
       ul.interface__nav
         li Главная страница
         li Отчёты
@@ -20,3 +20,8 @@ section.interface
         h4 Без лишних кнопок и действий
         p Максимально быстрая и простая скорость работы
       +safari()
+      .interface__nav-mobile
+        select(class="my-select")
+          option(disabled value="") Выберите один из вариантов
+          option(value="1") Договора
+          option(value="2") Договора2

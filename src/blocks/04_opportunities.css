@@ -228,12 +228,13 @@
   line-height: 1.5em;
   padding: 15px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.my-select::-ms-expand {
-  display: none;
-}
-.my-select:hover {
-  opacity: 0.8;
+
+  &::-ms-expand {
+    display: none;
+  }
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 @keyframes rotate {
