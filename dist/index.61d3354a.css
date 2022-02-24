@@ -832,36 +832,49 @@ a {
         gap: 5px;
         font-size: 12px;
       }
-  .opportunities__item-menu > ul > .opportunities-desktop-li {
-          padding: 10px;
-          border-radius: var(--border-radius);
-          transition: all .4s ease;
-        }
-  .opportunities__item-menu > ul > .opportunities-desktop-li > input[type="radio"] {
-            display: none;
+  .opportunities__item-menu > ul > .opportunities-desktop-li > input[type=radio] {
+            opacity: 0;
+            position: fixed;
+            width: 0;
           }
-  .opportunities__item-menu > ul > .opportunities-desktop-li > svg {
-            color: #eee;
-            margin-right: 7px;
+  .opportunities__item-menu > ul > .opportunities-desktop-li > label {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+            -webkit-user-select: none;
+               -moz-user-select: none;
+                -ms-user-select: none;
+                    user-select: none;
+            border-radius: var(--border-radius);
+            transition: all .4s ease;
           }
-  .opportunities__item-menu > ul > .opportunities-desktop-li--active {
+  .opportunities__item-menu > ul > .opportunities-desktop-li > label > svg {
+              color: #eee;
+              margin-right: 7px;
+            }
+  /* Checked */
+  .opportunities__item-menu > ul > .opportunities-desktop-li > input[type=radio]:checked + label {
             background: rgba(142, 114, 246, .1);
             color: var(--color-purple-text);
-            cursor: pointer;
           }
-  .opportunities__item-menu > ul > .opportunities-desktop-li--active svg {
+  .opportunities__item-menu > ul > .opportunities-desktop-li > input[type=radio]:checked + label svg {
               transition: all .4s ease;
               color: var(--color-purple-text);
             }
-  .opportunities__item-menu > ul > .opportunities-desktop-li:hover {
-            background: rgba(142, 114, 246, .1);
+  /* Hover */
+  .opportunities__item-menu > ul > .opportunities-desktop-li > label:hover {
+            background: rgba(142, 114, 246, .2);
             color: var(--color-purple-text);
-            cursor: pointer;
           }
-  .opportunities__item-menu > ul > .opportunities-desktop-li:hover svg {
+  .opportunities__item-menu > ul > .opportunities-desktop-li > label:hover svg {
               transition: all .4s ease;
               color: var(--color-purple-text);
             }
+  /* Disabled */
+  .opportunities__item-menu > ul > .opportunities-desktop-li > input[type=radio]:disabled + label {
+            background: #efefef;
+            color: #666;
+          }
   @media(max-width: 900px) {
   .opportunities__item-menu {
         display: none
@@ -1204,17 +1217,44 @@ a {
     margin-bottom: 50px;
   }
 
-    .interface__nav > li {
-      padding: 10px 20px;
-      border-radius: var(--border-radius);
-      text-align: center;
-      transition: all .4s ease;
-    }
+    .interface__nav > li > input[type=radio] {
+        opacity: 0;
+        position: fixed;
+        width: 0;
+      }
 
-    .interface__nav > li:hover {
+    .interface__nav > li > label {
+        display: inline-block;
         cursor: pointer;
+        padding: 10px 20px;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        border-radius: var(--border-radius);
+        text-align: center;
+        transition: all .4s ease;
+      }
+
+    /* Checked */
+
+    .interface__nav > li > input[type=radio]:checked + label {
         background: rgba(142, 114, 246, .1);
         color: var(--color-purple-text);
+      }
+
+    /* Hover */
+
+    .interface__nav > li > label:hover {
+        background: rgba(142, 114, 246, .2);
+        color: var(--color-purple-text);
+      }
+
+    /* Disabled */
+
+    .interface__nav > li > input[type=radio]:disabled + label {
+        background: #efefef;
+        color: #666;
       }
 
     .interface__nav-mobile {
@@ -2377,10 +2417,15 @@ a {
   }
 
     .browser__content > img {
+      display: none;
       margin-top: 6%;
       -o-object-fit: contain;
          object-fit: contain;
       width: 100%;
+    }
+
+    .browser__content > .active {
+      display: block;
     }
 
 

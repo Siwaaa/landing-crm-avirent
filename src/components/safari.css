@@ -14,9 +14,14 @@
     overflow: hidden;
 
     & > img {
+      display: none;
       margin-top: 6%;
       object-fit: contain;
       width: 100%;
+    }
+
+    & > .active {
+      display: block;
     }
   }
 }

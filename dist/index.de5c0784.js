@@ -67,5 +67,15 @@ const t = new IntersectionObserver((e2)=>{
 e.forEach((e4)=>{
     t.observe(e4);
 });
+// interfaces
+const radiosInterface = document.querySelectorAll('input[type=radio][name="interfaces_desktop"]');
+const imgInterface = document.querySelector('.interface__img');
+function changeHandlerInterface(event) {
+    console.log(this.value);
+    if (this.value) imgInterface.setAttribute('src', require(`./img/interface/desktop/${this.value}.png`));
+}
+Array.prototype.forEach.call(radiosInterface, function(radio) {
+    radio.addEventListener('change', changeHandlerInterface);
+});
 
 //# sourceMappingURL=index.de5c0784.js.map

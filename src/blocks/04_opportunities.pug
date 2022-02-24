@@ -20,45 +20,64 @@ section.opportunities
         ul
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_1" name="oppo_desktop" value="1" checked)
-            +check()
-            | Клиентская база
+            label(for="oppo_desktop_1") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li
-            input(type="radio" name="oppo_desktop" value="2" )
-            +check()
-            | Договора
+            input(type="radio" id="oppo_desktop_2" name="oppo_desktop" value="2" )
+            label(for="oppo_desktop_2") 
+              +check()
+              | Договора
           li.opportunities-desktop-li
-            input(type="radio" name="oppo_desktop" value="3") 
-            +check()
-            | Система биллинга
+            input(type="radio" id="oppo_desktop_3" name="oppo_desktop" value="3" )
+            label(for="oppo_desktop_3") 
+              +check()
+              | Система биллинга
           li.opportunities-desktop-li
-            input(type="radio", name="oppo_desktop") 
-            +check()
-            | Штрафы ГИБДД
+            input(type="radio" id="oppo_desktop_4" name="oppo_desktop" value="4" )
+            label(for="oppo_desktop_4") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li 
-            input(type="radio", name="oppo_desktop")
-            +check()
-            | Тех. обслуживание
+            input(type="radio" id="oppo_desktop_5" name="oppo_desktop" value="5" )
+            label(for="oppo_desktop_5") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li 
-            +check()
-            | Система напоминаний
+            input(type="radio" id="oppo_desktop_6" name="oppo_desktop" value="6" )
+            label(for="oppo_desktop_6") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li
-            +check()
-            | Складской учёт
+            input(type="radio" id="oppo_desktop_7" name="oppo_desktop" value="7" )
+            label(for="oppo_desktop_7") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li 
-            +check()
-            | Сотрудники
+            input(type="radio" id="oppo_desktop_8" name="oppo_desktop" value="8" )
+            label(for="oppo_desktop_8") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li 
-            +check()
-            | Связь с Яндекс Такси
+            input(type="radio" id="oppo_desktop_9" name="oppo_desktop" value="9" )
+            label(for="oppo_desktop_9") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li 
-            +check()
-            | Фотоосмотры
+            input(type="radio" id="oppo_desktop_10" name="oppo_desktop" value="10" )
+            label(for="oppo_desktop_10") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li 
-            +check()
-            | Отчёты
+            input(type="radio" id="oppo_desktop_11" name="oppo_desktop" value="11" )
+            label(for="oppo_desktop_11") 
+              +check()
+              | Клиентская база
           li.opportunities-desktop-li 
-            +check()
-            | Касса
+            input(type="radio" id="oppo_desktop_12" name="oppo_desktop" value="12")
+            label(for="oppo_desktop_12") 
+              +check()
+              | Клиентская база
       .opportunities__item.opportunities__item-info
         h4 Договора
         p Сократите время на выдачу автомобиля. Формирование и печать договора в 2 клика
@@ -68,7 +87,7 @@ section.opportunities
           .play-wrap
             img(class="ls-is-cached lazyloaded", src="./img/play.svg")
         p Функционал Avirent CRM
-      +safari()
+      +safari('./img/opportunities/desktop/', 'oppo_img_', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)(class="opportunities__img")
       +button('Начать бесплатно', 'xl')
 
       

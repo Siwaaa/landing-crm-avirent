@@ -1,4 +1,3 @@
-
 window.onload = function () {
   document.getElementById("link-active").focus();
 }
@@ -99,3 +98,20 @@ e.forEach((e => {
   t.observe(e)
 }
 ))
+
+// interfaces
+
+const radiosInterface = document.querySelectorAll('input[type=radio][name="interfaces_desktop"]');
+
+function changeHandlerInterface(event) {
+  if(this.value) {
+    document.querySelectorAll('.interface__img').forEach((t) => {
+      t.classList.remove('active')
+    })
+    document.querySelector('#int_img_' + this.value).classList.add('active')
+  }
+}
+
+Array.prototype.forEach.call(radiosInterface, function (radio) {
+  radio.addEventListener('change', changeHandlerInterface);
+});
