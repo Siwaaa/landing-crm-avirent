@@ -13,6 +13,9 @@
       @media (--md) {
         margin-top: 40px;
       }
+      @media (--sm) {
+        margin-top: 80px;
+      }
     }
   }
   &__nav {
@@ -145,7 +148,7 @@
         padding-left: 0;
         left: 50%;
         right: 50%;
-        bottom: 20%;
+        bottom: 18%;
       }
 
       & > .video {

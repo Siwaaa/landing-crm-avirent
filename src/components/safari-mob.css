@@ -1,0 +1,34 @@
+.browser-mob {
+  display: none;
+
+  &__content {
+    --width-mob: 230px;
+    background: url(../img/phone.png) top / contain no-repeat;
+    width: var(--width-mob);
+    height: calc(2.03 * var(--width-mob));
+    max-height: 646px;
+    border-radius: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    padding: 7px 9px;
+
+    & > img {
+      display: none;
+      object-fit: contain;
+      width: 100%;
+    }
+
+    & > .active {
+      display: block;
+    }
+
+    @media (--xs) {
+      --width-mob: 197px;
+    }
+  }
+
+  @media (--md) {
+    display: block;
+  }
+}

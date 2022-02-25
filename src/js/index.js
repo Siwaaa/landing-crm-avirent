@@ -66,21 +66,34 @@ burgerBtn.addEventListener('change', function () {
 
 // oppot
 
-var radios = document.querySelectorAll('input[type=radio][name="oppo_desktop"]');
+const radiosOpportunities = document.querySelectorAll('input[type=radio][name="oppo_desktop"]');
 
-function changeHandler(event) {
-  if (this.value === 'allot') {
-    console.log('value', 'allot');
-  } else if (this.value === 'transfer') {
-    console.log('value', 'transfer');
+function changeHandlerOpportunities(event) {
+  if(this.value) {
+    document.querySelectorAll('.opportunities__img').forEach((t) => {
+      t.classList.remove('active')
+    })
+    document.querySelector('#oppo_img_' + this.value).classList.add('active')
   }
-
-  console.log(this.value);
 }
 
-Array.prototype.forEach.call(radios, function (radio) {
-  radio.addEventListener('change', changeHandler);
+Array.prototype.forEach.call(radiosOpportunities, function (radio) {
+  radio.addEventListener('change', changeHandlerOpportunities);
 });
+
+// oppot-mob
+const selectOpportunities = document.getElementById("oppo_select");
+
+function changeHandlerOpportunitiesMob(event) {
+  if(event.target.value) {
+    document.querySelectorAll('.opportunities__img').forEach((t) => {
+      t.classList.remove('active')
+    })
+    document.querySelector('#oppo_img_mob_' + event.target.value).classList.add('active')
+  }
+}
+
+selectOpportunities.addEventListener('change', changeHandlerOpportunitiesMob);
 
 // Animation
 
@@ -115,3 +128,18 @@ function changeHandlerInterface(event) {
 Array.prototype.forEach.call(radiosInterface, function (radio) {
   radio.addEventListener('change', changeHandlerInterface);
 });
+
+
+// interfaces-mob
+const selectInterface = document.getElementById("int_select");
+
+function changeHandlerInterfaceMob(event) {
+  if(event.target.value) {
+    document.querySelectorAll('.interface__img').forEach((t) => {
+      t.classList.remove('active')
+    })
+    document.querySelector('#int_img_mob_' + event.target.value).classList.add('active')
+  }
+}
+
+selectInterface.addEventListener('change', changeHandlerInterfaceMob);

@@ -13,15 +13,21 @@ section.price
           img(src="./img/price.png", alt="Каталог с ценами")
         .price__form
           .messengers-price
-            button(type="button" class="messengers-price__item mes-active")
-              img(src="./img/messengers/wa.svg", alt="What’s app")
-              span What’s app
-            button(type="button" class="messengers-price__item")
-              img(src="./img/messengers/viber.svg", alt="Viber")
-              span Viber
-            button(type="button" class="messengers-price__item")
-              img(src="./img/messengers/tg.svg", alt="Telegram")
-              span Telegram
+            .messengers-price__item
+              input(type="radio" id="mes-wa" name="messengers" checked)
+              label(for="mes-wa")
+                img(src="./img/messengers/wa.svg", alt="What’s app")
+                span What’s app
+            .messengers-price__item
+              input(type="radio" id="mes-viber" name="messengers" )
+              label(for="mes-viber")
+                img(src="./img/messengers/viber.svg", alt="Viber")
+                span Viber
+            .messengers-price__item
+              input(type="radio" id="mes-tg" name="messengers" )
+              label(for="mes-tg")
+                img(src="./img/messengers/tg.svg", alt="Telegram")
+                span Telegram
           .price__submit         
             +input('Ваш телефон в WhatsApp')
             +button('Скачать прайс-лист')

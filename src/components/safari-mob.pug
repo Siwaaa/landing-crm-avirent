@@ -1,0 +1,5 @@
+mixin safari-mob(imgPath, id, ...items)
+  .browser-mob
+    .browser-mob__content
+      each item in items
+        img(src=`${imgPath}${item}.png` class=`${item == 1 ? 'active': ''} ${attributes.class}` id=id+item loading="lazy")

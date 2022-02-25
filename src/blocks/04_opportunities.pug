@@ -1,4 +1,5 @@
 include ../components/safari.pug
+include ../components/safari-mob.pug
 include ../components/button.pug
 
 mixin check()
@@ -12,10 +13,20 @@ section.opportunities
       h2 Упростите процесс управления таксопарком благодаря возможностям Avirent CRM
     .opportunities__body
       .opportunities__nav 
-        select(class="my-select")
+        select(class="my-select" id="oppo_select")
           option(disabled value="") Выберите один из вариантов
-          option(value="1") Договора
-          option(value="2") Договора2
+          option(value="1" selected) Клиентская база
+          option(value="2") Договора
+          option(value="3") Система биллинга
+          option(value="4") Штрафы ГИБДД
+          option(value="5") Тех. обслуживание
+          option(value="6") Система  
+          option(value="7") Складской учёт
+          option(value="8") Сотрудники
+          option(value="9") Связь с Яндекс Такси
+          option(value="10") Фотоосмотры
+          option(value="11") Отчёты
+          option(value="12") Касса
       .opportunities__item.opportunities__item-menu
         ul
           li.opportunities-desktop-li 
@@ -37,47 +48,47 @@ section.opportunities
             input(type="radio" id="oppo_desktop_4" name="oppo_desktop" value="4" )
             label(for="oppo_desktop_4") 
               +check()
-              | Клиентская база
+              | Штрафы ГИБДД
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_5" name="oppo_desktop" value="5" )
             label(for="oppo_desktop_5") 
               +check()
-              | Клиентская база
+              | Тех. обслуживание
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_6" name="oppo_desktop" value="6" )
             label(for="oppo_desktop_6") 
               +check()
-              | Клиентская база
+              | Система напоминаний
           li.opportunities-desktop-li
             input(type="radio" id="oppo_desktop_7" name="oppo_desktop" value="7" )
             label(for="oppo_desktop_7") 
               +check()
-              | Клиентская база
+              | Складской учёт
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_8" name="oppo_desktop" value="8" )
             label(for="oppo_desktop_8") 
               +check()
-              | Клиентская база
+              | Сотрудники
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_9" name="oppo_desktop" value="9" )
             label(for="oppo_desktop_9") 
               +check()
-              | Клиентская база
+              | Связь с Яндекс Такси
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_10" name="oppo_desktop" value="10" )
             label(for="oppo_desktop_10") 
               +check()
-              | Клиентская база
+              | Фотоосмотры
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_11" name="oppo_desktop" value="11" )
             label(for="oppo_desktop_11") 
               +check()
-              | Клиентская база
+              | Отчёты
           li.opportunities-desktop-li 
             input(type="radio" id="oppo_desktop_12" name="oppo_desktop" value="12")
             label(for="oppo_desktop_12") 
               +check()
-              | Клиентская база
+              | Касса
       .opportunities__item.opportunities__item-info
         h4 Договора
         p Сократите время на выдачу автомобиля. Формирование и печать договора в 2 клика
@@ -88,6 +99,7 @@ section.opportunities
             img(class="ls-is-cached lazyloaded", src="./img/play.svg")
         p Функционал Avirent CRM
       +safari('./img/opportunities/desktop/', 'oppo_img_', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)(class="opportunities__img")
+      +safari-mob('./img/opportunities/mobile/', 'oppo_img_mob_', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)(class="opportunities__img")
       +button('Начать бесплатно', 'xl')
 
       

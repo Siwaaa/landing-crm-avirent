@@ -1,4 +1,5 @@
 include ../components/safari.pug
+include ../components/safari-mob.pug
 include ../components/button.pug
 
 section.interface
@@ -30,8 +31,12 @@ section.interface
         h4 Без лишних кнопок и действий
         p Максимально быстрая и простая скорость работы
       +safari('./img/interface/desktop/', 'int_img_', 1, 2, 3, 4, 5)(class="interface__img")
+      +safari-mob('./img/interface/mobile/', 'int_img_mob_', 1, 2, 3, 4, 5)(class="interface__img")
       .interface__nav-mobile
-        select(class="my-select")
+        select(class="my-select" id="int_select")
           option(disabled value="") Выберите один из вариантов
-          option(value="1") Договора
-          option(value="2") Договора2
+          option(value="1" selected) Главная страница
+          option(value="2") Отчёты
+          option(value="3") Карточка водителя
+          option(value="4") Касса и платежи
+          option(value="5") Тех. обслуживание

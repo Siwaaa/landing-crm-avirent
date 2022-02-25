@@ -1,2 +1,0 @@
-var swiperProblems=new Swiper(".problems__swiper",{slidesPerView:1,spaceBetween:50,CSSWidthAndHeight:!0,loop:!0,grabCursor:!0,pagination:{el:".problems__nav",type:"bullets"}}),swiperAdvantages=new Swiper(".advantages__body--swiper",{slidesPerView:1,spaceBetween:50,CSSWidthAndHeight:!0,loop:!0,grabCursor:!0,pagination:{el:".advantages__nav-pagination",type:"bullets"},navigation:{prevEl:".advantages__nav-prev",nextEl:".advantages__nav-next"}});
-//# sourceMappingURL=index.7b9e88a9.js.map

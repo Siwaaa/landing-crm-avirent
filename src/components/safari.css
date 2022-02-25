@@ -22,6 +22,20 @@
 
     & > .active {
       display: block;
+      /* animation: show_screen 1.2s ease-in-out both; */
     }
+  }
+
+  @media (--md) {
+    display: none;
+  }
+}
+
+@keyframes show_screen{
+  from{
+    opacity:.5;
+  }
+  to {
+    opacity:1;
   }
 }
