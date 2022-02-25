@@ -8,13 +8,21 @@
 
     & > .btn {
       position: relative;
-      margin-top: -10px;
+      margin-top: -20px;
 
       @media (--md) {
         margin-top: 40px;
       }
       @media (--sm) {
         margin-top: 80px;
+      }
+    }
+    & .mobile {
+      @media (--md) {
+        position: absolute;
+        display: none;
+        top: 40px;
+        color: var(--color-black);
       }
     }
   }
@@ -29,7 +37,8 @@
       margin-bottom: 30px;
     }
     @media (--xs) {
-      width: 100%;
+      width: 72%;
+      font-size: 13px;
     }
   }
   &__item {
@@ -44,8 +53,8 @@
 
     &-menu {
       width: 215px;
-      right: 0;
-      top: 10%;
+      right: -0.7%;
+      top: 13%;
 
       & > ul {
         display: flex;
@@ -71,6 +80,10 @@
             & > svg {
               color: #eee;
               margin-right: 7px;
+            }
+
+            @media (--xl) {
+              padding: 7px;
             }
           }
            
@@ -109,10 +122,10 @@
       }
     }
     &-info {
-      top: 25%;
-      padding-top: 30px;
-      padding-bottom: 30px;
-      width: 200px;
+      top: 17%;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      width: 230px;
       font-size: 12px;
 
       & > h4 {
@@ -125,7 +138,10 @@
         line-height: 1.4;
         margin-bottom: 20px;
       }
-      & > a {
+      & > .oppo_desc {
+        display: none;
+      }
+      & > button {
         display: inline-block;
         width: 100%;
         text-align: center;
@@ -134,21 +150,26 @@
         border-radius: 5px;
       }
 
-      @media (--md) {
+      @media (--xl) {
+        width: 280px;
+      }
+      @media (--lg) {
         display: none;
       }
     }
     &-video {
-      bottom: 8%;
+      bottom: 11%;
       left: 5%;
       padding-left: 65px;
       font-size: 12px;
+      z-index: 50;
+
 
       @media (--md) {
         padding-left: 0;
         left: 50%;
         right: 50%;
-        bottom: 18%;
+        bottom: 22%;
       }
 
       & > .video {
@@ -235,7 +256,7 @@
     linear-gradient(135deg, #8E72F6 50%, transparent 50%);
   background-position: calc(100% - 18px) calc(1em + 6px),
   calc(100% - 10px) calc(1em + 6px);
-  background-size: 8px 8px, 8px 8px;
+  background-size: 6px 6px, 9px 6px;
   background-repeat: no-repeat;
   background-color: rgba(142, 114, 246, 0.1);
   color: #8E72F6;
@@ -252,6 +273,10 @@
   }
   &:hover {
     opacity: 0.8;
+  }
+
+  @media (--xs) {
+    padding: 11px;
   }
 }
 

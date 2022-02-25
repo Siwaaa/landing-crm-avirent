@@ -3,6 +3,7 @@
 
   &__content {
     --width-mob: 230px;
+    position: relative;
     background: url(../img/phone.png) top / contain no-repeat;
     width: var(--width-mob);
     height: calc(2.03 * var(--width-mob));
@@ -14,18 +15,53 @@
     padding: 7px 9px;
 
     & > img {
-      display: none;
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
       object-fit: contain;
-      width: 100%;
+      width: calc(var(--width-mob) - 18px);
+      position: absolute;
+      height: calc(100% - 16px);
+      left: 9px;
+      right: 9px;
+      top: 8px;
+      bottom: 8px;
+      border-radius: 21px;
+      transition: all 1s ease-in-out;
     }
 
     & > .active {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+      transition: all .5s ease-in-out;
     }
 
-    @media (--xs) {
+    /* @media (--xs) {
       --width-mob: 197px;
+    } */
+  }
+  &__i {
+    display: none;
+
+    @media (--md) {
+      position: absolute;
+      left: 48%;
+      top: 12%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25px;
+      height: 25px;
+      background-color: var(--color-purple-text);
+      color: #fff;
+      font-size: 10px;
+      border-radius: 50%;
     }
+    @media (--xs) {
+      top: 9%;
+      left: 46%;
+    }
+
   }
 
   @media (--md) {
