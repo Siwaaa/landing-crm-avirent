@@ -35,10 +35,6 @@
       visibility: visible;
       transition: all .5s ease-in-out;
     }
-
-    /* @media (--xs) {
-      --width-mob: 197px;
-    } */
   }
   &__i {
     display: none;
