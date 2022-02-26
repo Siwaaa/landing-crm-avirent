@@ -4,6 +4,6 @@ mixin button(title, size="m", type="button", href, color="orange", imgPath)
       if imgPath 
         img(src=imgPath)
   else
-    a(href=href class=`btn btn-${color} btn-${size}`)= title 
+    a(href=href target="_blank" class=`btn btn-${color} btn-${size}`)= title 
       if imgPath 
         img(src=imgPath)

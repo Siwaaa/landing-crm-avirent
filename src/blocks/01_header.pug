@@ -14,8 +14,8 @@ header.header
             a(href="tel:+74951184046") +7 (495) 118-40-46 
           button(type="button") Заказать звонок
         .navpanel__login 
-          +button('Войти', 's', 'link', '/asdd', 'white')
-          +button('Попробовать бесплатно', 's')
+          +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white')
+          +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register')
         .navpanel__mobile 
           +button('', 's', 'link', '/asdd', 'orange', './img/enter.svg')
           .navpanel__burger 
@@ -26,33 +26,33 @@ header.header
           p Навигация по сайту:
           ul
             li
-              a(href="#") Функционал
+              a(href="#opportunities") Функционал
             li 
-              a(href="#") Внедрение
+              a(href="#help") Внедрение
             li 
-              a(href="#") Тарифы
+              a(href="#price") Тарифы
             li 
-              a(href="#") Отзывы
+              a(href="#otzovy") Отзывы
           .navpanel__phone
             .navpanel__phone-top
               img(src="./img/icon_tel.svg")
               a(href="tel:+74951184046") +7 (495) 118-40-46 
             button(type="button") Заказать звонок
-          +button('Попробовать бесплатно', 's')
-          +button('Войти', 's', 'link', '/asdd', 'white')
+          +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register')
+          +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white')
 
     .header__main
       .header__main-left
         nav
           ul
             li 
-              a(href="#" id="link-active") Функционал
+              a(href="#opportunities" id="link-active") Функционал
             li 
-              a(href="#") Внедрение
+              a(href="#help") Внедрение
             li 
-              a(href="#") Тарифы
+              a(href="#price") Тарифы
             li 
-              a(href="#") Отзывы
+              a(href="#otzovy") Отзывы
         h1(data-animate-on-scroll) Помогаем получить максимум прибыли за счет внедрения CRM в ваш <strong data-multiname="auto">автопарк</strong>
         ul
           li <b>80%</b> снижение риска просрочки аренды автомобиля
