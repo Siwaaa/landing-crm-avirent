@@ -10,13 +10,13 @@ mixin check()
 section.opportunities#opportunities
   .opportunities__container.container
     .opportunities__head.head 
-      h2 Упростите процесс управления таксопарком благодаря возможностям Avirent CRM
+      h2 Упростите процесс управления автопарком благодаря возможностям Avirent CRM
     .opportunities__body
       .opportunities__nav 
         select(class="my-select" id="oppo_select")
           option(disabled value="") Выберите один из вариантов
-          option(value="1" selected) Клиентская база
-          option(value="2") Договора
+          option(value="1") Клиентская база
+          option(value="2" selected) Договора
           option(value="3") Система биллинга
           option(value="4") Штрафы ГИБДД
           option(value="5") Тех. обслуживание
@@ -30,12 +30,12 @@ section.opportunities#opportunities
       .opportunities__item.opportunities__item-menu
         ul
           li.opportunities-desktop-li 
-            input(type="radio" id="oppo_desktop_1" name="oppo_desktop" value="1" checked)
+            input(type="radio" id="oppo_desktop_1" name="oppo_desktop" value="1")
             label(for="oppo_desktop_1") 
               +check()
               | Клиентская база
           li.opportunities-desktop-li
-            input(type="radio" id="oppo_desktop_2" name="oppo_desktop" value="2" )
+            input(type="radio" id="oppo_desktop_2" name="oppo_desktop" value="2" checked)
             label(for="oppo_desktop_2") 
               +check()
               | Договора
@@ -90,9 +90,9 @@ section.opportunities#opportunities
               +check()
               | Касса
       .opportunities__item.opportunities__item-info
-        h4 Клиентская база
-        p Все данные по клиенту в одном месте: фотографии, платежи, балансы, договора, штрафы ГИБДД.
-        p.oppo_desc Помогает не терять постоянных клиентов. Вы сможете в любой момент времени проверить, какой водитель в какой момент ездил на автомобиле.
+        h4 Договора
+        p Сократите время на выдачу автомобиля. Формирование и печать договора в 2 клика.
+        p.oppo_desc Больше не нужно вручную заполнять договор. Все документы формируется автоматически из шаблона и моментально отправляются на печать.
         button(type="button" id="oppo_info_btn") Подробнее
       .opportunities__item.opportunities__item-video
         a(href="https://youtu.be/eMbnD2GGkEg" class="video")
@@ -100,11 +100,11 @@ section.opportunities#opportunities
             img(class="ls-is-cached lazyloaded", src="./img/play.svg")
         p Функционал Avirent CRM
       +safari('./img/opportunities/desktop/', 'oppo_img_', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)(class="opportunities__img")
-      +safari-mob('./img/opportunities/mobile/', 'oppo_img_mob_', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)(class="opportunities__img")
+      +safari-mob('./img/opportunities/mobile/', 'oppo_img_mob_', '2', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)(class="opportunities__img")
       .browser-mob__i i
         .opportunities__item.opportunities__item-info.mobile
-          h4 Клиентская база
-          p Все данные по клиенту в одном месте: фотографии, платежи, балансы, договора, штрафы ГИБДД. <br> Помогает не терять постоянных клиентов. Вы сможете в любой момент времени проверить, какой водитель в какой момент ездил на автомобиле.
-      +button('Начать бесплатно', 'xl')
+          h4 Договора
+          p Сократите время на выдачу автомобиля. Формирование и печать договора в 2 клика. <br> Больше не нужно вручную заполнять договор. Все документы формируется автоматически из шаблона и моментально отправляются на печать.
+      +button('Начать бесплатно', 'xl', 'link', 'https://crm.avirent.ru/company/register')
 
       

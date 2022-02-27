@@ -93,6 +93,7 @@
     font-weight: 600;
     background-color: #fff;
     padding: 30px;
+    transition: all .5s ease-in-out;
   
     & > p {
       margin-bottom: 15px;
@@ -103,6 +104,10 @@
       height: 80px;
       float: right;
       align-self: flex-end;
+    }
+
+    &:hover {
+      transform: scale(1.05);
     }
   }
 }

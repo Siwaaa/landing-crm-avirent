@@ -1,11 +1,30 @@
 .header {
+  --h_nav: 86px;
   &__nav {
     --h_burger: 35px;
-    height: 86px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--h_nav);
     border-bottom: 1px solid #F9F9F9;
+    background-color: rgba(252, 252, 255, .95);
+    transition: all .4s ease-in-out;
+    z-index: 999;
+
+    &-fixed {
+      transform: translateY(-100%);
+    }
 
     /* логика адаптива для панели навигации в header */
-    & .navpanel {      
+    & .navpanel {    
+      &__container {
+        max-width: var(--content-width);
+        padding-right: var(--container-padding-w);
+        padding-left: var(--container-padding-w);
+        margin-right: auto;
+        margin-left: auto;
+      }  
       &__logo {
         & > p {
           @media (--lg) {
@@ -172,6 +191,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding-top: var(--h_nav);
 
     &-left {
       margin-top: 30px;
@@ -280,21 +300,21 @@
           z-index: 20;
           /* animation params */
           opacity: 0;
-          animation: show_1 3s cubic-bezier(.5, 1, .7, 1) .5s forwards;
+          animation: show_1 3s cubic-bezier(.5, 1, .7, 1) 1.2s forwards;
         }
         &_2 {
           left: 31%;
           z-index: 20;
           /* animation params */
           opacity: 0;
-          animation: show_2 3s cubic-bezier(.5, 1, .7, 1) .5s forwards;
+          animation: show_2 3s cubic-bezier(.5, 1, .7, 1) 1.2s forwards;
         }
         &_3 {
           right: 6%;
           z-index: 5;
           /* animation params */
           opacity: 0;
-          animation: show_3 3s cubic-bezier(.5, 1, .7, 1) .5s forwards;
+          animation: show_3 3s cubic-bezier(.5, 1, .7, 1) 1.2s forwards;
         }
       }
       @media (--lg) {
@@ -322,6 +342,10 @@
     @media (--xs) {
       width: 100%;
     }
+  }
+
+  @media (--xs) {
+    --h_nav: 75px;
   }
 }
 

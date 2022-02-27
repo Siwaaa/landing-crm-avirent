@@ -26,12 +26,12 @@ section.interface
       .interface__item.interface__item-action
         h4 Весь бизнес на одной странице
         p Прозрачная картина работы. Весь ваш парк, как на ладони
-        +button('Попробовать сейчас', 's')
+        +button('Попробовать сейчас', 's', 'link', 'https://crm.avirent.ru/company/register')
       .interface__item.interface__item-info
         h4 Без лишних кнопок и действий
         p Максимально быстрая и простая скорость работы
       +safari('./img/interface/desktop/', 'int_img_', 1, 2, 3, 4, 5)(class="interface__img")
-      +safari-mob('./img/interface/mobile/', 'int_img_mob_', 1, 2, 3, 4, 5)(class="interface__img")
+      +safari-mob('./img/interface/mobile/', 'int_img_mob_', '1', 1, 2, 3, 4, 5)(class="interface__img")
       .interface__nav-mobile
         select(class="my-select" id="int_select")
           option(disabled value="") Выберите один из вариантов

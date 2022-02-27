@@ -5,7 +5,7 @@ header.header
   .header__container.container
     nav.header__nav.navpanel
       .navpanel__container
-        .navpanel__logo
+        a(href='/' class='navpanel__logo')
           img(src="./img/logo.svg", alt="logo")
           p Система автоматизации <br> автопрокатов и таксопарков
         .navpanel__phone
@@ -17,7 +17,7 @@ header.header
           +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white')
           +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register')
         .navpanel__mobile 
-          +button('', 's', 'link', '/asdd', 'orange', './img/enter.svg')
+          +button('', 's', 'link', 'https://crm.avirent.ru/company/login', 'orange', './img/enter.svg')
           .navpanel__burger 
             input(type="checkbox" name="burger" id="burger")
             label(for="burger")
@@ -54,7 +54,7 @@ header.header
             li 
               a(href="#otzovy") Отзывы
         h1(data-animate-on-scroll) Помогаем получить максимум прибыли за счет внедрения CRM в ваш <strong data-multiname="auto">автопарк</strong>
-        ul
+        ul(data-animate-on-scroll)
           li <b>80%</b> снижение риска просрочки аренды автомобиля
           li <b>20%</b> снижение расходов на содержание автопарка
           li <b>50%</b> снижение фонда оплаты труда

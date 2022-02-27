@@ -722,6 +722,29 @@ function changeHandlerMess(event) {
 Array.prototype.forEach.call(radiosMess, function(radio) {
     radio.addEventListener('change', changeHandlerMess);
 });
+// fixed header
+document.addEventListener('DOMContentLoaded', ()=>{
+    const onScrollHeader = ()=>{
+        const header = document.querySelector('.header__nav');
+        let prevScroll = window.pageYOffset // на сколько была прокручена страница ранее
+        ;
+        let currentScroll // на сколько прокручена страница сейчас
+        ;
+        window.addEventListener('scroll', ()=>{
+            currentScroll = window.pageYOffset;
+            const headerHidden = ()=>header.classList.contains('header__nav-fixed') // узнаем скрыт header или нет
+            ;
+            if (currentScroll > prevScroll && !headerHidden()) header.classList.add('header__nav-fixed') // то скрываем header
+            ;
+            if (currentScroll < prevScroll && headerHidden()) header.classList.remove('header__nav-fixed') // то отображаем header
+            ;
+            prevScroll = currentScroll // записываем на сколько прокручена страница на данный момент
+            ;
+        });
+    };
+    onScrollHeader() // вызываем основную функцию onScrollHeader
+    ;
+});
 
 },{}]},["l4AUa","ebWYT"], "ebWYT", "parcelRequirec448")
 
