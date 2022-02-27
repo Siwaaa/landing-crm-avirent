@@ -1,48 +1,48 @@
 const listInfo = [
   {
-  title: 'Клиентская база',
-  text_main: 'Все данные по клиенту в одном месте: фотографии, платежи, балансы, договора, штрафы ГИБДД.',
-  text_desc: 'Помогает не терять постоянных клиентов. Вы сможете в любой момент времени проверить, какой водитель в какой момент ездил на автомобиле.'
+    title: 'Клиентская база',
+    text_main: 'Все данные по клиенту в одном месте: фотографии, платежи, балансы, договора, штрафы ГИБДД.',
+    text_desc: 'Помогает не терять постоянных клиентов. Вы сможете в любой момент времени проверить, какой водитель в какой момент ездил на автомобиле.'
   },
   {
-  title: 'Договора',
-  text_main: 'Сократите время на выдачу автомобиля. Формирование и печать договора в 2 клика',
-  text_desc: 'Больше не нужно вручную заполнять договор. Все документы формируется автоматически из шаблона и моментально отправляются на печать.'
+    title: 'Договора',
+    text_main: 'Сократите время на выдачу автомобиля. Формирование и печать договора в 2 клика',
+    text_desc: 'Больше не нужно вручную заполнять договор. Все документы формируется автоматически из шаблона и моментально отправляются на печать.'
   },
   {
-  title: 'Система биллинга',
-  text_main: 'Не нужно считать оплаты вручную и звонить водителю с напоминанием.',
-  text_desc: 'Робот производит автоматическое списание арендной платы согласно тарифу договора. Текущее состояние счета каждого водителя отображается на главном экране.'
+    title: 'Система биллинга',
+    text_main: 'Не нужно считать оплаты вручную и звонить водителю с напоминанием.',
+    text_desc: 'Робот производит автоматическое списание арендной платы согласно тарифу договора. Текущее состояние счета каждого водителя отображается на главном экране.'
   },
   {
-  title: 'Штрафы ГИБДД',
-  text_main: 'Вести учет штрафов стало намного проще. Штрафы фиксируются на лицевом счете водителя',
-  text_desc: 'и вы больше не потеряете информацию по ним, а водитель всегда будет в курсе появления новых штрафов. Учет штрафов ГИБДД осуществляется напрямую из государственной базы ГИС ГМП.'
+    title: 'Штрафы ГИБДД',
+    text_main: 'Вести учет штрафов стало намного проще. Штрафы фиксируются на лицевом счете водителя',
+    text_desc: 'и вы больше не потеряете информацию по ним, а водитель всегда будет в курсе появления новых штрафов. Учет штрафов ГИБДД осуществляется напрямую из государственной базы ГИС ГМП.'
   },
   {
-  title: 'Техническое обслуживание',
-  text_main: 'Вся история обслуживания автомобилей, своевременный контроль износа запчастей в связке со складом.',
-  text_desc: 'Предоставьте доступ автосервису или мастеру к карточкам ваших автомобилей, и вы всегда будете в курсе состояния каждой единицы автопарка и ее рентабельности.'
-  },
-      {
-  title: 'Система напоминаний',
-  text_main: 'Внести платеж, сделать ТО, оплатить штраф, заменить полис автострахования – обо всех основных вопросах CRM напомнит автоматически.',
-  text_desc: 'Своевременное напоминание позволяет снизить риск возникновения долга у водителей. Автоматическая блокировка ограничит доступ к автомобилю пока аренда не будет оплачена.'
+    title: 'Техническое обслуживание',
+    text_main: 'Вся история обслуживания автомобилей, своевременный контроль износа запчастей в связке со складом.',
+    text_desc: 'Предоставьте доступ автосервису или мастеру к карточкам ваших автомобилей, и вы всегда будете в курсе состояния каждой единицы автопарка и ее рентабельности.'
   },
   {
-  title: 'Складской учет',
-  text_main: 'Все запчасти в одном месте, учет установки на автомобили.',
-  text_desc: ''
+    title: 'Система напоминаний',
+    text_main: 'Внести платеж, сделать ТО, оплатить штраф, заменить полис автострахования – обо всех основных вопросах CRM напомнит автоматически.',
+    text_desc: 'Своевременное напоминание позволяет снизить риск возникновения долга у водителей. Автоматическая блокировка ограничит доступ к автомобилю пока аренда не будет оплачена.'
   },
   {
-  title: 'Сотрудники',
-  text_main: 'Несколько уровней доступа: администратор, менеджер, мастер СТО',
-  text_desc: 'Каждый уровень доступа показывает нужную информацию.'
+    title: 'Складской учет',
+    text_main: 'Все запчасти в одном месте, учет установки на автомобили.',
+    text_desc: ''
   },
   {
-  title: 'Интеграция с Яндекс Такси',
-  text_main: 'Списывайте аренду автоматически прямо с таксометра водителя.',
-  text_desc: 'Система проверит задолжность водителя за аренду и спишет деньги диспетчерской Яндекс Такси.'
+    title: 'Сотрудники',
+    text_main: 'Несколько уровней доступа: администратор, менеджер, мастер СТО',
+    text_desc: 'Каждый уровень доступа показывает нужную информацию.'
+  },
+  {
+    title: 'Интеграция с Яндекс Такси',
+    text_main: 'Списывайте аренду автоматически прямо с таксометра водителя.',
+    text_desc: 'Система проверит задолжность водителя за аренду и спишет деньги диспетчерской Яндекс Такси.'
   },
   {
     title: 'Фотоосмотры',
@@ -50,14 +50,14 @@ const listInfo = [
     text_desc: 'на выдаче, на приеме или в процессе долгосрочной аренды.  Сравнивайте сстояния до и после в интуитивно понятном экране. Все повреждения будут моментально выявляться и фиксироваться за водителем.'
   },
   {
-  title: 'Отчёты',
-  text_main: 'Вся информация по автомобилям, по водителям, по складу и всему автопарку в 1 месте.',
-  text_desc: 'Отчеты по автомобилям и его рентабельности; по водителям, кто больше принес денег в парк, а кто потратил; по складу: остатки и движение запчастей; сводный отчет и основные показатели.'
+    title: 'Отчёты',
+    text_main: 'Вся информация по автомобилям, по водителям, по складу и всему автопарку в 1 месте.',
+    text_desc: 'Отчеты по автомобилям и его рентабельности; по водителям, кто больше принес денег в парк, а кто потратил; по складу: остатки и движение запчастей; сводный отчет и основные показатели.'
   },
   {
-  title: 'Касса',
-  text_main: 'Контролируйте учет движения денежных средств в авто прокате.',
-  text_desc: 'Сколько денег и менеджера, сколько на счету, сколько в кассе. Все видно и удобно планировать. Отчеты по кассе.'
+    title: 'Касса',
+    text_main: 'Контролируйте учет движения денежных средств в авто прокате.',
+    text_desc: 'Сколько денег и менеджера, сколько на счету, сколько в кассе. Все видно и удобно планировать. Отчеты по кассе.'
   }
 ]
 
@@ -83,7 +83,7 @@ for (let anchor of anchors) {
 }
 
 // Accrdions
-const accordionTrigger = document.querySelectorAll(".questions__title"),
+const accordionTrigger = document.querySelectorAll(".questions__item"),
   accordionBody = document.querySelectorAll(".questions__answer");
 
 const accordionsToggle = (triggers, bodyElements) => {
@@ -133,7 +133,7 @@ burgerBtn.addEventListener('change', function () {
 const radiosOpportunities = document.querySelectorAll('input[type=radio][name="oppo_desktop"]');
 
 function changeHandlerOpportunities(event) {
-  if(this.value) {
+  if (this.value) {
     document.querySelectorAll('.opportunities__img').forEach((t) => {
       t.classList.remove('active')
     })
@@ -154,7 +154,7 @@ Array.prototype.forEach.call(radiosOpportunities, function (radio) {
 const selectOpportunities = document.getElementById("oppo_select");
 
 function changeHandlerOpportunitiesMob(event) {
-  if(event.target.value) {
+  if (event.target.value) {
     document.querySelectorAll('.opportunities__img').forEach((t) => {
       t.classList.remove('active')
     })
@@ -175,7 +175,7 @@ const oppoDesc = document.querySelector(".oppo_desc");
 const oppoBtn = document.querySelector("#oppo_info_btn");
 
 oppoBtn.addEventListener('click', () => {
-  if(oppoBtn.textContent == "Подробнее") {
+  if (oppoBtn.textContent == "Подробнее") {
     oppoDesc.style.display = "block"
     oppoBtn.textContent = "Скрыть"
   } else {
@@ -214,7 +214,7 @@ e.forEach((e => {
 const radiosInterface = document.querySelectorAll('input[type=radio][name="interfaces_desktop"]');
 
 function changeHandlerInterface(event) {
-  if(this.value) {
+  if (this.value) {
     document.querySelectorAll('.interface__img').forEach((t) => {
       t.classList.remove('active')
     })
@@ -231,7 +231,7 @@ Array.prototype.forEach.call(radiosInterface, function (radio) {
 const selectInterface = document.getElementById("int_select");
 
 function changeHandlerInterfaceMob(event) {
-  if(event.target.value) {
+  if (event.target.value) {
     document.querySelectorAll('.interface__img').forEach((t) => {
       t.classList.remove('active')
     })
@@ -247,7 +247,7 @@ selectInterface.addEventListener('change', changeHandlerInterfaceMob);
 const radiosMess = document.querySelectorAll('input[type=radio][name="messengers"]');
 
 function changeHandlerMess(event) {
-  if(this.value) {
+  if (this.value) {
     document.querySelector('#input-mes').placeholder = 'Ваш телефон в ' + this.value
   }
 }
@@ -259,25 +259,25 @@ Array.prototype.forEach.call(radiosMess, function (radio) {
 
 // fixed header
 document.addEventListener('DOMContentLoaded', () => { // DOM готов к взаимодейтсвию
-	const onScrollHeader = () => {
-		const header = document.querySelector('.header__nav') 
-		let prevScroll = window.pageYOffset // на сколько была прокручена страница ранее
-		let currentScroll // на сколько прокручена страница сейчас
+  const onScrollHeader = () => {
+    const header = document.querySelector('.header__nav')
+    let prevScroll = window.pageYOffset // на сколько была прокручена страница ранее
+    let currentScroll // на сколько прокручена страница сейчас
 
-		window.addEventListener('scroll', () => {
-			currentScroll = window.pageYOffset 
+    window.addEventListener('scroll', () => {
+      currentScroll = window.pageYOffset
 
-			const headerHidden = () => header.classList.contains('header__nav-fixed') // узнаем скрыт header или нет
+      const headerHidden = () => header.classList.contains('header__nav-fixed') // узнаем скрыт header или нет
 
-			if (currentScroll > prevScroll && !headerHidden()) { // если прокручиваем страницу вниз и header не скрыт
-				header.classList.add('header__nav-fixed') // то скрываем header
-			}
-			if (currentScroll < prevScroll && headerHidden()) { // если прокручиваем страницу вверх и header скрыт
-				header.classList.remove('header__nav-fixed') // то отображаем header
-			}
+      if (currentScroll > prevScroll && !headerHidden()) { // если прокручиваем страницу вниз и header не скрыт
+        header.classList.add('header__nav-fixed') // то скрываем header
+      }
+      if (currentScroll < prevScroll && headerHidden()) { // если прокручиваем страницу вверх и header скрыт
+        header.classList.remove('header__nav-fixed') // то отображаем header
+      }
 
-			prevScroll = currentScroll // записываем на сколько прокручена страница на данный момент
-		})
-	}
-	onScrollHeader() // вызываем основную функцию onScrollHeader
+      prevScroll = currentScroll // записываем на сколько прокручена страница на данный момент
+    })
+  }
+  onScrollHeader() // вызываем основную функцию onScrollHeader
 });

@@ -15,6 +15,11 @@
   &__item {
     padding: 30px;
     flex-basis: 49%;
+    transition: all .5s;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
 
     &:nth-child(-n+3) {
       /* размер для первых трех элементов */

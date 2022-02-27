@@ -594,7 +594,7 @@ for (let anchor of anchors)anchor.addEventListener('click', function(e1) {
     });
 });
 // Accrdions
-const accordionTrigger = document.querySelectorAll(".questions__title"), accordionBody = document.querySelectorAll(".questions__answer");
+const accordionTrigger = document.querySelectorAll(".questions__item"), accordionBody = document.querySelectorAll(".questions__answer");
 const accordionsToggle = (triggers, bodyElements)=>{
     triggers.forEach((el)=>{
         el.addEventListener("click", ()=>{

@@ -5,6 +5,8 @@
   padding: 10px 20px;
   border-radius: var(--border-radius);
   transition: all .5s ease-in-out;
+  position: relative;
+  overflow-x: hidden;
 
   &-orange {
     background-color: var(--color-orange);
@@ -30,5 +32,29 @@
   }
   &-xl {
     padding: 20px 60px;
+  }
+
+  & > .flare {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 45px;
+      transform: skewX(-45deg);
+      animation: flareAnimation;
+      left: -150%;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+      animation: flareAnimation 4s linear 5s infinite;
+  }
+}
+
+@keyframes flareAnimation {
+  0% {
+    left: -150%;
+  }
+  50% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
   }
 }

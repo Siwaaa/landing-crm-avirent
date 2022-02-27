@@ -10,7 +10,7 @@ mixin check()
 section.opportunities#opportunities
   .opportunities__container.container
     .opportunities__head.head 
-      h2 Упростите процесс управления автопарком благодаря возможностям Avirent CRM
+      h2(data-animate-on-scroll) Упростите процесс управления автопарком благодаря возможностям Avirent CRM
     .opportunities__body
       .opportunities__nav 
         select(class="my-select" id="oppo_select")
@@ -99,7 +99,7 @@ section.opportunities#opportunities
           .play-wrap
             img(class="ls-is-cached lazyloaded", src="./img/play.svg")
         p Функционал Avirent CRM
-      +safari('./img/opportunities/desktop/', 'oppo_img_', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)(class="opportunities__img")
+      +safari('./img/opportunities/desktop/', 'oppo_img_', '2', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)(class="opportunities__img")
       +safari-mob('./img/opportunities/mobile/', 'oppo_img_mob_', '2', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)(class="opportunities__img")
       .browser-mob__i i
         .opportunities__item.opportunities__item-info.mobile

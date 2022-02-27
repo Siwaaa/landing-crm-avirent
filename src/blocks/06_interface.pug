@@ -23,14 +23,14 @@ section.interface
         li 
           input(type="radio" name="interfaces_desktop" id="interfaces_desktop_5"  value="5") 
           label(for="interfaces_desktop_5") Фотоосмотры
-      .interface__item.interface__item-action
+      div(class="interface__item interface__item-action" data-animate-on-scroll)
         h4 Весь бизнес на одной странице
         p Прозрачная картина работы. Весь ваш парк, как на ладони
         +button('Попробовать сейчас', 's', 'link', 'https://crm.avirent.ru/company/register')
-      .interface__item.interface__item-info
+      div(class="interface__item interface__item-info" data-animate-on-scroll)
         h4 Без лишних кнопок и действий
         p Максимально быстрая и простая скорость работы
-      +safari('./img/interface/desktop/', 'int_img_', 1, 2, 3, 4, 5)(class="interface__img")
+      +safari('./img/interface/desktop/', 'int_img_', '1', 1, 2, 3, 4, 5)(class="interface__img")
       +safari-mob('./img/interface/mobile/', 'int_img_mob_', '1', 1, 2, 3, 4, 5)(class="interface__img")
       .interface__nav-mobile
         select(class="my-select" id="int_select")

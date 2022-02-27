@@ -3,7 +3,11 @@ mixin button(title, size="m", type="button", href, color="orange", imgPath)
     button(type=type, class=`btn btn-${color} btn-${size}` )= title
       if imgPath 
         img(src=imgPath)
+      else 
+        .flare
   else
     a(href=href target="_blank" class=`btn btn-${color} btn-${size}`)= title 
       if imgPath 
         img(src=imgPath)
+      else 
+        .flare

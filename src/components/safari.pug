@@ -1,5 +1,5 @@
-mixin safari(imgPath, id, ...items)
+mixin safari(imgPath, id, startActive, ...items)
   .browser
     .browser__content
       each item in items
-        img(src=`${imgPath}${item}.png` class=`${item == 1 ? 'active': ''} ${attributes.class}` id=id+item loading="lazy")
+        img(src=`${imgPath}${item}.png` class=`${item == startActive ? 'active': ''} ${attributes.class}` id=id+item loading="lazy")
