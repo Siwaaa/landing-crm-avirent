@@ -911,80 +911,81 @@ a {
         bottom: 22%
     }
       }
-  .opportunities__item-video > .video {
-        --size-video: 65px;
-        position: absolute;
-        left: -26px;
-        top: -7px;
-      }
-  @media (max-width: 768px) {
-  .opportunities__item-video > .video {
-          --size-video: 52px
-      }
-        }
-  .opportunities__item-video .play-wrap {
-        position: relative;
-        left: 0;
-        right: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(rgba(244, 154, 18, 0.7), rgba(244, 154, 18, 0.7)), url("play_prew.522bf326.png") no-repeat;
-        width: var(--size-video);
-        height: var(--size-video);
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all .4s;
-        box-shadow: -23px -23px 71px 0px rgb(238 26 36 / 29%);
-      }
-  .opportunities__item-video .play-wrap:before {
-          width: calc(var(--size-video) + 35px);
-          height: calc(var(--size-video) + 35px);
-          border: 2px solid #F1B55B;
-          position: absolute;
-          content: "";
-          border-radius: 50%;
-          border-left-color: transparent;
-          border-right-color: transparent;
-          -webkit-animation-name: rotateRevers;
-                  animation-name: rotateRevers;
-          -webkit-animation-iteration-count: infinite;
-                  animation-iteration-count: infinite;
-          -webkit-animation-duration: 4s;
-                  animation-duration: 4s;
-          -webkit-animation-timing-function: linear;
-                  animation-timing-function: linear;
-        }
-  .opportunities__item-video .play-wrap:after {
-          width: calc(var(--size-video) + 15px);
-          height: calc(var(--size-video) + 15px);
-          border: 2px solid #F1B55B;
-          position: absolute;
-          content: "";
-          border-radius: 50%;
-          border-top-color: transparent;
-          border-bottom-color: transparent;
-          -webkit-animation-name: rotate;
-                  animation-name: rotate;
-          -webkit-animation-iteration-count: infinite;
-                  animation-iteration-count: infinite;
-          -webkit-animation-duration: 4s;
-                  animation-duration: 4s;
-          -webkit-animation-timing-function: linear;
-                  animation-timing-function: linear;
-        }
-  .opportunities__item-video .play-wrap > img {
-          width: 30%;
-          -o-object-fit: contain;
-             object-fit: contain;
-        }
   @media (max-width: 768px) {
   .opportunities__item-video > p {
           display: none
       }
         }
+  .video {
+  --size-video: 65px;
+  position: absolute;
+  left: -26px;
+  top: -7px;
+}
+  @media (max-width: 768px) {
+
+.video {
+    --size-video: 52px
+}
+  }
+  .play-wrap {
+  position: relative;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(244, 154, 18, 0.7), rgba(244, 154, 18, 0.7)), url("play_prew.522bf326.png") no-repeat;
+  width: var(--size-video);
+  height: var(--size-video);
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .4s;
+  box-shadow: -23px -23px 71px 0px rgb(238 26 36 / 29%);
+}
+  .play-wrap:before {
+    width: calc(var(--size-video) + 35px);
+    height: calc(var(--size-video) + 35px);
+    border: 2px solid #F1B55B;
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    -webkit-animation-name: rotateRevers;
+            animation-name: rotateRevers;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-duration: 4s;
+            animation-duration: 4s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  .play-wrap:after {
+    width: calc(var(--size-video) + 15px);
+    height: calc(var(--size-video) + 15px);
+    border: 2px solid #F1B55B;
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    -webkit-animation-name: rotate;
+            animation-name: rotate;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    -webkit-animation-duration: 4s;
+            animation-duration: 4s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+  }
+  .play-wrap > img {
+    width: 30%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
   .my-select {
   /* reset */
   border: none;
@@ -2442,6 +2443,107 @@ a {
            object-fit: contain;
         width: 100%;
       }
+.modal {
+  position: relative;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 99999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  cursor: pointer;
+}
+
+  .modal::after{
+    content: "";
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url("close.0aec6002.svg") center no-repeat;
+    z-index: 100;
+  }
+
+  .modal__container {
+    width: 50vw; 
+    max-width: 650px;
+    height: auto;
+    background-color: #fefefe;
+    margin: 15% auto;
+    border-radius: calc(var(--border-radius) * 2);
+    border: 1px solid rgba(122, 118, 229, 0.5);
+    cursor: auto;
+  }
+
+  @media (max-width: 650px) {
+
+  .modal__container {
+      width: 80%;
+      margin: 25% auto
+  }
+    }
+
+  .modal__body {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px dashed rgba(0, 0, 0, 0.08);
+    text-align: center;
+  }
+
+  @media (max-width: 650px) {
+
+  .modal__body {
+      padding: 15px
+  }
+    }
+
+  .modal__head > h2  {
+      font-size: var(--fz-h2);
+      font-weight: 600;
+    }
+
+  .modal__main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .modal__main > img {
+      width: 90%;
+      -o-object-fit: contain;
+         object-fit: contain;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+  .modal__main > p {
+      font-weight: 500;
+      font-size: var(--fz-h4);
+    }
+
+  .modal__main > .video {
+      position: relative;
+      left: auto;
+      top: auto;
+      margin-bottom: 30px;
+    }
+
+  .modal__form {
+    width: 100%;
+  }
 .browser-mob {
   display: none;
 }
@@ -2715,7 +2817,7 @@ b {
     padding: 0 15px;
     list-style: auto;
   }
-</style><title>AVIRENT CRM – Комплексная автоматизация автопарка</title></head><body><nav class="header__nav navpanel"><div class="navpanel__container"><a class="navpanel__logo" href="/"><img src="/logo.8bb9af93.svg" alt="logo"><p>Система автоматизации <br> автопрокатов и таксопарков</p></a><div class="navpanel__phone"><div class="navpanel__phone-top"><img src="/icon_tel.2235baf2.svg"><a href="tel:+74951184046">+7 (495) 118-40-46 </a></div><button type="button">Заказать звонок</button></div><div class="navpanel__login"> <a class="btn btn-white btn-s" href="https://crm.avirent.ru/company/login" target="_blank">Войти<div class="flare"></div></a><a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/register" target="_blank">Попробовать бесплатно<div class="flare"></div></a></div><div class="navpanel__mobile"> <a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/login" target="_blank"><img src="/enter.d96a4512.svg"></a><div class="navpanel__burger"> <input type="checkbox" name="burger" id="burger"><label for="burger"><div class="burger_icon"></div></label></div></div><div class="navpanel__menu"> <p>Навигация по сайту:</p><ul><li><a href="#opportunities">Функционал</a></li><li> <a href="#help">Внедрение</a></li><li> <a href="#price">Тарифы</a></li><li> <a href="#otzovy">Отзывы</a></li></ul><div class="navpanel__phone"><div class="navpanel__phone-top"><img src="/icon_tel.2235baf2.svg"><a href="tel:+74951184046">+7 (495) 118-40-46 </a></div><button type="button">Заказать звонок</button></div><a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/register" target="_blank">Попробовать бесплатно<div class="flare"></div></a><a class="btn btn-white btn-s" href="https://crm.avirent.ru/company/login" target="_blank">Войти<div class="flare"></div></a></div></div></nav><main class="policy container"><h1>Политика в отношении обработки персональных данных</h1>
+</style><title>AVIRENT CRM – Комплексная автоматизация автопарка</title></head><body><nav class="header__nav navpanel"><div class="navpanel__container"><a class="navpanel__logo" href="/"><img src="/logo.8bb9af93.svg" alt="logo"><p>Система автоматизации <br> автопрокатов и таксопарков</p></a><div class="navpanel__phone"><div class="navpanel__phone-top"><img src="/icon_tel.2235baf2.svg"><a href="tel:+74951184046">+7 (495) 118-40-46 </a></div><button type="button" data-open-modal_2="">Заказать звонок</button></div><div class="navpanel__login"> <a class="btn btn-white btn-s" href="https://crm.avirent.ru/company/login" target="_blank">Войти<div class="flare"></div></a><a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/register" target="_blank">Попробовать бесплатно<div class="flare"></div></a></div><div class="navpanel__mobile"> <a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/login" target="_blank"><img src="/enter.d96a4512.svg"></a><div class="navpanel__burger"> <input type="checkbox" name="burger" id="burger"><label for="burger"><div class="burger_icon"></div></label></div></div><div class="navpanel__menu"> <p>Навигация по сайту:</p><ul><li><a class="navpanel-link" href="#opportunities">Функционал</a></li><li> <a class="navpanel-link" href="#help">Внедрение</a></li><li> <a class="navpanel-link" href="#price">Тарифы</a></li><li> <a class="navpanel-link" href="#otzovy">Отзывы</a></li></ul><div class="navpanel__phone"><div class="navpanel__phone-top"><img src="/icon_tel.2235baf2.svg"><a href="tel:+74951184046">+7 (495) 118-40-46 </a></div><button type="button" data-open-modal_2="">Заказать звонок</button></div><a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/register" target="_blank">Попробовать бесплатно<div class="flare"></div></a><a class="btn btn-white btn-s" href="https://crm.avirent.ru/company/login" target="_blank">Войти<div class="flare"></div></a></div></div></nav><main class="policy container"><h1>Политика в отношении обработки персональных данных</h1>
 <ol>
 <li>Общие положения<br>
 Настоящая политика обработки персональных данных составлена в соответствии с требованиями Федерального закона от 27.07.2006. №152-ФЗ «О персональных данных» (далее - Закон о персональных данных) и определяет порядок обработки персональных данных и меры по обеспечению безопасности персональных данных, предпринимаемые AvirentCRM (далее – Оператор).<br>
@@ -2832,4 +2934,4 @@ b {
 14.2. В данном документе будут отражены любые изменения политики обработки персональных данных Оператором. Политика действует бессрочно до замены ее новой версией.<br>
 14.3. Актуальная версия Политики в свободном доступе расположена в сети Интернет по адресу https://crm.avirent.ru/privacy/.</li>
 </ol>
-</main><footer class="footer"> <div class="footer__container container"><nav class="footer__nav navpanel"><div class="navpanel__container"><div class="navpanel__logo"><img src="/logo.8bb9af93.svg" alt="logo"><p>Система автоматизации <br> автопрокатов и таксопарков</p></div><div class="navpanel__phone"><div class="navpanel__phone-top"><img src="/icon_tel.2235baf2.svg"><a href="tel:+74951184046">+7 (495) 118-40-46 </a></div><button type="button">Заказать звонок</button></div><div class="navpanel__login"> <a class="btn btn-white btn-s" href="https://crm.avirent.ru/company/login" target="_blank">Войти<div class="flare"></div></a><a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/register" target="_blank">Попробовать бесплатно<div class="flare"></div></a></div></div></nav><div class="footer__links"> <a href="/policy.html" target="_blank">Политика конфиденциальности</a><p>Сайт разработан: <a href="https://t.me/Larin_mv" target="_blank">студия Максима Ларина </a></p></div></div></footer><script src="/policy.43ff36c8.js"></script></body></html>
+</main><footer class="footer"> <div class="footer__container container"><nav class="footer__nav navpanel"><div class="navpanel__container"><div class="navpanel__logo"><img src="/logo.8bb9af93.svg" alt="logo"><p>Система автоматизации <br> автопрокатов и таксопарков</p></div><div class="navpanel__phone"><div class="navpanel__phone-top"><img src="/icon_tel.2235baf2.svg"><a href="tel:+74951184046">+7 (495) 118-40-46 </a></div><button type="button" data-open-modal_2="">Заказать звонок</button></div><div class="navpanel__login"> <a class="btn btn-white btn-s" href="https://crm.avirent.ru/company/login" target="_blank">Войти<div class="flare"></div></a><a class="btn btn-orange btn-s" href="https://crm.avirent.ru/company/register" target="_blank">Попробовать бесплатно<div class="flare"></div></a></div></div></nav><div class="footer__links"> <a href="/policy.html" target="_blank">Политика конфиденциальности</a><p>Сайт разработан: <a href="https://t.me/Larin_mv" target="_blank">студия Максима Ларина </a></p></div></div></footer><script src="/policy.43ff36c8.js"></script></body></html>

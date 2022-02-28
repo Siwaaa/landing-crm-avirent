@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"dzb6G":[function(require,module,exports) {
+})({"aEP6z":[function(require,module,exports) {
 "use strict";
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "4fb2c8f22058bea4";
+module.bundle.HMR_BUNDLE_ID = "54abdd79f9b3b06b";
 function _toConsumableArray(arr) {
     return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
 }
@@ -518,45 +518,75 @@ function hmrAcceptRun(bundle, id) {
     acceptedAssets[id] = true;
 }
 
-},{}],"68XbT":[function(require,module,exports) {
-// fixed header
-document.addEventListener('DOMContentLoaded', ()=>{
-    const onScrollHeader = ()=>{
-        const header = document.querySelector('.header__nav');
-        let prevScroll = window.pageYOffset // на сколько была прокручена страница ранее
-        ;
-        let currentScroll // на сколько прокручена страница сейчас
-        ;
-        window.addEventListener('scroll', ()=>{
-            currentScroll = window.pageYOffset;
-            const headerHidden = ()=>header.classList.contains('header__nav-fixed') // узнаем скрыт header или нет
-            ;
-            if (currentScroll > prevScroll && !headerHidden()) header.classList.add('header__nav-fixed') // то скрываем header
-            ;
-            if (currentScroll < prevScroll && headerHidden()) header.classList.remove('header__nav-fixed') // то отображаем header
-            ;
-            prevScroll = currentScroll // записываем на сколько прокручена страница на данный момент
-            ;
-        });
-    };
-    onScrollHeader();
-});
-// BURGER OM-NOM-NOM
-const burgerBtn = document.querySelector('#burger');
-const navbarMenu = document.querySelector('.navpanel__menu');
-burgerBtn.addEventListener('change', function() {
-    if (this.checked) navbarMenu.style.height = '400px';
-    else navbarMenu.style.height = '0';
-});
-// скрываем menu при клике на ссылку-навигацию-якорь
-const linksNavMobile = document.querySelectorAll('.navpanel-link');
-linksNavMobile.forEach((el)=>{
-    el.addEventListener('click', ()=>{
-        burgerBtn.checked = false;
-        navbarMenu.style.height = '0';
+},{}],"aHHgN":[function(require,module,exports) {
+const modal_1 = document.getElementById('modal1') //
+;
+const modal_2 = document.getElementById('modal2') //
+;
+const modal_3 = document.getElementById('modal3') // Спасибо, скоро перезвоним
+;
+const modal_4 = document.getElementById('modal4') // Video
+;
+const triggersForModal_1 = document.querySelectorAll("[data-open-modal_1]");
+triggersForModal_1.forEach((e)=>{
+    e.addEventListener('click', (event)=>{
+        event.preventDefault();
+        modal_1.style.display = "block";
+        document.body.style.overflow = 'hidden';
     });
 });
+const triggersForModal_2 = document.querySelectorAll("[data-open-modal_2]");
+triggersForModal_2.forEach((e)=>{
+    e.addEventListener('click', (event)=>{
+        event.preventDefault();
+        modal_2.style.display = "block";
+        document.body.style.overflow = 'hidden';
+    });
+});
+const triggersForModal_3 = document.querySelectorAll("[data-open-modal_3]");
+triggersForModal_3.forEach((e)=>{
+    e.addEventListener('click', (event)=>{
+        event.preventDefault();
+        modal_3.style.display = "block";
+        document.body.style.overflow = 'hidden';
+    });
+});
+const triggersForModal_4 = document.querySelectorAll("[data-open-modal_4]");
+triggersForModal_4.forEach((e)=>{
+    e.addEventListener('click', (event)=>{
+        event.preventDefault();
+        modal_4.style.display = "block";
+        document.body.style.overflow = 'hidden';
+    });
+});
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    switch(event.target){
+        case modal_1:
+            modal_1.style.display = "none";
+            document.body.style.overflow = "visible";
+            break;
+        case modal_2:
+            modal2.style.display = "none";
+            document.body.style.overflow = "visible";
+            break;
+        case modal_3:
+            modal3.style.display = "none";
+            document.body.style.overflow = "visible";
+            break;
+        case modal_4:
+            modal4.style.display = "none";
+            document.body.style.overflow = "visible";
+            // stop video 
+            const video = document.getElementById('about_video');
+            const src = video.src;
+            video.src = src;
+            break;
+        default:
+            break;
+    }
+};
 
-},{}]},["dzb6G","68XbT"], "68XbT", "parcelRequirec448")
+},{}]},["aEP6z","aHHgN"], "aHHgN", "parcelRequirec448")
 
-//# sourceMappingURL=index.2058bea4.js.map
+//# sourceMappingURL=index.f9b3b06b.js.map

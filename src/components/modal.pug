@@ -1,0 +1,38 @@
+include ../components/input-button.pug 
+
+#modal1.modal
+  .modal__container
+    .modal__body
+      .modal__head
+        h2 Пользуйтесь AvirentCRM БЕСПЛАТНО
+      .modal__main
+        img(src="./img/reg.png", alt="Регистрация")
+      .modal__form(action='')
+        +input-button('Попробовать бесплатно', 's', 'tel')
+
+#modal2.modal
+  .modal__container
+    .modal__body
+      .modal__head
+        h2 Заполните форму ниже,
+        p и наш менеджер перезвонит вам в ближайшее время
+      .modal__form(action='')
+        +input-button('Оставить заявку', 's', 'tel')
+
+#modal3.modal
+  .modal__container
+    .modal__body
+      .modal__head
+        h2 Спасибо!
+        p Прайс скоро придёт вам на телефон
+      .modal__main  
+        p А пока посмотрите короткое видео о всех возможностях AvirentCRM
+        a(href="https://youtu.be/eMbnD2GGkEg" class="video")
+          .play-wrap
+            img(class="ls-is-cached lazyloaded", src="./img/play.svg")
+
+#modal4.modal
+  .modal__container
+    .modal__body
+      .modal__main  
+        //- <iframe id="about_video" width="560" height="315" src="https://www.youtube.com/embed/4wlLbSBzCzM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

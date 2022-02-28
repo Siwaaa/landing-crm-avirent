@@ -27,5 +27,13 @@ burgerBtn.addEventListener('change', function() {
     if (this.checked) navbarMenu.style.height = '400px';
     else navbarMenu.style.height = '0';
 });
+// скрываем menu при клике на ссылку-навигацию-якорь
+const linksNavMobile = document.querySelectorAll('.navpanel-link');
+linksNavMobile.forEach((el)=>{
+    el.addEventListener('click', ()=>{
+        burgerBtn.checked = false;
+        navbarMenu.style.height = '0';
+    });
+});
 
 //# sourceMappingURL=policy.43ff36c8.js.map

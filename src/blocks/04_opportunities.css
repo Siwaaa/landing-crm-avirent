@@ -173,72 +173,74 @@
         bottom: 22%;
       }
 
-      & > .video {
-        --size-video: 65px;
-        position: absolute;
-        left: -26px;
-        top: -7px;
 
-        @media (--md) {
-          --size-video: 52px;
-        }
-      }
-      & .play-wrap {
-        position: relative;
-        left: 0;
-        right: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: linear-gradient(rgba(244, 154, 18, 0.7), rgba(244, 154, 18, 0.7)), url(../img/play_prew.png) no-repeat;
-        width: var(--size-video);
-        height: var(--size-video);
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: all .4s;
-        box-shadow: -23px -23px 71px 0px rgb(238 26 36 / 29%);
-
-        &:before {
-          width: calc(var(--size-video) + 35px);
-          height: calc(var(--size-video) + 35px);
-          border: 2px solid #F1B55B;
-          position: absolute;
-          content: "";
-          border-radius: 50%;
-          border-left-color: transparent;
-          border-right-color: transparent;
-          animation-name: rotateRevers;
-          animation-iteration-count: infinite;
-          animation-duration: 4s;
-          animation-timing-function: linear;
-        }
-        &:after {
-          width: calc(var(--size-video) + 15px);
-          height: calc(var(--size-video) + 15px);
-          border: 2px solid #F1B55B;
-          position: absolute;
-          content: "";
-          border-radius: 50%;
-          border-top-color: transparent;
-          border-bottom-color: transparent;
-          animation-name: rotate;
-          animation-iteration-count: infinite;
-          animation-duration: 4s;
-          animation-timing-function: linear;
-        }
-        & > img {
-          width: 30%;
-          object-fit: contain;
-        }
-      }
       & > p {
         @media (--md) {
           display: none;
         }
       }
     }
+  }
+}
+
+.video {
+  --size-video: 65px;
+  position: absolute;
+  left: -26px;
+  top: -7px;
+
+  @media (--md) {
+    --size-video: 52px;
+  }
+}
+.play-wrap {
+  position: relative;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(244, 154, 18, 0.7), rgba(244, 154, 18, 0.7)), url(../img/play_prew.png) no-repeat;
+  width: var(--size-video);
+  height: var(--size-video);
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .4s;
+  box-shadow: -23px -23px 71px 0px rgb(238 26 36 / 29%);
+
+  &:before {
+    width: calc(var(--size-video) + 35px);
+    height: calc(var(--size-video) + 35px);
+    border: 2px solid #F1B55B;
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation-name: rotateRevers;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+  }
+  &:after {
+    width: calc(var(--size-video) + 15px);
+    height: calc(var(--size-video) + 15px);
+    border: 2px solid #F1B55B;
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+  }
+  & > img {
+    width: 30%;
+    object-fit: contain;
   }
 }
 

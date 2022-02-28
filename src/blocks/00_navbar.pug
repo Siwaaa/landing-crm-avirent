@@ -8,7 +8,7 @@ include ../components/button.pug
     .navpanel__phone-top
       img(src="./img/icon_tel.svg")
       a(href="tel:+74951184046") +7 (495) 118-40-46 
-    button(type="button") Заказать звонок
+    button(type="button" data-open-modal_2) Заказать звонок
   .navpanel__login 
     +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white')
     +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register')
@@ -22,17 +22,17 @@ include ../components/button.pug
     p Навигация по сайту:
     ul
       li
-        a(href="#opportunities") Функционал
+        a(href="#opportunities" class="navpanel-link") Функционал
       li 
-        a(href="#help") Внедрение
+        a(href="#help" class="navpanel-link") Внедрение
       li 
-        a(href="#price") Тарифы
+        a(href="#price" class="navpanel-link") Тарифы
       li 
-        a(href="#otzovy") Отзывы
+        a(href="#otzovy" class="navpanel-link") Отзывы
     .navpanel__phone
       .navpanel__phone-top
         img(src="./img/icon_tel.svg")
         a(href="tel:+74951184046") +7 (495) 118-40-46 
-      button(type="button") Заказать звонок
+      button(type="button" data-open-modal_2) Заказать звонок
     +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register')
     +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white')
