@@ -31,5 +31,8 @@
     "parcel": "^2.2.1",
     "postcss-custom-media": "^8.0.0",
     "postcss-nested": "^5.0.6"
+  },
+  "dependencies": {
+    "imask": "^6.4.2"
   }
 }
