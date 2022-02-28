@@ -1,0 +1,26 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    //- Favicon start
+    link(rel="icon", href="./assets/favicon/favicon.ico", type="image/x-icon")
+    link(rel="icon" href="./assets/favicon/32x32.png" size="32x32" type="image/png")
+    link(rel="icon" href="./assets/favicon/16x16.png" size="16x16" type="image/png")
+    //- Favicon end
+    style
+      include index.css
+    style
+      include policy.css
+
+    title AVIRENT CRM – Комплексная автоматизация автопарка
+  body
+    nav.header__nav.navpanel
+      include blocks/00_navbar.pug
+    main.policy.container
+      include:markdown-it(breaks) ./data/policy.md
+    include blocks/14_footer.pug
+    //- JS
+    script(src='./js/navbar.js')

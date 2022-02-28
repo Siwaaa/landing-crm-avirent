@@ -15,8 +15,7 @@ const htmlWidget = `
       <a title="Viber" href="viber://chat?number=79270000000"><img src="https://volgo-prime.ru/img/icons/viber-icon.svg" alt="Viber" /></a>
       <a title="Telegram" href="https://t.me/romanvorozhbitov"><img src="https://volgo-prime.ru/img/icons/telegram-icon.svg" alt="Telegram" /></a>
     </div>
-  </div>`
-
+  </div>`;
 const cssWidget = `
 .messenger {
   display: block;
@@ -71,30 +70,23 @@ const cssWidget = `
 .messenger-links a:hover img {
   transform: scale(1.1);
   text-decoration: none;
-}`
-
+}`;
 // Инициализируем виджет, дождавшись загрузки всех элементов страницы 
-window.onload = function () {
-  let style = document.createElement('style');
-  style.innerHTML = cssWidget
-  document.body.append(style)
-
-  let div = document.createElement('div');
-  div.className = "messenger__container";
-  div.innerHTML = htmlWidget
-  document.body.append(div)
-
-  initListener()
+window.onload = function() {
+    let style = document.createElement('style');
+    style.innerHTML = cssWidget;
+    document.body.append(style);
+    let div = document.createElement('div');
+    div.className = "messenger__container";
+    div.innerHTML = htmlWidget;
+    document.body.append(div);
+    initListener();
 };
-
 function initListener() {
-  const menuBtn = document.querySelector(".messenger-btn"),
-    menu = document.querySelector(".messenger-links"),
-    menuContainer = document.querySelector(".messenger");
+    const menuBtn = document.querySelector(".messenger-btn"), menu = document.querySelector(".messenger-links"), menuContainer = document.querySelector(".messenger");
+    menuBtn.addEventListener("click", function() {
+        menu.classList.toggle("show");
+    });
+} // https://codepen.io/roman-vorozhbitov/pen/MWKYxGb
 
-  menuBtn.addEventListener("click", function () {
-    menu.classList.toggle("show")
-  });
-}
-
-// https://codepen.io/roman-vorozhbitov/pen/MWKYxGb
+//# sourceMappingURL=index.ca2e89b7.js.map

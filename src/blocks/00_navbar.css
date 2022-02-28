@@ -1,0 +1,63 @@
+.navpanel {
+  --h_nav: 86px;
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    gap: 10px;
+
+  }
+  &__logo {
+    --margin: 20px;
+    display: flex;
+    align-items: center;
+
+    & > img {
+      margin-right: var(--margin);
+    }
+    & > p {
+      position: relative;
+      font-size: 12px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: calc(var(--margin) / -2);
+        width: 1px;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+  }
+  &__phone {
+
+    &-top {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: var(--fz-h4);
+
+      & > *:first-child {
+        margin-right: 10px;
+      }
+    }
+
+    & > button {
+      display: block;
+      font-size: 10px;
+      text-decoration-line: underline;
+      margin-left: 28px;
+    }
+  }
+  &__login{
+    display: flex;
+    gap: 10px;
+
+    & > .btn {
+      font-weight: 400;
+      font-size: var(--fz);
+    }
+  }
+}

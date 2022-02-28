@@ -1,0 +1,38 @@
+include ../components/button.pug
+
+.navpanel__container
+  a(href='/' class='navpanel__logo')
+    img(src="./img/logo.svg", alt="logo")
+    p Система автоматизации <br> автопрокатов и таксопарков
+  .navpanel__phone
+    .navpanel__phone-top
+      img(src="./img/icon_tel.svg")
+      a(href="tel:+74951184046") +7 (495) 118-40-46 
+    button(type="button") Заказать звонок
+  .navpanel__login 
+    +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white')
+    +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register')
+  .navpanel__mobile 
+    +button('', 's', 'link', 'https://crm.avirent.ru/company/login', 'orange', './img/enter.svg')
+    .navpanel__burger 
+      input(type="checkbox" name="burger" id="burger")
+      label(for="burger")
+        .burger_icon
+  .navpanel__menu 
+    p Навигация по сайту:
+    ul
+      li
+        a(href="#opportunities") Функционал
+      li 
+        a(href="#help") Внедрение
+      li 
+        a(href="#price") Тарифы
+      li 
+        a(href="#otzovy") Отзывы
+    .navpanel__phone
+      .navpanel__phone-top
+        img(src="./img/icon_tel.svg")
+        a(href="tel:+74951184046") +7 (495) 118-40-46 
+      button(type="button") Заказать звонок
+    +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register')
+    +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white')

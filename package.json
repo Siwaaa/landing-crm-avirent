@@ -2,7 +2,10 @@
   "name": "landing-crm-avirent",
   "version": "1.0.0",
   "description": "",
-  "source": "./src/index.pug",
+  "source": [
+    "./src/index.pug",
+    "./src/policy.pug"
+  ],
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "start": "parcel",
