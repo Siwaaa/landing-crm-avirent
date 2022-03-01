@@ -1,7 +1,15 @@
+/**
+ * 
+ * Для добавления прослушки события клика на кнопках 
+ * следует добавить data-атрибут к html элементу с номером модального окна. 
+ * Например: data-open-modal_1
+ *
+ *  */ 
+
 const modal_1 = document.getElementById('modal1') //
-const modal_2 = document.getElementById('modal2') //
+const modal_2 = document.getElementById('modal2') // Оставьте номер, мы перезвоним
 const modal_3 = document.getElementById('modal3') // Спасибо, скоро перезвоним
-const modal_4 = document.getElementById('modal4') // Video
+const modal_4 = document.getElementById('modal4') // Видео
 
 const triggersForModal_1 = document.querySelectorAll("[data-open-modal_1]")
 triggersForModal_1.forEach((e) => {
@@ -41,7 +49,7 @@ triggersForModal_4.forEach((e) => {
 
 
 
-// When the user clicks anywhere outside of the modal, close it
+// Закрываем окна, когда нажатие происходит вне их области
 window.onclick = function(event) {
   switch (event.target) {
     case modal_1:

@@ -11,9 +11,9 @@ const htmlWidget = `
       </svg>
     </div>
     <div id="messenger-links" class="messenger-links">
-      <a title="Whatsapp" href="whatsapp://send?phone=79270000000"><img src="https://volgo-prime.ru/img/icons/whatsapp-icon.svg" alt="Whatsapp" /></a>
-      <a title="Viber" href="viber://chat?number=79270000000"><img src="https://volgo-prime.ru/img/icons/viber-icon.svg" alt="Viber" /></a>
-      <a title="Telegram" href="https://t.me/romanvorozhbitov"><img src="https://volgo-prime.ru/img/icons/telegram-icon.svg" alt="Telegram" /></a>
+      <a title="Whatsapp" href="https://wa.me/79206502116" target="_blank"><img src="https://volgo-prime.ru/img/icons/whatsapp-icon.svg" alt="Whatsapp" /></a>
+      <a title="Viber" href="https://viber.click/79026681880" target="_blank"><img src="https://volgo-prime.ru/img/icons/viber-icon.svg" alt="Viber" /></a>
+      <a title="Telegram" href="https://t.me/fastlem" target="_blank"><img src="https://volgo-prime.ru/img/icons/telegram-icon.svg" alt="Telegram" /></a>
     </div>
   </div>`
 
