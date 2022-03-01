@@ -134,6 +134,7 @@
 
     @media (--lg) {
       flex-direction: column;
+      height: ;
     }
     @media (--sm) {
       height: 100%;

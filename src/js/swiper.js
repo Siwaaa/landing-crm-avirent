@@ -1,7 +1,6 @@
 import Swiper from './swiper-bundle.min.js'
 
 const swiperProblems = new Swiper('.problems__swiper', {
-  // Optional parameters
   slidesPerView: 1,
   spaceBetween: 50,
   CSSWidthAndHeight: true,
@@ -13,19 +12,15 @@ const swiperProblems = new Swiper('.problems__swiper', {
   },
 });
 
-const swiperAdvantages = new Swiper('.advantages__body--swiper', {
-  // Optional parameters
-  slidesPerView: 1,
+const swiperOtzovy = new Swiper('.otzovy__swiper', {
+  slidesPerView: document.documentElement.clientWidth < 900 ? 1 : 3,
+  centeredSlides: true,
   spaceBetween: 50,
   CSSWidthAndHeight: true,
   loop: true,
   grabCursor: true,
-  pagination: {
-    el: '.advantages__nav-pagination',
-    type: 'bullets',
-  },
   navigation: {
-    prevEl: ".advantages__nav-prev",
-    nextEl: ".advantages__nav-next",
+    prevEl: ".otzovy__nav-prev",
+    nextEl: ".otzovy__nav-next",
   },
 });

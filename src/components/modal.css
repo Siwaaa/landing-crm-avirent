@@ -87,7 +87,7 @@
       top: auto;
       margin-bottom: 30px;
     }
-    & > #about_video {
+    & > iframe {
       width: 100%;
     }
   }

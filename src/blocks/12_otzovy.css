@@ -4,4 +4,62 @@
   &__container {
     
   }
+
+  &__swiper {
+    /* width: 50%; */
+    &-item {
+      --width-mob: 250px;
+      display: flex;
+      background: url(../img/phone.png) top / contain no-repeat;
+      width: var(--width-mob);
+      height: calc(2.03 * var(--width-mob));
+      max-height: 646px;
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 7px 9px;
+
+      & > img {
+        object-fit: contain;
+        width: calc(var(--width-mob) - 22px);
+        height: 100%;
+        border-radius: 30px;
+        transition: all 1s ease-in-out;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      @media () {
+        
+      }
+    }
+  }
+  &__nav {
+    &-prev, &-next {
+      --btn-nav: 30%;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      left: var(--btn-nav);
+      margin-top: calc(-1 * 40px/ 2);
+      background: url(../img/otzovy_nav.svg) center / 25% no-repeat, var(--color-orange);
+      border-radius: 50%;
+      z-index: 10;
+      cursor: pointer;
+
+      @media (--lg) {
+        --btn-nav: 20%
+      }
+      @media (--sm) {
+        --btn-nav: 0%
+      }
+    }
+    &-next {
+      right: var(--btn-nav);
+      left: auto;
+      transform: rotate(180deg);
+    }
+  }
+}
+.swiper-slide-prev, .swiper-slide-next {
+  opacity: 0.5;
 }
