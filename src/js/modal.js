@@ -44,6 +44,10 @@ triggersForModal_4.forEach((e) => {
     event.preventDefault();
     modal_4.style.display = "block";
     document.body.style.overflow = 'hidden';
+    modal_4.querySelector('.iframe').insertAdjacentHTML(
+      'beforeend',
+      `<iframe width="560" height="315" src="https://www.youtube.com/embed/Xj6pj12ywN8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    )
   })
 })
 

@@ -23,6 +23,10 @@
       object-fit: contain;
       width: 100%;
       transition: all 1s ease-in-out;
+
+      @media (--md) {
+        display: none; /* нужно для унификации работы lazy load */
+      }
     }
 
 

@@ -2,7 +2,7 @@ include ../components/input-button.pug
 
 mixin item(title, text, imgPath)
   .list-economy__item
-    img(src=imgPath)
+    img(src=imgPath loading="lazy")
     h4=title
     p=text
 

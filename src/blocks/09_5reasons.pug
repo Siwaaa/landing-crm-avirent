@@ -1,6 +1,6 @@
 mixin item(title, text, imgPath)
   .list-reasons__item.item-wrapper
-    img(src=imgPath)
+    img(src=imgPath loading="lazy")
     h4=title 
     p=text
 
