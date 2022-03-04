@@ -61,10 +61,16 @@ const listInfo = [
   }
 ]
 
+// focused nav link
+const links = document.querySelectorAll(".link-nav")
 
-window.onload = function () {
-  document.getElementById("link-active").focus();
-}
+links.forEach(e => {
+  e.addEventListener('click', () => {
+    links.forEach(el => {
+      el.classList.remove('link-active')
+    })
+  })
+})
 
 // Scroll to #
 

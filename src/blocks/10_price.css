@@ -119,7 +119,7 @@
     display: flex;
     gap: 5px;
     width: 100%;
-    height: 65px;
+    /* height: 65px; */
 
     & > .input {
       flex-basis: 50%;
