@@ -6,7 +6,7 @@ include ../components/input-button.pug
       .modal__head
         h2 Пользуйтесь AvirentCRM БЕСПЛАТНО
       .modal__main
-        img(src="./img/reg.png", alt="Регистрация")
+        img(src="./img/reg.png?width=490", alt="Регистрация")
       .modal__form(action='')
         +input-button('Попробовать бесплатно', 's', 'tel')
 
@@ -35,4 +35,4 @@ include ../components/input-button.pug
   .modal__container
     .modal__body
       .modal__main.iframe
-        //- Сам iframe с видео лежит в modal.js, для lazy load
+        //- Сам iframe с видео лежит в modal.js, во имя lazy load
