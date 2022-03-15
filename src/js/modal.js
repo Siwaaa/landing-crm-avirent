@@ -1,21 +1,22 @@
 /**
  * 
- * Для добавления прослушки события клика на кнопках 
+ * Для добавления тригера открытия модального окна на кнопку 
  * следует добавить data-атрибут к html элементу с номером модального окна. 
  * Например: data-open-modal_1
  *
  *  */ 
-
-const modal_1 = document.getElementById('modal1') //
-const modal_2 = document.getElementById('modal2') // Оставьте номер, мы перезвоним
-const modal_3 = document.getElementById('modal3') // Спасибо, скоро перезвоним
-const modal_4 = document.getElementById('modal4') // Видео
+const modals = [
+  document.getElementById('modal1'), // попап ухода с сайта
+  document.getElementById('modal2'), // Оставьте номер, мы перезвоним
+  document.getElementById('modal3'), // Спасибо, скоро перезвоним. Отправляется после заполнения формы с номером
+  document.getElementById('modal4') // Видео
+]
 
 const triggersForModal_1 = document.querySelectorAll("[data-open-modal_1]")
 triggersForModal_1.forEach((e) => {
   e.addEventListener('click', (event) => {
     event.preventDefault();
-    modal_1.style.display = "block";
+    modals[0].style.display = "block";
     document.body.style.overflow = 'hidden';
   })
 })
@@ -24,7 +25,7 @@ const triggersForModal_2 = document.querySelectorAll("[data-open-modal_2]")
 triggersForModal_2.forEach((e) => {
   e.addEventListener('click', (event) => {
     event.preventDefault();
-    modal_2.style.display = "block";
+    modals[1].style.display = "block";
     document.body.style.overflow = 'hidden';
   })
 })
@@ -33,7 +34,7 @@ const triggersForModal_3 = document.querySelectorAll("[data-open-modal_3]")
 triggersForModal_3.forEach((e) => {
   e.addEventListener('click', (event) => {
     event.preventDefault();
-    modal_3.style.display = "block";
+    modals[2].style.display = "block";
     document.body.style.overflow = 'hidden';
   })
 })
@@ -42,39 +43,53 @@ const triggersForModal_4 = document.querySelectorAll("[data-open-modal_4]")
 triggersForModal_4.forEach((e) => {
   e.addEventListener('click', (event) => {
     event.preventDefault();
-    modal_4.style.display = "block";
+    modals[3].style.display = "block";
     document.body.style.overflow = 'hidden';
-    modal_4.querySelector('.iframe').insertAdjacentHTML(
+    modals[3].querySelector('.iframe').insertAdjacentHTML(
       'beforeend',
       `<iframe width="560" height="315" src="https://www.youtube.com/embed/Xj6pj12ywN8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     )
   })
 })
 
+// функция открытия попапа 
+export function openModal(numberModal) {
+  modals[numberModal - 1].style.display = "block";
+  document.body.style.overflow = 'hidden';
+}
+// попап выхода с сайта
+document.addEventListener("mouseout", (event) => {
+  if (!event.toElement && !event.relatedTarget) {
+    setTimeout(() => {
+      openModal(1);
+    }, 500);
+  }
+});
 
 
 // Закрываем окна, когда нажатие происходит вне их области
 window.onclick = function(event) {
   switch (event.target) {
-    case modal_1:
-      modal_1.style.display = "none";
+    case modals[0]:
+      modals[0].style.display = "none";
       document.body.style.overflow = "visible"
       break;
-    case modal_2:
-      modal2.style.display = "none";
+    case modals[1]:
+      modals[1].style.display = "none";
       document.body.style.overflow = "visible"
       break;
-    case modal_3:
-      modal3.style.display = "none";
+    case modals[2]:
+      modals[2].style.display = "none";
       document.body.style.overflow = "visible"
       break;
-    case modal_4:
-      modal4.style.display = "none";
+    case modals[3]:
+      modals[3].style.display = "none";
       document.body.style.overflow = "visible"
       // stop video 
-      const video = document.getElementById('about_video')
-      const src = video.src;
-      video.src = src;
+      // const video = document.getElementById('about_video')
+      // const src = video.src;
+      // video.src = src;
+      modals[3].querySelector('iframe').remove()
       break;
     default:
       break;
