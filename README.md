@@ -1,5 +1,10 @@
 # Landing for CRM AVIRENT
 
+## Install dep
+
+```sh
+npm i
+```
 
 ## Development
 

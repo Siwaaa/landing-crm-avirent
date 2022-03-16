@@ -58,8 +58,9 @@ export function openModal(numberModal) {
   document.body.style.overflow = 'hidden';
 }
 // попап выхода с сайта
-document.addEventListener("mouseout", (event) => {
-  if (!event.toElement && !event.relatedTarget) {
+document.addEventListener("mouseleave", function(event) {
+  console.log(event);
+  if (!event.toElement && !event.relatedTarget && event.offsetY < 1) {
     setTimeout(() => {
       openModal(1);
     }, 500);
