@@ -58,14 +58,16 @@ export function openModal(numberModal) {
   document.body.style.overflow = 'hidden';
 }
 // попап выхода с сайта
-document.querySelector("body").addEventListener("mouseleave", function(event) {
-  console.log(event);
+const byebye = (event) => {
   if (!event.toElement && !event.relatedTarget && event.offsetY < 1) {
     setTimeout(() => {
       openModal(1);
+      document.removeEventListener("mouseleave", byebye);
     }, 500);
   }
-});
+}
+document.addEventListener("mouseleave", byebye);
+
 
 
 // Закрываем окна, когда нажатие происходит вне их области
