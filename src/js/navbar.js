@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const headerHidden = () => header.classList.contains('header__nav-fixed') // узнаем скрыт header или нет
 
-      if (currentScroll > prevScroll && !headerHidden()) { // если прокручиваем страницу вниз и header не скрыт
+      if (currentScroll > 100 && currentScroll > prevScroll && !headerHidden()) { // если прокручиваем страницу вниз и header не скрыт, при этом не трогаем header если мы вверху окна
         header.classList.add('header__nav-fixed') // то скрываем header
       }
       if (currentScroll < prevScroll && headerHidden()) { // если прокручиваем страницу вверх и header скрыт
