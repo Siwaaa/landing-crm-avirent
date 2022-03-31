@@ -53,11 +53,14 @@
   }
   &__login{
     display: flex;
-    gap: 10px;
 
     & > .btn {
       font-weight: 400;
       font-size: var(--fz);
+
+      &:first-child {
+        margin-right: 10px;
+      }
     }
   }
 }
