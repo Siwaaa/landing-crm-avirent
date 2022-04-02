@@ -90,7 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
           && img.getBoundingClientRect().bottom >= 0)
           && getComputedStyle(img).display !== "none"
         ) {
-          img.src = img.nextSibling.firstChild.textContent.match(/"([^"]+)"/)[1];
+          const reg = img.nextSibling.firstChild.textContent.split(/"([^"]*)"/g);
+          img.src = reg[1];
+          if(reg[3]) img.srcset = reg[3]
           img.removeAttribute('data-src')
         }
       });

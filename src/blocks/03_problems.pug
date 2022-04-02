@@ -1,7 +1,7 @@
-mixin card(text, imgPath)
+mixin card(text, imgName)
     .card-problems__item.item-wrapper 
       p=text 
-      img(src=imgPath)
+      img(src=`./img/cards-problems/${imgName}.png` srcset=`./img/cards-problems/${imgName}@2x.png 2x`)
 
 section.problems
   .problems__container.container
@@ -9,28 +9,28 @@ section.problems
       h2 Занимаемся внедрением CRM с 2015 года и знаем с какими проблемами вы сталкиваетесь
     .problems__body 
       div(class="card-problems" data-animate-on-scroll)
-        +card("Используете 10 программ,\nчтобы контролировать процессы", "./img/cards-problems/1.png")
-        +card("Не понимаете рентабельности машины и водителя", "./img/cards-problems/2.png")
-        +card("80% времени уходит на рутину,\nа не на развитие компании", "./img/cards-problems/3.png")
+        +card("Используете 10 программ,\nчтобы контролировать процессы", "1")
+        +card("Не понимаете рентабельности машины и водителя", "2")
+        +card("80% времени уходит на рутину,\nа не на развитие компании", "3")
       div(class="card-problems" data-animate-on-scroll)
-        +card("Сложно определить свободный автомобиль", "./img/cards-problems/4.png")
-        +card("Водители не оплачивают аренду ТС и начинают копить долги.\nВ итоге машина работает в минус", "./img/cards-problems/5.png")
-        +card("Отсутствие грамотного и прозрачного финансового учёта", "./img/cards-problems/6.png")
-        +card("Много времени уходит на разнос и оплату штрафов", "./img/cards-problems/7.png")
+        +card("Сложно определить свободный автомобиль", "4")
+        +card("Водители не оплачивают аренду ТС и начинают копить долги.\nВ итоге машина работает в минус", "5")
+        +card("Отсутствие грамотного и прозрачного финансового учёта", "6")
+        +card("Много времени уходит на разнос и оплату штрафов", "7")
       div(class="problems__swiper swiper-container" data-animate-on-scroll)
         .swiper-wrapper
           .problems__swiper-item.swiper-slide
-            +card("Используете 10 программ,\nчтобы контролировать процессы", "./img/cards-problems/1.png")
+            +card("Используете 10 программ,\nчтобы контролировать процессы", "1")
           .problems__swiper-item.swiper-slide
-            +card("Не понимаете рентабельности машины и водителя", "./img/cards-problems/2.png")
+            +card("Не понимаете рентабельности машины и водителя", "2")
           .problems__swiper-item.swiper-slide
-            +card("80% времени уходит на рутину,\nа не на развитие компании", "./img/cards-problems/3.png")
+            +card("80% времени уходит на рутину,\nа не на развитие компании", "3")
           .problems__swiper-item.swiper-slide 
-            +card("Сложно определить свободный автомобиль", "./img/cards-problems/4.png")
+            +card("Сложно определить свободный автомобиль", "4")
           .problems__swiper-item.swiper-slide 
-            +card("Водители не оплачивают аренду ТС и начинают копить долги.\nВ итоге машина работает в минус", "./img/cards-problems/5.png")
+            +card("Водители не оплачивают аренду ТС и начинают копить долги.\nВ итоге машина работает в минус", "5")
           .problems__swiper-item.swiper-slide  
-            +card("Отсутствие грамотного и прозрачного финансового учёта", "./img/cards-problems/6.png")
+            +card("Отсутствие грамотного и прозрачного финансового учёта", "6")
           .problems__swiper-item.swiper-slide
-            +card("Много времени уходит на разнос и оплату штрафов", "./img/cards-problems/7.png")
+            +card("Много времени уходит на разнос и оплату штрафов", "7")
       .problems__nav

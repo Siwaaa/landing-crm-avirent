@@ -5,4 +5,4 @@ mixin safari(imgPath, id, startActive, ...items)
         img(data-src=`${imgPath}${item}.png` src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=" class=`${item == startActive ? 'active': ''} ${attributes.class}` id=id+item)
 
         noscript
-         img(src=`${imgPath}${item}.png`)
+          img(src=`${imgPath}${item}.png` srcset=`${imgPath}${item}@2x.png 2x`)

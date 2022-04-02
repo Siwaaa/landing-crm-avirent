@@ -4,7 +4,7 @@
   font-size: var(--fz-btn);
   padding: 10px 20px;
   border-radius: var(--border-radius);
-  transition: all .5s ease-in-out;
+  transition: all .4s ease-in-out;
   position: relative;
   overflow: hidden;
 
@@ -14,7 +14,7 @@
     box-shadow: 0px 8px 13px rgba(255, 195, 19, 0.3);
 
     &:hover {
-      background-color: #F8AB38;
+      background-color: #FFB949;
       box-shadow: none;
       color: #fff;
     }

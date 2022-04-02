@@ -1,13 +1,13 @@
-mixin button(title, size="m", type="button", href, color="orange", imgPath)
+mixin button(title, size="m", type="button", href, color="orange", flareEffect, imgPath)
   if type!="link"
     button(type=type, class=`btn btn-${color} btn-${size}` )= title
       if imgPath 
         img(src=imgPath)
-      else 
+      else if flareEffect
         .flare
   else
     a(href=href target="_blank" class=`btn btn-${color} btn-${size}`)= title 
       if imgPath 
         img(src=imgPath)
-      else 
+      else if flareEffect
         .flare

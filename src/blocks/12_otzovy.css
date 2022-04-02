@@ -10,7 +10,6 @@
     &-item {
       --width-mob: 250px;
       display: flex;
-      background: url(../img/phone.png) top / contain no-repeat;
       width: var(--width-mob);
       height: calc(2.03 * var(--width-mob));
       max-height: 646px;

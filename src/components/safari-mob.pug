@@ -5,5 +5,4 @@ mixin safari-mob(imgPath, id, startActive, ...items)
         img(data-src=`${imgPath}${item}.png` src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII=" class=`${item == startActive ? 'active': ''} ${attributes.class}` id=id+item)
 
         noscript
-          //- Параметр width для parcel сокращает ширину картинки до нужной
-          img(src=`${imgPath}${item}.png?width=212`)
+          img(src=`${imgPath}${item}.png` srcset=`${imgPath}${item}@2x.png 2x`)

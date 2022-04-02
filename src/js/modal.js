@@ -47,7 +47,7 @@ triggersForModal_4.forEach((e) => {
     document.body.style.overflow = 'hidden';
     modals[3].querySelector('.iframe').insertAdjacentHTML(
       'beforeend',
-      `<iframe width="560" height="315" src="https://www.youtube.com/embed/Xj6pj12ywN8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      `<iframe width="560" height="415" src="https://www.youtube.com/embed/Xj6pj12ywN8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
     )
   })
 })

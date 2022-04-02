@@ -44,6 +44,11 @@
       margin: 2% auto;  
     }
 
+    #modal4 & {
+      width: 90%;
+      max-width: none;
+    }
+
     @media (--md) {
       width: 80%;
     }

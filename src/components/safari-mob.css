@@ -4,7 +4,7 @@
   &__content {
     --width-mob: 230px;
     position: relative;
-    background: url(../img/phone.png) top / contain no-repeat;
+    /* background: url(../img/phone.png) top / contain no-repeat; */
     width: var(--width-mob);
     height: calc(2.03 * var(--width-mob));
     max-height: 646px;
@@ -12,7 +12,7 @@
     margin-right: auto;
     margin-left: auto;
     overflow: hidden;
-    padding: 7px 9px;
+    /* padding: 7px 9px; */
 
     & > img {
       display: none; /* нужно для унификации работы lazy load */
@@ -20,13 +20,13 @@
       opacity: 0;
       visibility: hidden;
       object-fit: contain;
-      width: calc(var(--width-mob) - 18px);
+      width: 100%;
       position: absolute;
       height: calc(100% - 16px);
-      left: 9px;
+      /* left: 9px;
       right: 9px;
       top: 8px;
-      bottom: 8px;
+      bottom: 8px; */
       border-radius: 21px;
       transition: all 1s ease-in-out;
 

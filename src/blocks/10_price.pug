@@ -5,12 +5,12 @@ section.price#price
   .price__container.container
     .price__body
       .price__img 
-        img(src="./img/price.png", alt="Каталог с ценами")
+        img(src="./img/price.png" srcset="./img/price@2x.png 2x" alt="Каталог с ценами")
       .price__main
         h2 В прайсе есть полная стоимость на все наши тарифы и гибкие варианты оплаты
         p Скачайте прайс-лист в удобный вам мессенджер
         .mobile 
-          img(src="./img/price.png", alt="Каталог с ценами" loading="lazy")
+          img(src="./img/price.png?width=250" srcset="./img/price@2x.png?width=504 2x" alt="Каталог с ценами" loading="lazy")
         .price__form
           .messengers-price
             .messengers-price__item

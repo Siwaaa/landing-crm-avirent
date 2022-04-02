@@ -31,13 +31,33 @@
   }
 
   &__links {
-    margin-top: 20px;
+    margin-top: 60px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
     color: #fff;
     font-weight: 400;
     font-size: 12px;
+
+    &:last-child {
+      margin-top: 20px;
+    }
+
+    & > * {
+      margin-bottom: 10px;
+      &:not(:last-child) {
+        margin-right: 10px;
+
+        @media (--sm) {
+          margin-right: 0;
+        }
+      }
+
+      @media (--sm) {
+        margin-bottom: 0;
+      }
+    }
 
     & a {
       text-decoration: underline;
@@ -50,7 +70,6 @@
 
     @media (--sm) {
       flex-direction: column;
-
       gap: 10px;
     }
   }
