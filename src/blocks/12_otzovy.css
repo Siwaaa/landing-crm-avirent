@@ -8,18 +8,18 @@
   &__swiper {
     /* width: 50%; */
     &-item {
-      --width-mob: 250px;
+      --width-mob: 260px;
       display: flex;
       width: var(--width-mob);
       height: calc(2.03 * var(--width-mob));
       max-height: 646px;
       border-radius: 10px;
       overflow: hidden;
-      padding: 7px 9px;
+      padding: 7px;
 
       & > img {
         object-fit: contain;
-        width: calc(var(--width-mob) - 22px);
+        width: var(--width-mob);
         height: 100%;
         border-radius: 30px;
         transition: all 1s ease-in-out;

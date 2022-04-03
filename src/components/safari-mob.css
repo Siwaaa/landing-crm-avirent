@@ -2,7 +2,7 @@
   display: none;
 
   &__content {
-    --width-mob: 230px;
+    --width-mob: 260px;
     position: relative;
     /* background: url(../img/phone.png) top / contain no-repeat; */
     width: var(--width-mob);
