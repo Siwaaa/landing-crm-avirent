@@ -2,13 +2,13 @@
   display: none;
 
   &__content {
-    --width-mob: 260px;
+    --width-mob: 270px;
     position: relative;
     /* background: url(../img/phone.png) top / contain no-repeat; */
     width: var(--width-mob);
     height: calc(2.03 * var(--width-mob));
     max-height: 646px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     margin-right: auto;
     margin-left: auto;
     overflow: hidden;

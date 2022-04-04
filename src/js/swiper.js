@@ -13,7 +13,7 @@ const swiperProblems = new Swiper('.problems__swiper', {
 });
 
 const swiperOtzovy = new Swiper('.otzovy__swiper', {
-  slidesPerView: document.documentElement.clientWidth < 934 ? 1 : 3,
+  slidesPerView: document.documentElement.clientWidth < 989 ? 1 : 3,
   centeredSlides: true,
   spaceBetween: 50,
   CSSWidthAndHeight: true,

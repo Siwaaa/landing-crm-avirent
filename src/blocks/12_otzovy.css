@@ -8,7 +8,7 @@
   &__swiper {
     /* width: 50%; */
     &-item {
-      --width-mob: 260px;
+      --width-mob: 270px;
       display: flex;
       width: var(--width-mob);
       height: calc(2.03 * var(--width-mob));
