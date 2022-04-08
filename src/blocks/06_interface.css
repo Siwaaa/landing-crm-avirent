@@ -74,7 +74,7 @@
 
   &__item {
     position: absolute;
-    width: 200px;
+    width: 240px;
     padding: 30px 20px;
     background: #FFFFFF;
     border: 1px solid #F8F8FA;
@@ -87,10 +87,22 @@
     &-info {
       color: #000;
       top: 30%;
+
+      @media (--xl) {
+        display: none;
+      }
+      @media (--md) {
+        display: block;
+      }
     }
     &-action {
       color: #000;
-      bottom: 1%;
+      bottom: 8%;
+
+      @media (--lg) {
+        width: 200px;
+        bottom: 5%;
+      }
     }
 
     & > h4 {

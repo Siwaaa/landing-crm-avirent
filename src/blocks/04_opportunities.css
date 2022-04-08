@@ -154,6 +154,7 @@
       }
 
       @media (--xl) {
+        top: 13%;
         width: 280px;
       }
       @media (--lg) {
