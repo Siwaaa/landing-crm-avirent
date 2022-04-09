@@ -28,7 +28,7 @@ section.price#price
               label(for="mes-tg")
                 img(src="./img/messengers/tg.svg", alt="Telegram")
                 span Telegram
-          .price__submit         
+          form.price__submit         
             +input('Ваш телефон в WhatsApp', 'tel')(id="input-mes")
-            +button('Скачать прайс-лист')
+            +button('Скачать прайс-лист', 'm', 'submit')
         

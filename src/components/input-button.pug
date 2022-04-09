@@ -3,5 +3,5 @@ include ./button.pug
 mixin input-button(title, size="m", typeInput="tel", helperText)
   form.inputbutton
     input(type=typeInput placeholder="+7 (999) 999 99 99")
-    +button(title, size)
+    +button(title, size, "submit")
   span.inputbutton-helper!=helperText

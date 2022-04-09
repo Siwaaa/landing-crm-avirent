@@ -8,7 +8,7 @@
 const modals = [
   document.getElementById('modal1'), // попап ухода с сайта
   document.getElementById('modal2'), // Оставьте номер, мы перезвоним
-  document.getElementById('modal3'), // Спасибо, скоро перезвоним. Отправляется после заполнения формы с номером
+  document.getElementById('modal3'), // Спасибо, скоро вышлем прайс
   document.getElementById('modal4') // Видео
 ]
 
