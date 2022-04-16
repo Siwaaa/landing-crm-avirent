@@ -104,18 +104,18 @@ const cssWidget = `
 }`
 
 // Инициализируем виджет, дождавшись загрузки всех элементов страницы 
-window.onload = function () {
-  let style = document.createElement('style');
-  style.innerHTML = cssWidget
-  document.body.append(style)
+// window.onload = function () {
+//   let style = document.createElement('style');
+//   style.innerHTML = cssWidget
+//   document.body.append(style)
 
-  let div = document.createElement('div');
-  div.className = "messenger__container";
-  div.innerHTML = htmlWidget
-  document.body.append(div)
+//   let div = document.createElement('div');
+//   div.className = "messenger__container";
+//   div.innerHTML = htmlWidget
+//   document.body.append(div)
 
-  initListener()
-};
+//   initListener()
+// };
 
 function initListener() {
   const menuBtn = document.querySelector(".messenger-btn"),
@@ -126,5 +126,3 @@ function initListener() {
     menu.classList.toggle("show")
   });
 }
-
-// https://codepen.io/roman-vorozhbitov/pen/MWKYxGb
