@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
+@import "./reset.css";
+@import "./blocks/*.css";
+@import "./components/*.css";
+
 html {
   font-family: 'Montserrat', sans-serif;
   background-color: var(--color-white);
@@ -83,10 +87,6 @@ b {
   box-shadow: 0px 10px 30px rgba(62, 44, 70, 0.1);
   border-radius: calc(2 * var(--border-radius));
 }
-
-@import "./reset.css";
-@import "./blocks/*.css";
-@import "./components/*.css";
 
 /* Animation */
 *[data-animate-on-scroll] {

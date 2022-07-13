@@ -16,7 +16,7 @@ elements.forEach(e => {
 /*
 * Обработка формы и отправка в Битрикс24
 */
-const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/3sf6le9xeq3c8mu2/'
+const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/nwob5jfa6b5yeqn2/'
 const bitrix_method = 'crm.lead.add.json'
 
 const forms = document.querySelectorAll('form')
@@ -32,7 +32,7 @@ forms.forEach(el => {
       {
         "TITLE": "Новая заявка с сайта",
         "OPENED": "Y",
-        "ASSIGNED_BY_ID": 1,
+        "ASSIGNED_BY_ID": 3589,
         "SOURCE_DESCRIPTION": `Заполненная форма: ${btn.textContent == 'Скачать прайс-лист' ? input.placeholder + '. Отправить прайс' : btn.textContent}`,
         "PHONE": [{ "VALUE": input.value, "VALUE_TYPE": "WORK" }]
       },
@@ -43,7 +43,7 @@ forms.forEach(el => {
       .then((data) => {
         console.log(data);
         if(btn.textContent != 'Скачать прайс-лист') {
-          window.location.href = "https://crm.avirent.ru/company/register";
+          // window.location.href = "https://crm.avirent.ru/company/register";
         } else {
           openModal(3) // открываем модальное окно, если запросили прайс
         }
