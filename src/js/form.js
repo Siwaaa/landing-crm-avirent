@@ -43,7 +43,7 @@ forms.forEach(el => {
       .then((data) => {
         console.log(data);
         if(btn.textContent != 'Скачать прайс-лист') {
-          // window.location.href = "https://crm.avirent.ru/company/register";
+          window.location.href = "https://crm.avirent.ru/company/register";
         } else {
           openModal(3) // открываем модальное окно, если запросили прайс
         }
