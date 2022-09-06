@@ -32,7 +32,7 @@ forms.forEach(el => {
       {
         "TITLE": "Новая заявка с сайта",
         "OPENED": "Y",
-        "ASSIGNED_BY_ID": 3589,
+        "ASSIGNED_BY_ID": 3677,
         "SOURCE_DESCRIPTION": `Заполненная форма: ${btn.textContent == 'Скачать прайс-лист' ? input.placeholder + '. Отправить прайс' : btn.textContent}`,
         "PHONE": [{ "VALUE": input.value, "VALUE_TYPE": "WORK" }]
       },
