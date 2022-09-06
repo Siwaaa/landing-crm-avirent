@@ -16,7 +16,7 @@ elements.forEach(e => {
 /*
 * Обработка формы и отправка в Битрикс24
 */
-const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/nwob5jfa6b5yeqn2/'
+const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/cx9amt3xavhz0zjb/'
 const bitrix_method = 'crm.lead.add.json'
 
 const forms = document.querySelectorAll('form')
