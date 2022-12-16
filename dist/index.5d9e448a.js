@@ -142,89 +142,15 @@
       this[globalName] = mainExports;
     }
   }
-})({"1WwGm":[function(require,module,exports) {
+})({"5wnQi":[function(require,module,exports) {
 "use strict";
+var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "dad295b85d9e448a";
-function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _iterableToArray(iter) {
-    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
-}
-function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-function _createForOfIteratorHelper(o, allowArrayLike) {
-    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
-    if (!it) {
-        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-            if (it) o = it;
-            var i = 0;
-            var F = function F() {
-            };
-            return {
-                s: F,
-                n: function n() {
-                    if (i >= o.length) return {
-                        done: true
-                    };
-                    return {
-                        done: false,
-                        value: o[i++]
-                    };
-                },
-                e: function e(_e) {
-                    throw _e;
-                },
-                f: F
-            };
-        }
-        throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
-    var normalCompletion = true, didErr = false, err;
-    return {
-        s: function s() {
-            it = it.call(o);
-        },
-        n: function n() {
-            var step = it.next();
-            normalCompletion = step.done;
-            return step;
-        },
-        e: function e(_e2) {
-            didErr = true;
-            err = _e2;
-        },
-        f: function f() {
-            try {
-                if (!normalCompletion && it.return != null) it.return();
-            } finally{
-                if (didErr) throw err;
-            }
-        }
-    };
-}
-function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
-    return arr2;
-}
-/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE */ /*::
+/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
   HMRMessage,
@@ -251,12 +177,25 @@ interface ParcelModule {
     _disposeCallbacks: Array<(mixed) => void>,
   |};
 }
+interface ExtensionContext {
+  runtime: {|
+    reload(): void,
+    getURL(url: string): string;
+    getManifest(): {manifest_version: number, ...};
+  |};
+}
 declare var module: {bundle: ParcelRequire, ...};
 declare var HMR_HOST: string;
 declare var HMR_PORT: string;
 declare var HMR_ENV_HASH: string;
 declare var HMR_SECURE: boolean;
-*/ var OVERLAY_ID = '__parcel__error__overlay__';
+declare var chrome: ExtensionContext;
+declare var browser: ExtensionContext;
+declare var __parcel__import__: (string) => Promise<void>;
+declare var __parcel__importScripts__: (string) => Promise<void>;
+declare var globalThis: typeof self;
+declare var ServiceWorkerGlobalScope: Object;
+*/ var OVERLAY_ID = "__parcel__error__overlay__";
 var OldModule = module.bundle.Module;
 function Module(moduleName) {
     OldModule.call(this, moduleName);
@@ -264,72 +203,66 @@ function Module(moduleName) {
         data: module.bundle.hotData,
         _acceptCallbacks: [],
         _disposeCallbacks: [],
-        accept: function accept(fn) {
-            this._acceptCallbacks.push(fn || function() {
-            });
+        accept: function(fn) {
+            this._acceptCallbacks.push(fn || function() {});
         },
-        dispose: function dispose(fn) {
+        dispose: function(fn) {
             this._disposeCallbacks.push(fn);
         }
     };
     module.bundle.hotData = undefined;
 }
 module.bundle.Module = Module;
-var checkedAssets, acceptedAssets, assetsToAccept;
+var checkedAssets, acceptedAssets, assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
 function getHostname() {
-    return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
+    return HMR_HOST || (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost");
 }
 function getPort() {
     return HMR_PORT || location.port;
 } // eslint-disable-next-line no-redeclare
 var parent = module.bundle.parent;
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
     var hostname = getHostname();
     var port = getPort();
-    var protocol = HMR_SECURE || location.protocol == 'https:' && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? 'wss' : 'ws';
-    var ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/'); // $FlowFixMe
-    ws.onmessage = function(event) {
-        checkedAssets = {
-        };
-        acceptedAssets = {
-        };
+    var protocol = HMR_SECURE || location.protocol == "https:" && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? "wss" : "ws";
+    var ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/"); // Web extension context
+    var extCtx = typeof chrome === "undefined" ? typeof browser === "undefined" ? null : browser : chrome; // Safari doesn't support sourceURL in error stacks.
+    // eval may also be disabled via CSP, so do a quick check.
+    var supportsSourceURL = false;
+    try {
+        (0, eval)('throw new Error("test"); //# sourceURL=test.js');
+    } catch (err) {
+        supportsSourceURL = err.stack.includes("test.js");
+    } // $FlowFixMe
+    ws.onmessage = async function(event) {
+        checkedAssets = {} /*: {|[string]: boolean|} */ ;
+        acceptedAssets = {} /*: {|[string]: boolean|} */ ;
         assetsToAccept = [];
         var data = JSON.parse(event.data);
-        if (data.type === 'update') {
+        if (data.type === "update") {
             // Remove error overlay if there is one
-            if (typeof document !== 'undefined') removeErrorOverlay();
-            var assets = data.assets.filter(function(asset) {
-                return asset.envHash === HMR_ENV_HASH;
-            }); // Handle HMR Update
-            var handled = assets.every(function(asset) {
-                return asset.type === 'css' || asset.type === 'js' && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+            if (typeof document !== "undefined") removeErrorOverlay();
+            let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH); // Handle HMR Update
+            let handled = assets.every((asset)=>{
+                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
             });
             if (handled) {
-                console.clear();
-                assets.forEach(function(asset) {
-                    hmrApply(module.bundle.root, asset);
-                });
+                console.clear(); // Dispatch custom event so other runtimes (e.g React Refresh) are aware.
+                if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") window.dispatchEvent(new CustomEvent("parcelhmraccept"));
+                await hmrApplyUpdates(assets);
                 for(var i = 0; i < assetsToAccept.length; i++){
                     var id = assetsToAccept[i][1];
                     if (!acceptedAssets[id]) hmrAcceptRun(assetsToAccept[i][0], id);
                 }
-            } else window.location.reload();
+            } else fullReload();
         }
-        if (data.type === 'error') {
+        if (data.type === "error") {
             // Log parcel errors to console
-            var _iterator = _createForOfIteratorHelper(data.diagnostics.ansi), _step;
-            try {
-                for(_iterator.s(); !(_step = _iterator.n()).done;){
-                    var ansiDiagnostic = _step.value;
-                    var stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
-                    console.error('🚨 [parcel]: ' + ansiDiagnostic.message + '\n' + stack + '\n\n' + ansiDiagnostic.hints.join('\n'));
-                }
-            } catch (err) {
-                _iterator.e(err);
-            } finally{
-                _iterator.f();
+            for (let ansiDiagnostic of data.diagnostics.ansi){
+                let stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
+                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + "\n" + stack + "\n\n" + ansiDiagnostic.hints.join("\n"));
             }
-            if (typeof document !== 'undefined') {
+            if (typeof document !== "undefined") {
                 // Render the fancy html overlay
                 removeErrorOverlay();
                 var overlay = createErrorOverlay(data.diagnostics.html); // $FlowFixMe
@@ -341,37 +274,46 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         console.error(e.message);
     };
     ws.onclose = function() {
-        console.warn('[parcel] 🚨 Connection to the HMR server was lost');
+        console.warn("[parcel] \uD83D\uDEA8 Connection to the HMR server was lost");
     };
 }
 function removeErrorOverlay() {
     var overlay = document.getElementById(OVERLAY_ID);
     if (overlay) {
         overlay.remove();
-        console.log('[parcel] ✨ Error resolved');
+        console.log("[parcel] \u2728 Error resolved");
     }
 }
 function createErrorOverlay(diagnostics) {
-    var overlay = document.createElement('div');
+    var overlay = document.createElement("div");
     overlay.id = OVERLAY_ID;
-    var errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
-    var _iterator2 = _createForOfIteratorHelper(diagnostics), _step2;
-    try {
-        for(_iterator2.s(); !(_step2 = _iterator2.n()).done;){
-            var diagnostic = _step2.value;
-            var stack = diagnostic.codeframe ? diagnostic.codeframe : diagnostic.stack;
-            errorHTML += "\n      <div>\n        <div style=\"font-size: 18px; font-weight: bold; margin-top: 20px;\">\n          \uD83D\uDEA8 ".concat(diagnostic.message, "\n        </div>\n        <pre>").concat(stack, "</pre>\n        <div>\n          ").concat(diagnostic.hints.map(function(hint) {
-                return '<div>💡 ' + hint + '</div>';
-            }).join(''), "\n        </div>\n        ").concat(diagnostic.documentation ? "<div>\uD83D\uDCDD <a style=\"color: violet\" href=\"".concat(diagnostic.documentation, "\" target=\"_blank\">Learn more</a></div>") : '', "\n      </div>\n    ");
-        }
-    } catch (err) {
-        _iterator2.e(err);
-    } finally{
-        _iterator2.f();
+    let errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
+    for (let diagnostic of diagnostics){
+        let stack = diagnostic.frames.length ? diagnostic.frames.reduce((p, frame)=>{
+            return `${p}
+<a href="/__parcel_launch_editor?file=${encodeURIComponent(frame.location)}" style="text-decoration: underline; color: #888" onclick="fetch(this.href); return false">${frame.location}</a>
+${frame.code}`;
+        }, "") : diagnostic.stack;
+        errorHTML += `
+      <div>
+        <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">
+          🚨 ${diagnostic.message}
+        </div>
+        <pre>${stack}</pre>
+        <div>
+          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + "</div>").join("")}
+        </div>
+        ${diagnostic.documentation ? `<div>📝 <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ""}
+      </div>
+    `;
     }
-    errorHTML += '</div>';
+    errorHTML += "</div>";
     overlay.innerHTML = errorHTML;
     return overlay;
+}
+function fullReload() {
+    if ("reload" in location) location.reload();
+    else if (extCtx && extCtx.runtime && extCtx.runtime.reload) extCtx.runtime.reload();
 }
 function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
     var modules = bundle.modules;
@@ -394,7 +336,7 @@ function updateLink(link) {
         if (link.parentNode !== null) // $FlowFixMe
         link.parentNode.removeChild(link);
     };
-    newLink.setAttribute('href', link.getAttribute('href').split('?')[0] + '?' + Date.now()); // $FlowFixMe
+    newLink.setAttribute("href", link.getAttribute("href").split("?")[0] + "?" + Date.now()); // $FlowFixMe
     link.parentNode.insertBefore(newLink, link.nextSibling);
 }
 var cssTimeout = null;
@@ -404,33 +346,105 @@ function reloadCSS() {
         var links = document.querySelectorAll('link[rel="stylesheet"]');
         for(var i = 0; i < links.length; i++){
             // $FlowFixMe[incompatible-type]
-            var href = links[i].getAttribute('href');
+            var href = links[i].getAttribute("href");
             var hostname = getHostname();
-            var servedFromHMRServer = hostname === 'localhost' ? new RegExp('^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):' + getPort()).test(href) : href.indexOf(hostname + ':' + getPort());
-            var absolute = /^https?:\/\//i.test(href) && href.indexOf(window.location.origin) !== 0 && !servedFromHMRServer;
+            var servedFromHMRServer = hostname === "localhost" ? new RegExp("^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()).test(href) : href.indexOf(hostname + ":" + getPort());
+            var absolute = /^https?:\/\//i.test(href) && href.indexOf(location.origin) !== 0 && !servedFromHMRServer;
             if (!absolute) updateLink(links[i]);
         }
         cssTimeout = null;
     }, 50);
 }
+function hmrDownload(asset) {
+    if (asset.type === "js") {
+        if (typeof document !== "undefined") {
+            let script = document.createElement("script");
+            script.src = asset.url + "?t=" + Date.now();
+            if (asset.outputFormat === "esmodule") script.type = "module";
+            return new Promise((resolve, reject)=>{
+                var _document$head;
+                script.onload = ()=>resolve(script);
+                script.onerror = reject;
+                (_document$head = document.head) === null || _document$head === void 0 || _document$head.appendChild(script);
+            });
+        } else if (typeof importScripts === "function") {
+            // Worker scripts
+            if (asset.outputFormat === "esmodule") return import(asset.url + "?t=" + Date.now());
+            else return new Promise((resolve, reject)=>{
+                try {
+                    importScripts(asset.url + "?t=" + Date.now());
+                    resolve();
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        }
+    }
+}
+async function hmrApplyUpdates(assets) {
+    global.parcelHotUpdate = Object.create(null);
+    let scriptsToRemove;
+    try {
+        // If sourceURL comments aren't supported in eval, we need to load
+        // the update from the dev server over HTTP so that stack traces
+        // are correct in errors/logs. This is much slower than eval, so
+        // we only do it if needed (currently just Safari).
+        // https://bugs.webkit.org/show_bug.cgi?id=137297
+        // This path is also taken if a CSP disallows eval.
+        if (!supportsSourceURL) {
+            let promises = assets.map((asset)=>{
+                var _hmrDownload;
+                return (_hmrDownload = hmrDownload(asset)) === null || _hmrDownload === void 0 ? void 0 : _hmrDownload.catch((err)=>{
+                    // Web extension bugfix for Chromium
+                    // https://bugs.chromium.org/p/chromium/issues/detail?id=1255412#c12
+                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3) {
+                        if (typeof ServiceWorkerGlobalScope != "undefined" && global instanceof ServiceWorkerGlobalScope) {
+                            extCtx.runtime.reload();
+                            return;
+                        }
+                        asset.url = extCtx.runtime.getURL("/__parcel_hmr_proxy__?url=" + encodeURIComponent(asset.url + "?t=" + Date.now()));
+                        return hmrDownload(asset);
+                    }
+                    throw err;
+                });
+            });
+            scriptsToRemove = await Promise.all(promises);
+        }
+        assets.forEach(function(asset) {
+            hmrApply(module.bundle.root, asset);
+        });
+    } finally{
+        delete global.parcelHotUpdate;
+        if (scriptsToRemove) scriptsToRemove.forEach((script)=>{
+            if (script) {
+                var _document$head2;
+                (_document$head2 = document.head) === null || _document$head2 === void 0 || _document$head2.removeChild(script);
+            }
+        });
+    }
+}
 function hmrApply(bundle, asset) {
     var modules = bundle.modules;
     if (!modules) return;
-    if (asset.type === 'css') reloadCSS();
-    else if (asset.type === 'js') {
-        var deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
+    if (asset.type === "css") reloadCSS();
+    else if (asset.type === "js") {
+        let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
         if (deps) {
             if (modules[asset.id]) {
                 // Remove dependencies that are removed and will become orphaned.
                 // This is necessary so that if the asset is added back again, the cache is gone, and we prevent a full page reload.
-                var oldDeps = modules[asset.id][1];
-                for(var dep in oldDeps)if (!deps[dep] || deps[dep] !== oldDeps[dep]) {
-                    var id = oldDeps[dep];
-                    var parents = getParents(module.bundle.root, id);
+                let oldDeps = modules[asset.id][1];
+                for(let dep in oldDeps)if (!deps[dep] || deps[dep] !== oldDeps[dep]) {
+                    let id = oldDeps[dep];
+                    let parents = getParents(module.bundle.root, id);
                     if (parents.length === 1) hmrDelete(module.bundle.root, id);
                 }
             }
-            var fn = new Function('require', 'module', 'exports', asset.output);
+            if (supportsSourceURL) // Global eval. We would use `new Function` here but browser
+            // support for source maps is better with eval.
+            (0, eval)(asset.output);
+             // $FlowFixMe
+            let fn = global.parcelHotUpdate[asset.id];
             modules[asset.id] = [
                 fn,
                 deps
@@ -439,19 +453,19 @@ function hmrApply(bundle, asset) {
     }
 }
 function hmrDelete(bundle, id1) {
-    var modules = bundle.modules;
+    let modules = bundle.modules;
     if (!modules) return;
     if (modules[id1]) {
         // Collect dependencies that will become orphaned when this module is deleted.
-        var deps = modules[id1][1];
-        var orphans = [];
-        for(var dep in deps){
-            var parents = getParents(module.bundle.root, deps[dep]);
+        let deps = modules[id1][1];
+        let orphans = [];
+        for(let dep in deps){
+            let parents = getParents(module.bundle.root, deps[dep]);
             if (parents.length === 1) orphans.push(deps[dep]);
         } // Delete the module. This must be done before deleting dependencies in case of circular dependencies.
         delete modules[id1];
         delete bundle.cache[id1]; // Now delete the orphans.
-        orphans.forEach(function(id) {
+        orphans.forEach((id)=>{
             hmrDelete(module.bundle.root, id);
         });
     } else if (bundle.parent) hmrDelete(bundle.parent, id1);
@@ -459,22 +473,22 @@ function hmrDelete(bundle, id1) {
 function hmrAcceptCheck(bundle, id, depsByBundle) {
     if (hmrAcceptCheckOne(bundle, id, depsByBundle)) return true;
      // Traverse parents breadth first. All possible ancestries must accept the HMR update, or we'll reload.
-    var parents = getParents(module.bundle.root, id);
-    var accepted = false;
+    let parents = getParents(module.bundle.root, id);
+    let accepted = false;
     while(parents.length > 0){
-        var v = parents.shift();
-        var a = hmrAcceptCheckOne(v[0], v[1], null);
+        let v = parents.shift();
+        let a = hmrAcceptCheckOne(v[0], v[1], null);
         if (a) // If this parent accepts, stop traversing upward, but still consider siblings.
         accepted = true;
         else {
             // Otherwise, queue the parents in the next level upward.
-            var p = getParents(module.bundle.root, v[1]);
+            let p = getParents(module.bundle.root, v[1]);
             if (p.length === 0) {
                 // If there are no parents, then we've reached an entry without accepting. Reload.
                 accepted = false;
                 break;
             }
-            parents.push.apply(parents, _toConsumableArray(p));
+            parents.push(...p);
         }
     }
     return accepted;
@@ -499,8 +513,7 @@ function hmrAcceptCheckOne(bundle, id, depsByBundle) {
 }
 function hmrAcceptRun(bundle, id) {
     var cached = bundle.cache[id];
-    bundle.hotData = {
-    };
+    bundle.hotData = {};
     if (cached && cached.hot) cached.hot.data = bundle.hotData;
     if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
         cb(bundle.hotData);
@@ -526,28 +539,28 @@ var _modalJs = require("./modal.js"); // функция для открытия 
 /*
 * Обработка ввода номера в поля формы
 */ const maskOptions = {
-    mask: '+{7}(000)000-00-00'
+    mask: "+{7}(000)000-00-00"
 };
 const elements = document.querySelectorAll('input[type="tel"]');
 elements.forEach((e)=>{
-    _imaskMinJsDefault.default(e, maskOptions);
+    (0, _imaskMinJsDefault.default)(e, maskOptions);
 });
 /*
 * Обработка формы и отправка в Битрикс24
-*/ const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/nwob5jfa6b5yeqn2/';
-const bitrix_method = 'crm.lead.add.json';
-const forms = document.querySelectorAll('form');
+*/ const bitrix_api = "https://avirent.bitrix24.ru/rest/3213/j0a30odz6zzkluly/";
+const bitrix_method = "crm.lead.add.json";
+const forms = document.querySelectorAll("form");
 forms.forEach((el)=>{
-    el.addEventListener('submit', async (e)=>{
+    el.addEventListener("submit", async (e)=>{
         e.preventDefault();
         const input = e.target.elements[0];
         const btn = e.target.elements[1];
         const dataForm = {
             fields: {
-                "TITLE": "Новая заявка с сайта",
+                "TITLE": "\u041D\u043E\u0432\u0430\u044F \u0437\u0430\u044F\u0432\u043A\u0430 \u0441 \u0441\u0430\u0439\u0442\u0430",
                 "OPENED": "Y",
-                "ASSIGNED_BY_ID": 3589,
-                "SOURCE_DESCRIPTION": `Заполненная форма: ${btn.textContent == 'Скачать прайс-лист' ? input.placeholder + '. Отправить прайс' : btn.textContent}`,
+                "ASSIGNED_BY_ID": 4179,
+                "SOURCE_DESCRIPTION": `Заполненная форма: ${btn.textContent == "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u0440\u0430\u0439\u0441-\u043B\u0438\u0441\u0442" ? input.placeholder + ". \u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u0440\u0430\u0439\u0441" : btn.textContent}`,
                 "PHONE": [
                     {
                         "VALUE": input.value,
@@ -561,18 +574,17 @@ forms.forEach((el)=>{
         };
         sendForm(dataForm).then((data)=>{
             console.log(data);
-            if (btn.textContent != 'Скачать прайс-лист') ;
-            else _modalJs.openModal(3) // открываем модальное окно, если запросили прайс
+            if (btn.textContent != "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u0440\u0430\u0439\u0441-\u043B\u0438\u0441\u0442") window.location.href = "https://crm.avirent.ru/company/register";
+            else (0, _modalJs.openModal)(3) // открываем модальное окно, если запросили прайс
             ;
-        }).catch((er)=>alert('Ошибка отправки данных\n' + er)
-        );
+        }).catch((er)=>alert("\u041E\u0448\u0438\u0431\u043A\u0430 \u043E\u0442\u043F\u0440\u0430\u0432\u043A\u0438 \u0434\u0430\u043D\u043D\u044B\u0445\n" + er));
     });
 });
 async function sendForm(data) {
     const res = await fetch(bitrix_api + bitrix_method, {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
     });
@@ -582,40 +594,31 @@ async function sendForm(data) {
 },{"./imask.min.js":"3EAgC","./modal.js":"aHHgN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3EAgC":[function(require,module,exports) {
 var global = arguments[3];
 !function(t, e) {
-    "object" == typeof exports && "undefined" != typeof module ? e(exports) : "function" == typeof define && define.amd ? define([
-        "exports"
-    ], e) : e((t = "undefined" != typeof globalThis ? globalThis : t || self).IMask = {
-    });
+    e(exports);
 }(this, function(t1) {
     "use strict";
-    var e1 = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {
-    }, n1 = function(t) {
+    var e1 = "undefined" != typeof globalThis ? globalThis : "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : {}, n1 = function(t) {
         return t && t.Math == Math && t;
     }, i1 = n1("object" == typeof globalThis && globalThis) || n1("object" == typeof window && window) || n1("object" == typeof self && self) || n1("object" == typeof e1 && e1) || function() {
         return this;
-    }() || Function("return this")(), r1 = {
-    }, u1 = function(t) {
+    }() || Function("return this")(), r1 = {}, u1 = function(t) {
         try {
             return !!t();
         } catch (t2) {
             return !0;
         }
     }, s1 = !u1(function() {
-        return 7 != Object.defineProperty({
-        }, 1, {
+        return 7 != Object.defineProperty({}, 1, {
             get: function() {
                 return 7;
             }
         })[1];
     }), a1 = !u1(function() {
-        var t = (function() {
-        }).bind();
+        var t = (function() {}).bind();
         return "function" != typeof t || t.hasOwnProperty("prototype");
     }), o1 = a1, l1 = Function.prototype.call, h1 = o1 ? l1.bind(l1) : function() {
         return l1.apply(l1, arguments);
-    }, c1 = {
-    }, f1 = {
-    }.propertyIsEnumerable, p = Object.getOwnPropertyDescriptor, d = p && !f1.call({
+    }, c1 = {}, f1 = {}.propertyIsEnumerable, p = Object.getOwnPropertyDescriptor, d = p && !f1.call({
         1: 2
     }, 1);
     c1.f = d ? function(t) {
@@ -635,8 +638,7 @@ var global = arguments[3];
         return t && function() {
             return _.apply(t, arguments);
         };
-    }, E = C, F = E({
-    }.toString), S = E("".slice), w = function(t) {
+    }, E = C, F = E({}.toString), S = E("".slice), w = function(t) {
         return S(F(t), 8, -1);
     }, B = C, D = u1, x = w, M = i1.Object, O = B("".split), P = D(function() {
         return !M("z").propertyIsEnumerable(0);
@@ -655,8 +657,7 @@ var global = arguments[3];
         return q(t) ? t : void 0;
     }, Y = function(t, e) {
         return arguments.length < 2 ? H(z[t]) : z[t] && z[t][e];
-    }, Z = C({
-    }.isPrototypeOf), G = Y("navigator", "userAgent") || "", K = i1, $ = G, W = K.process, X = K.Deno, J = W && W.versions || X && X.version, Q = J && J.v8;
+    }, Z = C({}.isPrototypeOf), G = Y("navigator", "userAgent") || "", K = i1, $ = G, W = K.process, X = K.Deno, J = W && W.versions || X && X.version, Q = J && J.v8;
     Q && (g = (v = Q.split("."))[0] > 0 && v[0] < 4 ? 1 : +(v[0] + v[1])), !g && $ && (!(v = $.match(/Edge\/(\d+)/)) || v[1] >= 74) && (v = $.match(/Chrome\/(\d+)/)) && (g = +v[1]);
     var tt = g, et = u1, nt = !!Object.getOwnPropertySymbols && !et(function() {
         var t = Symbol();
@@ -676,8 +677,7 @@ var global = arguments[3];
         if (ct(t)) return t;
         throw pt(ft(t) + " is not a function");
     }, vt = h1, gt = L, kt = U, yt = i1.TypeError, mt = {
-        exports: {
-        }
+        exports: {}
     }, bt = i1, _t = Object.defineProperty, At = function(t, e) {
         try {
             _t(bt, t, {
@@ -689,22 +689,19 @@ var global = arguments[3];
             bt[t] = e;
         }
         return e;
-    }, Ct = At, Et = "__core-js_shared__", Ft = i1[Et] || Ct(Et, {
-    }), St = Ft;
+    }, Ct = At, Et = "__core-js_shared__", Ft = i1[Et] || Ct(Et, {}), St = Ft;
     (mt.exports = function(t, e) {
-        return St[t] || (St[t] = void 0 !== e ? e : {
-        });
+        return St[t] || (St[t] = void 0 !== e ? e : {});
     })("versions", []).push({
         version: "3.21.0",
         mode: "global",
-        copyright: "© 2014-2022 Denis Pushkarev (zloirock.ru)",
+        copyright: "\xa9 2014-2022 Denis Pushkarev (zloirock.ru)",
         license: "https://github.com/zloirock/core-js/blob/v3.21.0/LICENSE",
         source: "https://github.com/zloirock/core-js"
     });
     var wt = I, Bt = i1.Object, Dt = function(t) {
         return Bt(wt(t));
-    }, xt = Dt, Mt = C({
-    }.hasOwnProperty), Ot = Object.hasOwn || function(t, e) {
+    }, xt = Dt, Mt = C({}.hasOwnProperty), Ot = Object.hasOwn || function(t, e) {
         return Mt(xt(t), e);
     }, Pt = C, Tt = 0, It = Math.random(), jt = Pt(1..toString), Rt = function(t) {
         return "Symbol(" + (void 0 === t ? "" : t) + ")_" + jt(++Tt + It, 36);
@@ -735,8 +732,7 @@ var global = arguments[3];
         var e = ie(t, "string");
         return re(e) ? e : e + "";
     }, se = U, ae = i1.document, oe = se(ae) && se(ae.createElement), le = function(t) {
-        return oe ? ae.createElement(t) : {
-        };
+        return oe ? ae.createElement(t) : {};
     }, he = !s1 && !u1(function() {
         return 7 != Object.defineProperty(le("div"), "a", {
             get: function() {
@@ -747,14 +743,11 @@ var global = arguments[3];
     r1.f = ce ? me : function(t, e) {
         if (t = ve(t), e = ge(e), ye) try {
             return me(t, e);
-        } catch (t4) {
-        }
+        } catch (t4) {}
         if (ke(t, e)) return de(!fe(pe.f, t, e), t[e]);
     };
-    var be = {
-    }, _e = s1 && u1(function() {
-        return 42 != Object.defineProperty(function() {
-        }, "prototype", {
+    var be = {}, _e = s1 && u1(function() {
+        return 42 != Object.defineProperty(function() {}, "prototype", {
             value: 42,
             writable: !1
         }).prototype;
@@ -775,8 +768,7 @@ var global = arguments[3];
     } : Pe : function(t, e, n) {
         if (xe(t), e = Me(e), xe(n), Be) try {
             return Pe(t, e, n);
-        } catch (t5) {
-        }
+        } catch (t5) {}
         if ("get" in n || "set" in n) throw Oe("Accessors not supported");
         return "value" in n && (t[e] = n.value), t;
     };
@@ -785,14 +777,12 @@ var global = arguments[3];
     } : function(t, e, n) {
         return t[e] = n, t;
     }, Ue = {
-        exports: {
-        }
+        exports: {}
     }, ze = L, qe = Ft, He = C(Function.toString);
     ze(qe.inspectSource) || (qe.inspectSource = function(t) {
         return He(t);
     });
-    var Ye, Ze, Ge, Ke = qe.inspectSource, $e = L, We = Ke, Xe = i1.WeakMap, Je = $e(Xe) && /native code/.test(We(Xe)), Qe = mt.exports, tn = Rt, en = Qe("keys"), nn = {
-    }, rn = Je, un = i1, sn = C, an = U, on = Ne, ln = Ot, hn = Ft, cn = function(t) {
+    var Ye, Ze, Ge, Ke = qe.inspectSource, $e = L, We = Ke, Xe = i1.WeakMap, Je = $e(Xe) && /native code/.test(We(Xe)), Qe = mt.exports, tn = Rt, en = Qe("keys"), nn = {}, rn = Je, un = i1, sn = C, an = U, on = Ne, ln = Ot, hn = Ft, cn = function(t) {
         return en[t] || (en[t] = tn(t));
     }, fn = nn, pn = "Object already initialized", dn = un.TypeError, vn = un.WeakMap;
     if (rn || hn.state) {
@@ -801,8 +791,7 @@ var global = arguments[3];
             if (yn(gn, t)) throw new dn(pn);
             return e.facade = t, mn(gn, t, e), e;
         }, Ze = function(t) {
-            return kn(gn, t) || {
-            };
+            return kn(gn, t) || {};
         }, Ge = function(t) {
             return yn(gn, t);
         };
@@ -812,8 +801,7 @@ var global = arguments[3];
             if (ln(t, bn)) throw new dn(pn);
             return e.facade = t, on(t, bn, e), e;
         }, Ze = function(t) {
-            return ln(t, bn) ? t[bn] : {
-            };
+            return ln(t, bn) ? t[bn] : {};
         }, Ge = function(t) {
             return ln(t, bn);
         };
@@ -823,8 +811,7 @@ var global = arguments[3];
         get: Ze,
         has: Ge,
         enforce: function(t) {
-            return Ge(t) ? Ze(t) : Ye(t, {
-            });
+            return Ge(t) ? Ze(t) : Ye(t, {});
         },
         getterFor: function(t) {
             return function(e) {
@@ -833,8 +820,7 @@ var global = arguments[3];
                 return n;
             };
         }
-    }, An = s1, Cn = Ot, En = Function.prototype, Fn = An && Object.getOwnPropertyDescriptor, Sn = Cn(En, "name"), wn = Sn && "something" === (function() {
-    }).name, Bn = Sn && (!An || An && Fn(En, "name").configurable), Dn = i1, xn = L, Mn = Ot, On = Ne, Pn = At, Tn = Ke, In = {
+    }, An = s1, Cn = Ot, En = Function.prototype, Fn = An && Object.getOwnPropertyDescriptor, Sn = Cn(En, "name"), wn = Sn && "something" === (function() {}).name, Bn = Sn && (!An || An && Fn(En, "name").configurable), Dn = i1, xn = L, Mn = Ot, On = Ne, Pn = At, Tn = Ke, In = {
         EXISTS: Sn,
         PROPER: wn,
         CONFIGURABLE: Bn
@@ -845,8 +831,7 @@ var global = arguments[3];
     })(Function.prototype, "toString", function() {
         return xn(this) && jn(this).source || Tn(this);
     });
-    var Ln = {
-    }, Nn = Math.ceil, Un = Math.floor, zn = function(t) {
+    var Ln = {}, Nn = Math.ceil, Un = Math.floor, zn = function(t) {
         var e = +t;
         return e != e || 0 === e ? 0 : (e > 0 ? Un : Nn)(e);
     }, qn = zn, Hn = Math.max, Yn = Math.min, Zn = zn, Gn = Math.min, Kn = function(t) {
@@ -884,8 +869,7 @@ var global = arguments[3];
     Ln.f = Object.getOwnPropertyNames || function(t) {
         return oi(t, li);
     };
-    var hi = {
-    };
+    var hi = {};
     hi.f = Object.getOwnPropertySymbols;
     var ci = Y, fi = Ln, pi = hi, di = Se, vi = C([].concat), gi = ci("Reflect", "ownKeys") || function(t) {
         var e = fi.f(di(t)), n = pi.f;
@@ -895,17 +879,14 @@ var global = arguments[3];
         return n == Bi || n != wi && (Ai(e) ? _i(e) : !!e);
     }, Fi = Ei.normalize = function(t) {
         return String(t).replace(Ci, ".").toLowerCase();
-    }, Si = Ei.data = {
-    }, wi = Ei.NATIVE = "N", Bi = Ei.POLYFILL = "P", Di = Ei, xi = i1, Mi = r1.f, Oi = Ne, Pi = Ue.exports, Ti = At, Ii = function(t, e, n) {
+    }, Si = Ei.data = {}, wi = Ei.NATIVE = "N", Bi = Ei.POLYFILL = "P", Di = Ei, xi = i1, Mi = r1.f, Oi = Ne, Pi = Ue.exports, Ti = At, Ii = function(t, e, n) {
         for(var i = yi(e), r = bi.f, u = mi.f, s = 0; s < i.length; s++){
             var a = i[s];
             ki(t, a) || n && ki(n, a) || r(t, a, u(e, a));
         }
     }, ji = Di, Ri = function(t, e) {
         var n, i, r, u, s, a = t.target, o = t.global, l = t.stat;
-        if (n = o ? xi : l ? xi[a] || Ti(a, {
-        }) : (xi[a] || {
-        }).prototype) for(i in e){
+        if (n = o ? xi : l ? xi[a] || Ti(a, {}) : (xi[a] || {}).prototype) for(i in e){
             if (u = e[i], r = t.noTargetGet ? (s = Mi(n, i)) && s.value : n[i], !ji(o ? i : a + (l ? "." : "#") + i, t.forced) && void 0 !== r) {
                 if (typeof u == typeof r) continue;
                 Ii(u, r);
@@ -917,8 +898,7 @@ var global = arguments[3];
     }, Ui = s1, zi = C, qi = h1, Hi = u1, Yi = Ni, Zi = hi, Gi = c1, Ki = Dt, $i = P, Wi = Object.assign, Xi = Object.defineProperty, Ji = zi([].concat), Qi = !Wi || Hi(function() {
         if (Ui && 1 !== Wi({
             b: 1
-        }, Wi(Xi({
-        }, "a", {
+        }, Wi(Xi({}, "a", {
             enumerable: !0,
             get: function() {
                 Xi(this, "b", {
@@ -929,14 +909,10 @@ var global = arguments[3];
         }), {
             b: 2
         })).b) return !0;
-        var t6 = {
-        }, e = {
-        }, n = Symbol(), i = "abcdefghijklmnopqrst";
+        var t6 = {}, e = {}, n = Symbol(), i = "abcdefghijklmnopqrst";
         return t6[n] = 7, i.split("").forEach(function(t) {
             e[t] = t;
-        }), 7 != Wi({
-        }, t6)[n] || Yi(Wi({
-        }, e)).join("") != i;
+        }), 7 != Wi({}, t6)[n] || Yi(Wi({}, e)).join("") != i;
     }) ? function(t, e) {
         for(var n = Ki(t), i = arguments.length, r = 1, u = Zi.f, s = Gi.f; i > r;)for(var a, o = $i(arguments[r++]), l = u ? Ji(Yi(o), u(o)) : Yi(o), h = l.length, c = 0; h > c;)a = l[c++], Ui && !qi(s, o, a) || (n[a] = o[a]);
         return n;
@@ -948,19 +924,17 @@ var global = arguments[3];
     }, {
         assign: tr
     });
-    var er = {
-    };
+    var er = {};
     er[Kt("toStringTag")] = "z";
     var nr = i1, ir = "[object z]" === String(er), rr = L, ur = w, sr = Kt("toStringTag"), ar = nr.Object, or = "Arguments" == ur(function() {
         return arguments;
     }()), lr = ir ? ur : function(t7) {
-        var e, n, i;
+        var e2, n, i;
         return void 0 === t7 ? "Undefined" : null === t7 ? "Null" : "string" == typeof (n = function(t, e) {
             try {
                 return t[e];
-            } catch (t8) {
-            }
-        }(e = ar(t7), sr)) ? n : or ? ur(e) : "Object" == (i = ur(e)) && rr(e.callee) ? "Arguments" : i;
+            } catch (t8) {}
+        }(e2 = ar(t7), sr)) ? n : or ? ur(e2) : "Object" == (i = ur(e2)) && rr(e2.callee) ? "Arguments" : i;
     }, hr = i1.String, cr = function(t) {
         if ("Symbol" === lr(t)) throw TypeError("Cannot convert a Symbol value to a string");
         return hr(t);
@@ -1033,35 +1007,32 @@ var global = arguments[3];
             return t.__proto__ || Object.getPrototypeOf(t);
         }, Tr(t10);
     }
-    function Ir(t11, e2) {
+    function Ir(t11, e3) {
         return Ir = Object.setPrototypeOf || function(t, e) {
             return t.__proto__ = e, t;
-        }, Ir(t11, e2);
+        }, Ir(t11, e3);
     }
-    function jr(t12, e3) {
-        if (null == t12) return {
-        };
+    function jr(t12, e4) {
+        if (null == t12) return {};
         var n2, i2, r2 = function(t, e) {
-            if (null == t) return {
-            };
-            var n, i, r = {
-            }, u = Object.keys(t);
+            if (null == t) return {};
+            var n, i, r = {}, u = Object.keys(t);
             for(i = 0; i < u.length; i++)n = u[i], e.indexOf(n) >= 0 || (r[n] = t[n]);
             return r;
-        }(t12, e3);
+        }(t12, e4);
         if (Object.getOwnPropertySymbols) {
             var u2 = Object.getOwnPropertySymbols(t12);
-            for(i2 = 0; i2 < u2.length; i2++)n2 = u2[i2], e3.indexOf(n2) >= 0 || Object.prototype.propertyIsEnumerable.call(t12, n2) && (r2[n2] = t12[n2]);
+            for(i2 = 0; i2 < u2.length; i2++)n2 = u2[i2], e4.indexOf(n2) >= 0 || Object.prototype.propertyIsEnumerable.call(t12, n2) && (r2[n2] = t12[n2]);
         }
         return r2;
     }
     function Rr(t13, e) {
         if (e && ("object" == typeof e || "function" == typeof e)) return e;
         if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
-        return (function(t) {
+        return function(t) {
             if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
             return t;
-        })(t13);
+        }(t13);
     }
     function Vr(t) {
         var e = function() {
@@ -1069,8 +1040,7 @@ var global = arguments[3];
             if (Reflect.construct.sham) return !1;
             if ("function" == typeof Proxy) return !0;
             try {
-                return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
-                })), !0;
+                return Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {})), !0;
             } catch (t) {
                 return !1;
             }
@@ -1097,16 +1067,16 @@ var global = arguments[3];
             }
         }, Nr.apply(this, arguments);
     }
-    function Ur(t14, e4, n3, i3) {
-        return Ur = "undefined" != typeof Reflect && Reflect.set ? Reflect.set : function(t15, e5, n4, i) {
-            var r, u = Lr(t15, e5);
+    function Ur(t14, e5, n3, i3) {
+        return Ur = "undefined" != typeof Reflect && Reflect.set ? Reflect.set : function(t15, e6, n4, i) {
+            var r, u = Lr(t15, e6);
             if (u) {
-                if ((r = Object.getOwnPropertyDescriptor(u, e5)).set) return r.set.call(i, n4), !0;
+                if ((r = Object.getOwnPropertyDescriptor(u, e6)).set) return r.set.call(i, n4), !0;
                 if (!r.writable) return !1;
             }
-            if (r = Object.getOwnPropertyDescriptor(i, e5)) {
+            if (r = Object.getOwnPropertyDescriptor(i, e6)) {
                 if (!r.writable) return !1;
-                r.value = n4, Object.defineProperty(i, e5, r);
+                r.value = n4, Object.defineProperty(i, e6, r);
             } else !function(t, e, n) {
                 e in t ? Object.defineProperty(t, e, {
                     value: n,
@@ -1114,18 +1084,18 @@ var global = arguments[3];
                     configurable: !0,
                     writable: !0
                 }) : t[e] = n;
-            }(i, e5, n4);
+            }(i, e6, n4);
             return !0;
-        }, Ur(t14, e4, n3, i3);
+        }, Ur(t14, e5, n3, i3);
     }
     function zr(t, e, n, i, r) {
         if (!Ur(t, e, n, i || t) && r) throw new Error("failed to set property");
         return n;
     }
-    function qr(t16, e6) {
-        return (function(t) {
+    function qr(t16, e7) {
+        return function(t) {
             if (Array.isArray(t)) return t;
-        })(t16) || (function(t, e) {
+        }(t16) || function(t, e) {
             var n = null == t ? null : "undefined" != typeof Symbol && t[Symbol.iterator] || t["@@iterator"];
             if (null == n) return;
             var i, r, u = [], s = !0, a = !1;
@@ -1141,16 +1111,16 @@ var global = arguments[3];
                 }
             }
             return u;
-        })(t16, e6) || (function(t, e) {
+        }(t16, e7) || function(t, e) {
             if (!t) return;
             if ("string" == typeof t) return Hr(t, e);
             var n = Object.prototype.toString.call(t).slice(8, -1);
             "Object" === n && t.constructor && (n = t.constructor.name);
             if ("Map" === n || "Set" === n) return Array.from(t);
             if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return Hr(t, e);
-        })(t16, e6) || (function() {
+        }(t16, e7) || function() {
             throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-        })();
+        }();
     }
     function Hr(t, e) {
         (null == e || e > t.length) && (e = t.length);
@@ -1342,14 +1312,12 @@ var global = arguments[3];
         ]), t19;
     }();
     function iu(t) {
-        var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-        };
+        var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
         return new iu.InputMask(t, e);
     }
     var ru = function() {
         function t20(e) {
-            xr(this, t20), this._value = "", this._update(Object.assign({
-            }, t20.DEFAULTS, e)), this.isInitialized = !0;
+            xr(this, t20), this._value = "", this._update(Object.assign({}, t20.DEFAULTS, e)), this.isInitialized = !0;
         }
         return Or(t20, [
             {
@@ -1404,8 +1372,7 @@ var global = arguments[3];
                     return this.value;
                 },
                 set: function(t) {
-                    this.reset(), this.append(t, {
-                    }, ""), this.doCommit();
+                    this.reset(), this.append(t, {}, ""), this.doCommit();
                 }
             },
             {
@@ -1480,8 +1447,7 @@ var global = arguments[3];
             {
                 key: "_appendChar",
                 value: function(t) {
-                    var e, n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    }, i = arguments.length > 2 ? arguments[2] : void 0, r = this.state, u = Qr(this.doPrepare(t, n)), s = qr(u, 2);
+                    var e, n = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, i = arguments.length > 2 ? arguments[2] : void 0, r = this.state, u = Qr(this.doPrepare(t, n)), s = qr(u, 2);
                     if (t = s[0], (e = (e = s[1]).aggregate(this._appendCharRaw(t, n))).inserted) {
                         var a, o = !1 !== this.doValidate(n);
                         if (o && null != i) {
@@ -1530,8 +1496,7 @@ var global = arguments[3];
                     if (this._refreshing || !this.isInitialized) return t();
                     this._refreshing = !0;
                     var e = this.rawInputValue, n = this.value, i = t();
-                    return this.rawInputValue = e, this.value && this.value !== n && 0 === n.indexOf(this.value) && this.append(n.slice(this.value.length), {
-                    }, ""), delete this._refreshing, i;
+                    return this.rawInputValue = e, this.value && this.value !== n && 0 === n.indexOf(this.value) && this.append(n.slice(this.value.length), {}, ""), delete this._refreshing, i;
                 }
             },
             {
@@ -1546,8 +1511,7 @@ var global = arguments[3];
             {
                 key: "doPrepare",
                 value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    };
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                     return this.prepare ? this.prepare(t, this, e) : t;
                 }
             },
@@ -1579,7 +1543,7 @@ var global = arguments[3];
                 key: "splice",
                 value: function(t21, e, n, i) {
                     var r, u = t21 + e, s = this.extractTail(u);
-                    this.eager && (i = (function(t) {
+                    this.eager && (i = function(t) {
                         switch(t){
                             case Kr:
                                 return $r;
@@ -1588,7 +1552,7 @@ var global = arguments[3];
                             default:
                                 return t;
                         }
-                    })(i), r = this.extractInput(0, u, {
+                    }(i), r = this.extractInput(0, u, {
                         raw: !0
                     }));
                     var a = this.nearestInputPos(t21, e > 1 && 0 !== t21 && !this.eager ? Gr : i), o = new Yr({
@@ -1619,8 +1583,7 @@ var global = arguments[3];
     }
     function su(t) {
         if (iu.Masked && t instanceof iu.Masked) return t;
-        var e = (t = Object.assign({
-        }, t)).mask;
+        var e = (t = Object.assign({}, t)).mask;
         if (iu.Masked && e instanceof iu.Masked) return e;
         var n = uu(e);
         if (!n) throw new Error("Masked class is not found for provided mask, appropriate module needs to be import manually before creating mask.");
@@ -1683,8 +1646,7 @@ var global = arguments[3];
             {
                 key: "_appendChar",
                 value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    };
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                     if (this.isFilled) return new Yr;
                     var n = this.masked.state, i = this.masked._appendChar(t, e);
                     return i.inserted && !1 === this.doValidate(e) && (i.inserted = i.rawInserted = "", this.masked.state = n), i.inserted || this.isOptional || this.lazy || e.input || (i.inserted = this.placeholderChar), i.skip = !i.inserted && !this.isOptional, this.isFilled = Boolean(i.inserted), i;
@@ -1819,8 +1781,7 @@ var global = arguments[3];
             {
                 key: "extractInput",
                 value: function() {
-                    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this._value.length, n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {
-                    };
+                    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this._value.length, n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
                     return n.raw && this._isRawInput && this._value.slice(t, e) || "";
                 }
             },
@@ -1839,8 +1800,7 @@ var global = arguments[3];
             {
                 key: "_appendChar",
                 value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    }, n = new Yr;
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, n = new Yr;
                     if (this._value) return n;
                     var i = this.char === t, r = i && (this.isUnmasking || e.input || e.raw) && !this.eager && !e.tail;
                     return r && (n.rawInserted = this.char), this._value = n.inserted = this.char, this._isRawInput = r && (e.raw || e.input), n;
@@ -1880,8 +1840,7 @@ var global = arguments[3];
             },
             {
                 key: "doCommit",
-                value: function() {
-                }
+                value: function() {}
             },
             {
                 key: "state",
@@ -1956,8 +1915,8 @@ var global = arguments[3];
                         blockIndex: this.blockIndex
                     };
                 },
-                set: function(e7) {
-                    var n5 = e7.chunks, i = jr(e7, cu);
+                set: function(e8) {
+                    var n5 = e8.chunks, i = jr(e8, cu);
                     Object.assign(this, i), this.chunks = n5.map(function(e) {
                         var n = "chunks" in e ? new t24 : new nu;
                         return n.state = e, n;
@@ -2126,9 +2085,9 @@ var global = arguments[3];
         ]), t25;
     }(), du = function(t26) {
         Pr(n, t26);
-        var e8 = Vr(n);
+        var e9 = Vr(n);
         function n() {
-            return xr(this, n), e8.apply(this, arguments);
+            return xr(this, n), e9.apply(this, arguments);
         }
         return Or(n, [
             {
@@ -2146,36 +2105,30 @@ var global = arguments[3];
         "_blocks"
     ], gu = function(t27) {
         Pr(n6, t27);
-        var e9 = Vr(n6);
+        var e10 = Vr(n6);
         function n6() {
-            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {
-            };
-            return xr(this, n6), t.definitions = Object.assign({
-            }, ou, t.definitions), e9.call(this, Object.assign({
-            }, n6.DEFAULTS, t));
+            var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+            return xr(this, n6), t.definitions = Object.assign({}, ou, t.definitions), e10.call(this, Object.assign({}, n6.DEFAULTS, t));
         }
         return Or(n6, [
             {
                 key: "_update",
                 value: function() {
-                    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {
-                    };
-                    t.definitions = Object.assign({
-                    }, this.definitions, t.definitions), Nr(Tr(n6.prototype), "_update", this).call(this, t), this._rebuildMask();
+                    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+                    t.definitions = Object.assign({}, this.definitions, t.definitions), Nr(Tr(n6.prototype), "_update", this).call(this, t), this._rebuildMask();
                 }
             },
             {
                 key: "_rebuildMask",
                 value: function() {
-                    var t28 = this, e10 = this.definitions;
-                    this._blocks = [], this._stops = [], this._maskedBlocks = {
-                    };
+                    var t28 = this, e11 = this.definitions;
+                    this._blocks = [], this._stops = [], this._maskedBlocks = {};
                     var i = this.mask;
-                    if (i && e10) for(var r3 = !1, u3 = !1, s = 0; s < i.length; ++s){
+                    if (i && e11) for(var r3 = !1, u3 = !1, s = 0; s < i.length; ++s){
                         if (this.blocks) {
-                            if ("continue" === (function() {
-                                var e11 = i.slice(s), n = Object.keys(t28.blocks).filter(function(t) {
-                                    return 0 === e11.indexOf(t);
+                            if ("continue" === function() {
+                                var e12 = i.slice(s), n = Object.keys(t28.blocks).filter(function(t) {
+                                    return 0 === e12.indexOf(t);
                                 });
                                 n.sort(function(t, e) {
                                     return e.length - t.length;
@@ -2191,9 +2144,9 @@ var global = arguments[3];
                                     }, t28.blocks[r]));
                                     return u && (t28._blocks.push(u), t28._maskedBlocks[r] || (t28._maskedBlocks[r] = []), t28._maskedBlocks[r].push(t28._blocks.length - 1)), s += r.length - 1, "continue";
                                 }
-                            })()) continue;
+                            }()) continue;
                         }
-                        var a = i[s], o = a in e10;
+                        var a = i[s], o = a in e11;
                         if (a !== n6.STOP_CHAR) {
                             if ("{" !== a && "}" !== a) {
                                 if ("[" !== a && "]" !== a) {
@@ -2206,7 +2159,7 @@ var global = arguments[3];
                                         lazy: this.lazy,
                                         eager: this.eager,
                                         placeholderChar: this.placeholderChar,
-                                        mask: e10[a],
+                                        mask: e11[a],
                                         isOptional: u3
                                     }) : new hu({
                                         char: a,
@@ -2223,8 +2176,7 @@ var global = arguments[3];
             {
                 key: "state",
                 get: function() {
-                    return Object.assign({
-                    }, Nr(Tr(n6.prototype), "state", this), {
+                    return Object.assign({}, Nr(Tr(n6.prototype), "state", this), {
                         _blocks: this._blocks.map(function(t) {
                             return t.state;
                         })
@@ -2330,14 +2282,12 @@ var global = arguments[3];
             {
                 key: "_appendCharRaw",
                 value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    }, n = this._mapPosToBlock(this.value.length), i = new Yr;
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, n = this._mapPosToBlock(this.value.length), i = new Yr;
                     if (!n) return i;
                     for(var r = n.index;; ++r){
                         var u, s = this._blocks[r];
                         if (!s) break;
-                        var a = s._appendChar(t, Object.assign({
-                        }, e, {
+                        var a = s._appendChar(t, Object.assign({}, e, {
                             _beforeTailState: null === (u = e._beforeTailState) || void 0 === u ? void 0 : u._blocks[r]
                         })), o = a.skip;
                         if (i.aggregate(a), o || a.rawInserted) break;
@@ -2348,8 +2298,8 @@ var global = arguments[3];
             {
                 key: "extractTail",
                 value: function() {
-                    var t = this, e12 = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, n7 = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this.value.length, i = new fu;
-                    return e12 === n7 || this._forEachBlocksInRange(e12, n7, function(e, n, r, u) {
+                    var t = this, e13 = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, n7 = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this.value.length, i = new fu;
+                    return e13 === n7 || this._forEachBlocksInRange(e13, n7, function(e, n, r, u) {
                         var s = e.extractTail(r, u);
                         s.stop = t._findStopBefore(n), s.from = t._blockStartPos(n), s instanceof fu && (s.blockIndex = n), i.extend(s);
                     }), i;
@@ -2358,8 +2308,7 @@ var global = arguments[3];
             {
                 key: "extractInput",
                 value: function() {
-                    var t30 = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this.value.length, n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {
-                    };
+                    var t30 = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 0, e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : this.value.length, n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};
                     if (t30 === e) return "";
                     var i = "";
                     return this._forEachBlocksInRange(t30, e, function(t, e, r, u) {
@@ -2468,8 +2417,8 @@ var global = arguments[3];
             },
             {
                 key: "maskedBlocks",
-                value: function(t) {
-                    var e = this, n = this._maskedBlocks[t];
+                value: function(t33) {
+                    var e = this, n = this._maskedBlocks[t33];
                     return n ? n.map(function(t) {
                         return e._blocks[t];
                     }) : [];
@@ -2481,11 +2430,11 @@ var global = arguments[3];
         lazy: !0,
         placeholderChar: "_"
     }, gu.STOP_CHAR = "`", gu.ESCAPE_CHAR = "\\", gu.InputDefinition = lu, gu.FixedDefinition = hu, iu.MaskedPattern = gu;
-    var ku = function(t33) {
-        Pr(n8, t33);
-        var e13 = Vr(n8);
+    var ku = function(t34) {
+        Pr(n8, t34);
+        var e14 = Vr(n8);
         function n8() {
-            return xr(this, n8), e13.apply(this, arguments);
+            return xr(this, n8), e14.apply(this, arguments);
         }
         return Or(n8, [
             {
@@ -2527,8 +2476,7 @@ var global = arguments[3];
             {
                 key: "doPrepare",
                 value: function(t) {
-                    var e, i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    }, r = Qr(Nr(Tr(n8.prototype), "doPrepare", this).call(this, t.replace(/\D/g, ""), i)), u = qr(r, 2);
+                    var e, i = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, r = Qr(Nr(Tr(n8.prototype), "doPrepare", this).call(this, t.replace(/\D/g, ""), i)), u = qr(r, 2);
                     if (t = u[0], e = u[1], !this.autofix || !t) return t;
                     var s = String(this.from).padStart(this.maxLength, "0"), a = String(this.to).padStart(this.maxLength, "0"), o = this.value + t;
                     if (o.length > this.maxLength) return "";
@@ -2553,21 +2501,19 @@ var global = arguments[3];
         ]), n8;
     }(gu);
     iu.MaskedRange = ku;
-    var yu = function(t34) {
-        Pr(n9, t34);
-        var e14 = Vr(n9);
+    var yu = function(t35) {
+        Pr(n9, t35);
+        var e15 = Vr(n9);
         function n9(t) {
-            return xr(this, n9), e14.call(this, Object.assign({
-            }, n9.DEFAULTS, t));
+            return xr(this, n9), e15.call(this, Object.assign({}, n9.DEFAULTS, t));
         }
         return Or(n9, [
             {
                 key: "_update",
                 value: function(t) {
                     t.mask === Date && delete t.mask, t.pattern && (t.mask = t.pattern);
-                    var e = t.blocks;
-                    t.blocks = Object.assign({
-                    }, n9.GET_DEFAULT_BLOCKS()), t.min && (t.blocks.Y.from = t.min.getFullYear()), t.max && (t.blocks.Y.to = t.max.getFullYear()), t.min && t.max && t.blocks.Y.from === t.blocks.Y.to && (t.blocks.m.from = t.min.getMonth() + 1, t.blocks.m.to = t.max.getMonth() + 1, t.blocks.m.from === t.blocks.m.to && (t.blocks.d.from = t.min.getDate(), t.blocks.d.to = t.max.getDate())), Object.assign(t.blocks, this.blocks, e), Object.keys(t.blocks).forEach(function(e) {
+                    var e16 = t.blocks;
+                    t.blocks = Object.assign({}, n9.GET_DEFAULT_BLOCKS()), t.min && (t.blocks.Y.from = t.min.getFullYear()), t.max && (t.blocks.Y.to = t.max.getFullYear()), t.min && t.max && t.blocks.Y.from === t.blocks.Y.to && (t.blocks.m.from = t.min.getMonth() + 1, t.blocks.m.to = t.max.getMonth() + 1, t.blocks.m.from === t.blocks.m.to && (t.blocks.d.from = t.min.getDate(), t.blocks.d.to = t.max.getDate())), Object.assign(t.blocks, this.blocks, e16), Object.keys(t.blocks).forEach(function(e) {
                         var n = t.blocks[e];
                         !("autofix" in n) && "autofix" in t && (n.autofix = t.autofix);
                     }), Nr(Tr(n9.prototype), "_update", this).call(this, t);
@@ -2649,18 +2595,17 @@ var global = arguments[3];
         };
     }, iu.MaskedDate = yu;
     var mu = function() {
-        function t35() {
-            xr(this, t35);
+        function t36() {
+            xr(this, t36);
         }
-        return Or(t35, [
+        return Or(t36, [
             {
                 key: "selectionStart",
                 get: function() {
                     var t;
                     try {
                         t = this._unsafeSelectionStart;
-                    } catch (t36) {
-                    }
+                    } catch (t37) {}
                     return null != t ? t : this.value.length;
                 }
             },
@@ -2670,8 +2615,7 @@ var global = arguments[3];
                     var t;
                     try {
                         t = this._unsafeSelectionEnd;
-                    } catch (t37) {
-                    }
+                    } catch (t38) {}
                     return null != t ? t : this.value.length;
                 }
             },
@@ -2680,14 +2624,12 @@ var global = arguments[3];
                 value: function(t, e) {
                     if (null != t && null != e && (t !== this.selectionStart || e !== this.selectionEnd)) try {
                         this._unsafeSelect(t, e);
-                    } catch (t38) {
-                    }
+                    } catch (t39) {}
                 }
             },
             {
                 key: "_unsafeSelect",
-                value: function(t, e) {
-                }
+                value: function(t, e) {}
             },
             {
                 key: "isActive",
@@ -2697,24 +2639,21 @@ var global = arguments[3];
             },
             {
                 key: "bindEvents",
-                value: function(t) {
-                }
+                value: function(t) {}
             },
             {
                 key: "unbindEvents",
-                value: function() {
-                }
+                value: function() {}
             }
-        ]), t35;
+        ]), t36;
     }();
     iu.MaskElement = mu;
-    var bu = function(t39) {
-        Pr(n10, t39);
-        var e15 = Vr(n10);
+    var bu = function(t40) {
+        Pr(n10, t40);
+        var e17 = Vr(n10);
         function n10(t) {
             var i;
-            return xr(this, n10), (i = e15.call(this)).input = t, i._handlers = {
-            }, i;
+            return xr(this, n10), (i = e17.call(this)).input = t, i._handlers = {}, i;
         }
         return Or(n10, [
             {
@@ -2791,11 +2730,11 @@ var global = arguments[3];
         focus: "focus",
         commit: "blur"
     }, iu.HTMLMaskElement = bu;
-    var _u = function(t40) {
-        Pr(n11, t40);
-        var e16 = Vr(n11);
+    var _u = function(t41) {
+        Pr(n11, t41);
+        var e18 = Vr(n11);
         function n11() {
-            return xr(this, n11), e16.apply(this, arguments);
+            return xr(this, n11), e18.apply(this, arguments);
         }
         return Or(n11, [
             {
@@ -2838,11 +2777,10 @@ var global = arguments[3];
     var Au = [
         "mask"
     ], Cu = function() {
-        function t41(e, n) {
-            xr(this, t41), this.el = e instanceof mu ? e : e.isContentEditable && "INPUT" !== e.tagName && "TEXTAREA" !== e.tagName ? new _u(e) : new bu(e), this.masked = su(n), this._listeners = {
-            }, this._value = "", this._unmaskedValue = "", this._saveSelection = this._saveSelection.bind(this), this._onInput = this._onInput.bind(this), this._onChange = this._onChange.bind(this), this._onDrop = this._onDrop.bind(this), this._onFocus = this._onFocus.bind(this), this._onClick = this._onClick.bind(this), this.alignCursor = this.alignCursor.bind(this), this.alignCursorFriendly = this.alignCursorFriendly.bind(this), this._bindEvents(), this.updateValue(), this._onChange();
+        function t42(e, n) {
+            xr(this, t42), this.el = e instanceof mu ? e : e.isContentEditable && "INPUT" !== e.tagName && "TEXTAREA" !== e.tagName ? new _u(e) : new bu(e), this.masked = su(n), this._listeners = {}, this._value = "", this._unmaskedValue = "", this._saveSelection = this._saveSelection.bind(this), this._onInput = this._onInput.bind(this), this._onChange = this._onChange.bind(this), this._onDrop = this._onDrop.bind(this), this._onFocus = this._onFocus.bind(this), this._onClick = this._onClick.bind(this), this.alignCursor = this.alignCursor.bind(this), this.alignCursorFriendly = this.alignCursorFriendly.bind(this), this._bindEvents(), this.updateValue(), this._onChange();
         }
-        return Or(t41, [
+        return Or(t42, [
             {
                 key: "mask",
                 get: function() {
@@ -2916,9 +2854,9 @@ var global = arguments[3];
             },
             {
                 key: "_fireEvent",
-                value: function(t42) {
+                value: function(t43) {
                     for(var e = arguments.length, n = new Array(e > 1 ? e - 1 : 0), i = 1; i < e; i++)n[i - 1] = arguments[i];
-                    var r = this._listeners[t42];
+                    var r = this._listeners[t43];
                     r && r.forEach(function(t) {
                         return t.apply(void 0, n);
                     });
@@ -3060,14 +2998,14 @@ var global = arguments[3];
                     this._unbindEvents(), this._listeners.length = 0, delete this.el;
                 }
             }
-        ]), t41;
+        ]), t42;
     }();
     iu.InputMask = Cu;
-    var Eu = function(t43) {
-        Pr(n, t43);
-        var e17 = Vr(n);
+    var Eu = function(t44) {
+        Pr(n, t44);
+        var e19 = Vr(n);
         function n() {
-            return xr(this, n), e17.apply(this, arguments);
+            return xr(this, n), e19.apply(this, arguments);
         }
         return Or(n, [
             {
@@ -3079,10 +3017,10 @@ var global = arguments[3];
             {
                 key: "doValidate",
                 value: function() {
-                    for(var t44, e = this, i = arguments.length, r = new Array(i), u = 0; u < i; u++)r[u] = arguments[u];
+                    for(var t45, e = this, i = arguments.length, r = new Array(i), u = 0; u < i; u++)r[u] = arguments[u];
                     return this.enum.some(function(t) {
                         return t.indexOf(e.unmaskedValue) >= 0;
-                    }) && (t44 = Nr(Tr(n.prototype), "doValidate", this)).call.apply(t44, [
+                    }) && (t45 = Nr(Tr(n.prototype), "doValidate", this)).call.apply(t45, [
                         this
                     ].concat(r));
                 }
@@ -3090,12 +3028,11 @@ var global = arguments[3];
         ]), n;
     }(gu);
     iu.MaskedEnum = Eu;
-    var Fu = function(t45) {
-        Pr(n12, t45);
-        var e18 = Vr(n12);
+    var Fu = function(t46) {
+        Pr(n12, t46);
+        var e20 = Vr(n12);
         function n12(t) {
-            return xr(this, n12), e18.call(this, Object.assign({
-            }, n12.DEFAULTS, t));
+            return xr(this, n12), e20.call(this, Object.assign({}, n12.DEFAULTS, t));
         }
         return Or(n12, [
             {
@@ -3164,8 +3101,7 @@ var global = arguments[3];
             {
                 key: "_appendCharRaw",
                 value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    };
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                     if (!this.thousandsSeparator) return Nr(Tr(n12.prototype), "_appendCharRaw", this).call(this, t, e);
                     var i = e.tail && e._beforeTailState ? e._beforeTailState._value : this._value, r = this._separatorsCountFromSlice(i);
                     this._value = this._removeThousandsSeparators(this.value);
@@ -3258,10 +3194,10 @@ var global = arguments[3];
             {
                 key: "_normalizeZeros",
                 value: function(t) {
-                    var e19 = this._removeThousandsSeparators(t).split(this.radix);
-                    return e19[0] = e19[0].replace(/^(\D*)(0*)(\d*)/, function(t, e, n, i) {
+                    var e21 = this._removeThousandsSeparators(t).split(this.radix);
+                    return e21[0] = e21[0].replace(/^(\D*)(0*)(\d*)/, function(t, e, n, i) {
                         return e + i;
-                    }), t.length && !/\d$/.test(e19[0]) && (e19[0] = e19[0] + "0"), e19.length > 1 && (e19[1] = e19[1].replace(/0*$/, ""), e19[1].length || (e19.length = 1)), this._insertThousandsSeparators(e19.join(this.radix));
+                    }), t.length && !/\d$/.test(e21[0]) && (e21[0] = e21[0] + "0"), e21.length > 1 && (e21[1] = e21[1].replace(/0*$/, ""), e21[1].length || (e21.length = 1)), this._insertThousandsSeparators(e21.join(this.radix));
                 }
             },
             {
@@ -3318,8 +3254,8 @@ var global = arguments[3];
         normalizeZeros: !0,
         padFractionalZeros: !1
     }, iu.MaskedNumber = Fu;
-    var Su = function(t46) {
-        Pr(n, t46);
+    var Su = function(t47) {
+        Pr(n, t47);
         var e = Vr(n);
         function n() {
             return xr(this, n), e.apply(this, arguments);
@@ -3338,19 +3274,18 @@ var global = arguments[3];
         "compiledMasks",
         "currentMaskRef",
         "currentMask"
-    ], Bu = function(t47) {
-        Pr(n13, t47);
-        var e20 = Vr(n13);
+    ], Bu = function(t48) {
+        Pr(n13, t48);
+        var e22 = Vr(n13);
         function n13(t) {
             var i;
-            return xr(this, n13), (i = e20.call(this, Object.assign({
-            }, n13.DEFAULTS, t))).currentMask = null, i;
+            return xr(this, n13), (i = e22.call(this, Object.assign({}, n13.DEFAULTS, t))).currentMask = null, i;
         }
         return Or(n13, [
             {
                 key: "_update",
-                value: function(t48) {
-                    Nr(Tr(n13.prototype), "_update", this).call(this, t48), "mask" in t48 && (this.compiledMasks = Array.isArray(t48.mask) ? t48.mask.map(function(t) {
+                value: function(t49) {
+                    Nr(Tr(n13.prototype), "_update", this).call(this, t49), "mask" in t49 && (this.compiledMasks = Array.isArray(t49.mask) ? t49.mask.map(function(t) {
                         return su(t);
                     }) : []);
                 }
@@ -3358,18 +3293,15 @@ var global = arguments[3];
             {
                 key: "_appendCharRaw",
                 value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    }, n = this._applyDispatch(t, e);
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, n = this._applyDispatch(t, e);
                     return this.currentMask && n.aggregate(this.currentMask._appendChar(t, e)), n;
                 }
             },
             {
                 key: "_applyDispatch",
                 value: function() {
-                    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    }, n = e.tail && null != e._beforeTailState ? e._beforeTailState._value : this.value, i = this.rawInputValue, r = e.tail && null != e._beforeTailState ? e._beforeTailState._rawInputValue : i, u = i.slice(r.length), s = this.currentMask, a = new Yr, o = s && s.state;
-                    if (this.currentMask = this.doDispatch(t, Object.assign({
-                    }, e)), this.currentMask) {
+                    var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "", e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {}, n = e.tail && null != e._beforeTailState ? e._beforeTailState._value : this.value, i = this.rawInputValue, r = e.tail && null != e._beforeTailState ? e._beforeTailState._rawInputValue : i, u = i.slice(r.length), s = this.currentMask, a = new Yr, o = s && s.state;
+                    if (this.currentMask = this.doDispatch(t, Object.assign({}, e)), this.currentMask) {
                         if (this.currentMask !== s) {
                             if (this.currentMask.reset(), r) {
                                 var l = this.currentMask.append(r, {
@@ -3403,8 +3335,7 @@ var global = arguments[3];
             {
                 key: "doDispatch",
                 value: function(t) {
-                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {
-                    };
+                    var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
                     return this.dispatch(t, this, e);
                 }
             },
@@ -3420,8 +3351,8 @@ var global = arguments[3];
             {
                 key: "reset",
                 value: function() {
-                    var t49;
-                    null === (t49 = this.currentMask) || void 0 === t49 || t49.reset(), this.compiledMasks.forEach(function(t) {
+                    var t50;
+                    null === (t50 = this.currentMask) || void 0 === t50 || t50.reset(), this.compiledMasks.forEach(function(t) {
                         return t.reset();
                     });
                 }
@@ -3479,8 +3410,7 @@ var global = arguments[3];
             {
                 key: "state",
                 get: function() {
-                    return Object.assign({
-                    }, Nr(Tr(n13.prototype), "state", this), {
+                    return Object.assign({}, Nr(Tr(n13.prototype), "state", this), {
                         _rawInputValue: this.rawInputValue,
                         compiledMasks: this.compiledMasks.map(function(t) {
                             return t.state;
@@ -3489,8 +3419,8 @@ var global = arguments[3];
                         currentMask: this.currentMask && this.currentMask.state
                     });
                 },
-                set: function(t50) {
-                    var e = t50.compiledMasks, i = t50.currentMaskRef, r = t50.currentMask, u = jr(t50, wu);
+                set: function(t51) {
+                    var e = t51.compiledMasks, i = t51.currentMaskRef, r = t51.currentMask, u = jr(t51, wu);
                     this.compiledMasks.forEach(function(t, n) {
                         return t.state = e[n];
                     }), null != i && (this.currentMask = i, this.currentMask.state = r), zr(Tr(n13.prototype), "state", u, this, !0);
@@ -3557,19 +3487,19 @@ var global = arguments[3];
         ]), n13;
     }(ru);
     Bu.DEFAULTS = {
-        dispatch: function(t51, e21, n) {
-            if (e21.compiledMasks.length) {
-                var i = e21.rawInputValue, r5 = e21.compiledMasks.map(function(e, r) {
+        dispatch: function(t52, e23, n) {
+            if (e23.compiledMasks.length) {
+                var i = e23.rawInputValue, r5 = e23.compiledMasks.map(function(e, r) {
                     return e.reset(), e.append(i, {
                         raw: !0
-                    }), e.append(t51, n), {
+                    }), e.append(t52, n), {
                         weight: e.rawInputValue.length,
                         index: r
                     };
                 });
                 return r5.sort(function(t, e) {
                     return e.weight - t.weight;
-                }), e21.compiledMasks[r5[0].index];
+                }), e23.compiledMasks[r5[0].index];
             }
         }
     }, iu.MaskedDynamic = Bu;
@@ -3578,8 +3508,8 @@ var global = arguments[3];
         UNMASKED: "unmaskedValue",
         TYPED: "typedValue"
     };
-    function xu(t52) {
-        var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : Du.MASKED, n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : Du.MASKED, i5 = su(t52);
+    function xu(t53) {
+        var e = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : Du.MASKED, n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : Du.MASKED, i5 = su(t53);
         return function(t) {
             return i5.runIsolated(function(i) {
                 return i[e] = t, i[n];
@@ -3593,13 +3523,12 @@ var global = arguments[3];
     iu.PIPE_TYPE = Du, iu.createPipe = xu, iu.pipe = Mu;
     try {
         globalThis.IMask = iu;
-    } catch (t) {
-    }
+    } catch (t) {}
     t1.HTMLContenteditableMaskElement = _u, t1.HTMLMaskElement = bu, t1.InputMask = Cu, t1.MaskElement = mu, t1.Masked = ru, t1.MaskedDate = yu, t1.MaskedDynamic = Bu, t1.MaskedEnum = Eu, t1.MaskedFunction = Su, t1.MaskedNumber = Fu, t1.MaskedPattern = gu, t1.MaskedRange = ku, t1.MaskedRegExp = du, t1.PIPE_TYPE = Du, t1.createMask = su, t1.createPipe = xu, t1.default = iu, t1.pipe = Mu, Object.defineProperty(t1, "__esModule", {
         value: !0
     });
 }); //# sourceMappingURL=imask.min.js.map
 
-},{}]},["1WwGm","l9hyy"], "l9hyy", "parcelRequirec448")
+},{}]},["5wnQi","l9hyy"], "l9hyy", "parcelRequirec448")
 
 //# sourceMappingURL=index.5d9e448a.js.map

@@ -142,89 +142,15 @@
       this[globalName] = mainExports;
     }
   }
-})({"id6kT":[function(require,module,exports) {
+})({"iGZ1Y":[function(require,module,exports) {
 "use strict";
+var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "bfc879a5ef759d86";
-function _toConsumableArray(arr) {
-    return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
-}
-function _nonIterableSpread() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-function _iterableToArray(iter) {
-    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
-}
-function _arrayWithoutHoles(arr) {
-    if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-}
-function _createForOfIteratorHelper(o, allowArrayLike) {
-    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
-    if (!it) {
-        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-            if (it) o = it;
-            var i = 0;
-            var F = function F() {
-            };
-            return {
-                s: F,
-                n: function n() {
-                    if (i >= o.length) return {
-                        done: true
-                    };
-                    return {
-                        done: false,
-                        value: o[i++]
-                    };
-                },
-                e: function e(_e) {
-                    throw _e;
-                },
-                f: F
-            };
-        }
-        throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-    }
-    var normalCompletion = true, didErr = false, err;
-    return {
-        s: function s() {
-            it = it.call(o);
-        },
-        n: function n() {
-            var step = it.next();
-            normalCompletion = step.done;
-            return step;
-        },
-        e: function e(_e2) {
-            didErr = true;
-            err = _e2;
-        },
-        f: function f() {
-            try {
-                if (!normalCompletion && it.return != null) it.return();
-            } finally{
-                if (didErr) throw err;
-            }
-        }
-    };
-}
-function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
-    return arr2;
-}
-/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE */ /*::
+/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
   HMRMessage,
@@ -251,12 +177,25 @@ interface ParcelModule {
     _disposeCallbacks: Array<(mixed) => void>,
   |};
 }
+interface ExtensionContext {
+  runtime: {|
+    reload(): void,
+    getURL(url: string): string;
+    getManifest(): {manifest_version: number, ...};
+  |};
+}
 declare var module: {bundle: ParcelRequire, ...};
 declare var HMR_HOST: string;
 declare var HMR_PORT: string;
 declare var HMR_ENV_HASH: string;
 declare var HMR_SECURE: boolean;
-*/ var OVERLAY_ID = '__parcel__error__overlay__';
+declare var chrome: ExtensionContext;
+declare var browser: ExtensionContext;
+declare var __parcel__import__: (string) => Promise<void>;
+declare var __parcel__importScripts__: (string) => Promise<void>;
+declare var globalThis: typeof self;
+declare var ServiceWorkerGlobalScope: Object;
+*/ var OVERLAY_ID = "__parcel__error__overlay__";
 var OldModule = module.bundle.Module;
 function Module(moduleName) {
     OldModule.call(this, moduleName);
@@ -264,72 +203,66 @@ function Module(moduleName) {
         data: module.bundle.hotData,
         _acceptCallbacks: [],
         _disposeCallbacks: [],
-        accept: function accept(fn) {
-            this._acceptCallbacks.push(fn || function() {
-            });
+        accept: function(fn) {
+            this._acceptCallbacks.push(fn || function() {});
         },
-        dispose: function dispose(fn) {
+        dispose: function(fn) {
             this._disposeCallbacks.push(fn);
         }
     };
     module.bundle.hotData = undefined;
 }
 module.bundle.Module = Module;
-var checkedAssets, acceptedAssets, assetsToAccept;
+var checkedAssets, acceptedAssets, assetsToAccept /*: Array<[ParcelRequire, string]> */ ;
 function getHostname() {
-    return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
+    return HMR_HOST || (location.protocol.indexOf("http") === 0 ? location.hostname : "localhost");
 }
 function getPort() {
     return HMR_PORT || location.port;
 } // eslint-disable-next-line no-redeclare
 var parent = module.bundle.parent;
-if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== "undefined") {
     var hostname = getHostname();
     var port = getPort();
-    var protocol = HMR_SECURE || location.protocol == 'https:' && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? 'wss' : 'ws';
-    var ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/'); // $FlowFixMe
-    ws.onmessage = function(event) {
-        checkedAssets = {
-        };
-        acceptedAssets = {
-        };
+    var protocol = HMR_SECURE || location.protocol == "https:" && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? "wss" : "ws";
+    var ws = new WebSocket(protocol + "://" + hostname + (port ? ":" + port : "") + "/"); // Web extension context
+    var extCtx = typeof chrome === "undefined" ? typeof browser === "undefined" ? null : browser : chrome; // Safari doesn't support sourceURL in error stacks.
+    // eval may also be disabled via CSP, so do a quick check.
+    var supportsSourceURL = false;
+    try {
+        (0, eval)('throw new Error("test"); //# sourceURL=test.js');
+    } catch (err) {
+        supportsSourceURL = err.stack.includes("test.js");
+    } // $FlowFixMe
+    ws.onmessage = async function(event) {
+        checkedAssets = {} /*: {|[string]: boolean|} */ ;
+        acceptedAssets = {} /*: {|[string]: boolean|} */ ;
         assetsToAccept = [];
         var data = JSON.parse(event.data);
-        if (data.type === 'update') {
+        if (data.type === "update") {
             // Remove error overlay if there is one
-            if (typeof document !== 'undefined') removeErrorOverlay();
-            var assets = data.assets.filter(function(asset) {
-                return asset.envHash === HMR_ENV_HASH;
-            }); // Handle HMR Update
-            var handled = assets.every(function(asset) {
-                return asset.type === 'css' || asset.type === 'js' && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+            if (typeof document !== "undefined") removeErrorOverlay();
+            let assets = data.assets.filter((asset)=>asset.envHash === HMR_ENV_HASH); // Handle HMR Update
+            let handled = assets.every((asset)=>{
+                return asset.type === "css" || asset.type === "js" && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
             });
             if (handled) {
-                console.clear();
-                assets.forEach(function(asset) {
-                    hmrApply(module.bundle.root, asset);
-                });
+                console.clear(); // Dispatch custom event so other runtimes (e.g React Refresh) are aware.
+                if (typeof window !== "undefined" && typeof CustomEvent !== "undefined") window.dispatchEvent(new CustomEvent("parcelhmraccept"));
+                await hmrApplyUpdates(assets);
                 for(var i = 0; i < assetsToAccept.length; i++){
                     var id = assetsToAccept[i][1];
                     if (!acceptedAssets[id]) hmrAcceptRun(assetsToAccept[i][0], id);
                 }
-            } else window.location.reload();
+            } else fullReload();
         }
-        if (data.type === 'error') {
+        if (data.type === "error") {
             // Log parcel errors to console
-            var _iterator = _createForOfIteratorHelper(data.diagnostics.ansi), _step;
-            try {
-                for(_iterator.s(); !(_step = _iterator.n()).done;){
-                    var ansiDiagnostic = _step.value;
-                    var stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
-                    console.error('🚨 [parcel]: ' + ansiDiagnostic.message + '\n' + stack + '\n\n' + ansiDiagnostic.hints.join('\n'));
-                }
-            } catch (err) {
-                _iterator.e(err);
-            } finally{
-                _iterator.f();
+            for (let ansiDiagnostic of data.diagnostics.ansi){
+                let stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
+                console.error("\uD83D\uDEA8 [parcel]: " + ansiDiagnostic.message + "\n" + stack + "\n\n" + ansiDiagnostic.hints.join("\n"));
             }
-            if (typeof document !== 'undefined') {
+            if (typeof document !== "undefined") {
                 // Render the fancy html overlay
                 removeErrorOverlay();
                 var overlay = createErrorOverlay(data.diagnostics.html); // $FlowFixMe
@@ -341,37 +274,46 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         console.error(e.message);
     };
     ws.onclose = function() {
-        console.warn('[parcel] 🚨 Connection to the HMR server was lost');
+        console.warn("[parcel] \uD83D\uDEA8 Connection to the HMR server was lost");
     };
 }
 function removeErrorOverlay() {
     var overlay = document.getElementById(OVERLAY_ID);
     if (overlay) {
         overlay.remove();
-        console.log('[parcel] ✨ Error resolved');
+        console.log("[parcel] \u2728 Error resolved");
     }
 }
 function createErrorOverlay(diagnostics) {
-    var overlay = document.createElement('div');
+    var overlay = document.createElement("div");
     overlay.id = OVERLAY_ID;
-    var errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
-    var _iterator2 = _createForOfIteratorHelper(diagnostics), _step2;
-    try {
-        for(_iterator2.s(); !(_step2 = _iterator2.n()).done;){
-            var diagnostic = _step2.value;
-            var stack = diagnostic.codeframe ? diagnostic.codeframe : diagnostic.stack;
-            errorHTML += "\n      <div>\n        <div style=\"font-size: 18px; font-weight: bold; margin-top: 20px;\">\n          \uD83D\uDEA8 ".concat(diagnostic.message, "\n        </div>\n        <pre>").concat(stack, "</pre>\n        <div>\n          ").concat(diagnostic.hints.map(function(hint) {
-                return '<div>💡 ' + hint + '</div>';
-            }).join(''), "\n        </div>\n        ").concat(diagnostic.documentation ? "<div>\uD83D\uDCDD <a style=\"color: violet\" href=\"".concat(diagnostic.documentation, "\" target=\"_blank\">Learn more</a></div>") : '', "\n      </div>\n    ");
-        }
-    } catch (err) {
-        _iterator2.e(err);
-    } finally{
-        _iterator2.f();
+    let errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
+    for (let diagnostic of diagnostics){
+        let stack = diagnostic.frames.length ? diagnostic.frames.reduce((p, frame)=>{
+            return `${p}
+<a href="/__parcel_launch_editor?file=${encodeURIComponent(frame.location)}" style="text-decoration: underline; color: #888" onclick="fetch(this.href); return false">${frame.location}</a>
+${frame.code}`;
+        }, "") : diagnostic.stack;
+        errorHTML += `
+      <div>
+        <div style="font-size: 18px; font-weight: bold; margin-top: 20px;">
+          🚨 ${diagnostic.message}
+        </div>
+        <pre>${stack}</pre>
+        <div>
+          ${diagnostic.hints.map((hint)=>"<div>\uD83D\uDCA1 " + hint + "</div>").join("")}
+        </div>
+        ${diagnostic.documentation ? `<div>📝 <a style="color: violet" href="${diagnostic.documentation}" target="_blank">Learn more</a></div>` : ""}
+      </div>
+    `;
     }
-    errorHTML += '</div>';
+    errorHTML += "</div>";
     overlay.innerHTML = errorHTML;
     return overlay;
+}
+function fullReload() {
+    if ("reload" in location) location.reload();
+    else if (extCtx && extCtx.runtime && extCtx.runtime.reload) extCtx.runtime.reload();
 }
 function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
     var modules = bundle.modules;
@@ -394,7 +336,7 @@ function updateLink(link) {
         if (link.parentNode !== null) // $FlowFixMe
         link.parentNode.removeChild(link);
     };
-    newLink.setAttribute('href', link.getAttribute('href').split('?')[0] + '?' + Date.now()); // $FlowFixMe
+    newLink.setAttribute("href", link.getAttribute("href").split("?")[0] + "?" + Date.now()); // $FlowFixMe
     link.parentNode.insertBefore(newLink, link.nextSibling);
 }
 var cssTimeout = null;
@@ -404,33 +346,105 @@ function reloadCSS() {
         var links = document.querySelectorAll('link[rel="stylesheet"]');
         for(var i = 0; i < links.length; i++){
             // $FlowFixMe[incompatible-type]
-            var href = links[i].getAttribute('href');
+            var href = links[i].getAttribute("href");
             var hostname = getHostname();
-            var servedFromHMRServer = hostname === 'localhost' ? new RegExp('^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):' + getPort()).test(href) : href.indexOf(hostname + ':' + getPort());
-            var absolute = /^https?:\/\//i.test(href) && href.indexOf(window.location.origin) !== 0 && !servedFromHMRServer;
+            var servedFromHMRServer = hostname === "localhost" ? new RegExp("^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):" + getPort()).test(href) : href.indexOf(hostname + ":" + getPort());
+            var absolute = /^https?:\/\//i.test(href) && href.indexOf(location.origin) !== 0 && !servedFromHMRServer;
             if (!absolute) updateLink(links[i]);
         }
         cssTimeout = null;
     }, 50);
 }
+function hmrDownload(asset) {
+    if (asset.type === "js") {
+        if (typeof document !== "undefined") {
+            let script = document.createElement("script");
+            script.src = asset.url + "?t=" + Date.now();
+            if (asset.outputFormat === "esmodule") script.type = "module";
+            return new Promise((resolve, reject)=>{
+                var _document$head;
+                script.onload = ()=>resolve(script);
+                script.onerror = reject;
+                (_document$head = document.head) === null || _document$head === void 0 || _document$head.appendChild(script);
+            });
+        } else if (typeof importScripts === "function") {
+            // Worker scripts
+            if (asset.outputFormat === "esmodule") return import(asset.url + "?t=" + Date.now());
+            else return new Promise((resolve, reject)=>{
+                try {
+                    importScripts(asset.url + "?t=" + Date.now());
+                    resolve();
+                } catch (err) {
+                    reject(err);
+                }
+            });
+        }
+    }
+}
+async function hmrApplyUpdates(assets) {
+    global.parcelHotUpdate = Object.create(null);
+    let scriptsToRemove;
+    try {
+        // If sourceURL comments aren't supported in eval, we need to load
+        // the update from the dev server over HTTP so that stack traces
+        // are correct in errors/logs. This is much slower than eval, so
+        // we only do it if needed (currently just Safari).
+        // https://bugs.webkit.org/show_bug.cgi?id=137297
+        // This path is also taken if a CSP disallows eval.
+        if (!supportsSourceURL) {
+            let promises = assets.map((asset)=>{
+                var _hmrDownload;
+                return (_hmrDownload = hmrDownload(asset)) === null || _hmrDownload === void 0 ? void 0 : _hmrDownload.catch((err)=>{
+                    // Web extension bugfix for Chromium
+                    // https://bugs.chromium.org/p/chromium/issues/detail?id=1255412#c12
+                    if (extCtx && extCtx.runtime && extCtx.runtime.getManifest().manifest_version == 3) {
+                        if (typeof ServiceWorkerGlobalScope != "undefined" && global instanceof ServiceWorkerGlobalScope) {
+                            extCtx.runtime.reload();
+                            return;
+                        }
+                        asset.url = extCtx.runtime.getURL("/__parcel_hmr_proxy__?url=" + encodeURIComponent(asset.url + "?t=" + Date.now()));
+                        return hmrDownload(asset);
+                    }
+                    throw err;
+                });
+            });
+            scriptsToRemove = await Promise.all(promises);
+        }
+        assets.forEach(function(asset) {
+            hmrApply(module.bundle.root, asset);
+        });
+    } finally{
+        delete global.parcelHotUpdate;
+        if (scriptsToRemove) scriptsToRemove.forEach((script)=>{
+            if (script) {
+                var _document$head2;
+                (_document$head2 = document.head) === null || _document$head2 === void 0 || _document$head2.removeChild(script);
+            }
+        });
+    }
+}
 function hmrApply(bundle, asset) {
     var modules = bundle.modules;
     if (!modules) return;
-    if (asset.type === 'css') reloadCSS();
-    else if (asset.type === 'js') {
-        var deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
+    if (asset.type === "css") reloadCSS();
+    else if (asset.type === "js") {
+        let deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
         if (deps) {
             if (modules[asset.id]) {
                 // Remove dependencies that are removed and will become orphaned.
                 // This is necessary so that if the asset is added back again, the cache is gone, and we prevent a full page reload.
-                var oldDeps = modules[asset.id][1];
-                for(var dep in oldDeps)if (!deps[dep] || deps[dep] !== oldDeps[dep]) {
-                    var id = oldDeps[dep];
-                    var parents = getParents(module.bundle.root, id);
+                let oldDeps = modules[asset.id][1];
+                for(let dep in oldDeps)if (!deps[dep] || deps[dep] !== oldDeps[dep]) {
+                    let id = oldDeps[dep];
+                    let parents = getParents(module.bundle.root, id);
                     if (parents.length === 1) hmrDelete(module.bundle.root, id);
                 }
             }
-            var fn = new Function('require', 'module', 'exports', asset.output);
+            if (supportsSourceURL) // Global eval. We would use `new Function` here but browser
+            // support for source maps is better with eval.
+            (0, eval)(asset.output);
+             // $FlowFixMe
+            let fn = global.parcelHotUpdate[asset.id];
             modules[asset.id] = [
                 fn,
                 deps
@@ -439,19 +453,19 @@ function hmrApply(bundle, asset) {
     }
 }
 function hmrDelete(bundle, id1) {
-    var modules = bundle.modules;
+    let modules = bundle.modules;
     if (!modules) return;
     if (modules[id1]) {
         // Collect dependencies that will become orphaned when this module is deleted.
-        var deps = modules[id1][1];
-        var orphans = [];
-        for(var dep in deps){
-            var parents = getParents(module.bundle.root, deps[dep]);
+        let deps = modules[id1][1];
+        let orphans = [];
+        for(let dep in deps){
+            let parents = getParents(module.bundle.root, deps[dep]);
             if (parents.length === 1) orphans.push(deps[dep]);
         } // Delete the module. This must be done before deleting dependencies in case of circular dependencies.
         delete modules[id1];
         delete bundle.cache[id1]; // Now delete the orphans.
-        orphans.forEach(function(id) {
+        orphans.forEach((id)=>{
             hmrDelete(module.bundle.root, id);
         });
     } else if (bundle.parent) hmrDelete(bundle.parent, id1);
@@ -459,22 +473,22 @@ function hmrDelete(bundle, id1) {
 function hmrAcceptCheck(bundle, id, depsByBundle) {
     if (hmrAcceptCheckOne(bundle, id, depsByBundle)) return true;
      // Traverse parents breadth first. All possible ancestries must accept the HMR update, or we'll reload.
-    var parents = getParents(module.bundle.root, id);
-    var accepted = false;
+    let parents = getParents(module.bundle.root, id);
+    let accepted = false;
     while(parents.length > 0){
-        var v = parents.shift();
-        var a = hmrAcceptCheckOne(v[0], v[1], null);
+        let v = parents.shift();
+        let a = hmrAcceptCheckOne(v[0], v[1], null);
         if (a) // If this parent accepts, stop traversing upward, but still consider siblings.
         accepted = true;
         else {
             // Otherwise, queue the parents in the next level upward.
-            var p = getParents(module.bundle.root, v[1]);
+            let p = getParents(module.bundle.root, v[1]);
             if (p.length === 0) {
                 // If there are no parents, then we've reached an entry without accepting. Reload.
                 accepted = false;
                 break;
             }
-            parents.push.apply(parents, _toConsumableArray(p));
+            parents.push(...p);
         }
     }
     return accepted;
@@ -499,8 +513,7 @@ function hmrAcceptCheckOne(bundle, id, depsByBundle) {
 }
 function hmrAcceptRun(bundle, id) {
     var cached = bundle.cache[id];
-    bundle.hotData = {
-    };
+    bundle.hotData = {};
     if (cached && cached.hot) cached.hot.data = bundle.hotData;
     if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
         cb(bundle.hotData);
@@ -522,18 +535,18 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _swiperBundleMinJs = require("./swiper-bundle.min.js");
 var _swiperBundleMinJsDefault = parcelHelpers.interopDefault(_swiperBundleMinJs);
-const swiperProblems = new _swiperBundleMinJsDefault.default('.problems__swiper', {
+const swiperProblems = new (0, _swiperBundleMinJsDefault.default)(".problems__swiper", {
     slidesPerView: 1,
     spaceBetween: 50,
     CSSWidthAndHeight: true,
     loop: true,
     grabCursor: true,
     pagination: {
-        el: '.problems__nav',
-        type: 'bullets'
+        el: ".problems__nav",
+        type: "bullets"
     }
 });
-const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
+const swiperOtzovy = new (0, _swiperBundleMinJsDefault.default)(".otzovy__swiper", {
     slidesPerView: document.documentElement.clientWidth < 989 ? 1 : 3,
     centeredSlides: true,
     spaceBetween: 50,
@@ -558,7 +571,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
  *
  * Released on: February 6, 2021
  */ !function(e, t) {
-    "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = "undefined" != typeof globalThis ? globalThis : e || self).Swiper = t();
+    module.exports = t();
 }(this, function() {
     "use strict";
     function e1(e, t) {
@@ -580,22 +593,16 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         return null !== e && "object" == typeof e && "constructor" in e && e.constructor === Object;
     }
     function i1(e, t) {
-        void 0 === e && (e = {
-        }), void 0 === t && (t = {
-        }), Object.keys(t).forEach(function(s) {
+        void 0 === e && (e = {}), void 0 === t && (t = {}), Object.keys(t).forEach(function(s) {
             void 0 === e[s] ? e[s] = t[s] : a1(t[s]) && a1(e[s]) && Object.keys(t[s]).length > 0 && i1(e[s], t[s]);
         });
     }
     var s1 = {
-        body: {
-        },
-        addEventListener: function() {
-        },
-        removeEventListener: function() {
-        },
+        body: {},
+        addEventListener: function() {},
+        removeEventListener: function() {},
         activeElement: {
-            blur: function() {
-            },
+            blur: function() {},
             nodeName: ""
         },
         querySelector: function() {
@@ -609,26 +616,22 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         },
         createEvent: function() {
             return {
-                initEvent: function() {
-                }
+                initEvent: function() {}
             };
         },
         createElement: function() {
             return {
                 children: [],
                 childNodes: [],
-                style: {
-                },
-                setAttribute: function() {
-                },
+                style: {},
+                setAttribute: function() {},
                 getElementsByTagName: function() {
                     return [];
                 }
             };
         },
         createElementNS: function() {
-            return {
-            };
+            return {};
         },
         importNode: function() {
             return null;
@@ -645,8 +648,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         }
     };
     function r1() {
-        var e = "undefined" != typeof document ? document : {
-        };
+        var e = "undefined" != typeof document ? document : {};
         return i1(e, s1), e;
     }
     var n1 = {
@@ -665,22 +667,16 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             search: ""
         },
         history: {
-            replaceState: function() {
-            },
-            pushState: function() {
-            },
-            go: function() {
-            },
-            back: function() {
-            }
+            replaceState: function() {},
+            pushState: function() {},
+            go: function() {},
+            back: function() {}
         },
         CustomEvent: function() {
             return this;
         },
-        addEventListener: function() {
-        },
-        removeEventListener: function() {
-        },
+        addEventListener: function() {},
+        removeEventListener: function() {},
         getComputedStyle: function() {
             return {
                 getPropertyValue: function() {
@@ -688,19 +684,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 }
             };
         },
-        Image: function() {
-        },
-        Date: function() {
-        },
-        screen: {
-        },
-        setTimeout: function() {
-        },
-        clearTimeout: function() {
-        },
+        Image: function() {},
+        Date: function() {},
+        screen: {},
+        setTimeout: function() {},
+        clearTimeout: function() {},
         matchMedia: function() {
-            return {
-            };
+            return {};
         },
         requestAnimationFrame: function(e) {
             return "undefined" == typeof setTimeout ? (e(), null) : setTimeout(e, 0);
@@ -710,8 +700,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         }
     };
     function l1() {
-        var e = "undefined" != typeof window ? window : {
-        };
+        var e = "undefined" != typeof window ? window : {};
         return i1(e, n1), e;
     }
     function o1(e2) {
@@ -729,8 +718,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         if (Reflect.construct.sham) return !1;
         if ("function" == typeof Proxy) return !0;
         try {
-            return Date.prototype.toString.call(Reflect.construct(Date, [], function() {
-            })), !0;
+            return Date.prototype.toString.call(Reflect.construct(Date, [], function() {})), !0;
         } catch (e) {
             return !1;
         }
@@ -774,10 +762,10 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             var a, i, s;
             return a = e6.call.apply(e6, [
                 this
-            ].concat(t)) || this, i = (function(e) {
+            ].concat(t)) || this, i = function(e) {
                 if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
                 return e;
-            })(a), s = i.__proto__, Object.defineProperty(i, "__proto__", {
+            }(a), s = i.__proto__, Object.defineProperty(i, "__proto__", {
                 get: function() {
                     return s;
                 },
@@ -810,13 +798,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 var d = i3.createElement(o);
                 d.innerHTML = n;
                 for(var p = 0; p < d.childNodes.length; p += 1)s2.push(d.childNodes[p]);
-            } else s2 = (function(e, t) {
+            } else s2 = function(e, t) {
                 if ("string" != typeof e) return [
                     e
                 ];
                 for(var a = [], i = t.querySelectorAll(e), s = 0; s < i.length; s += 1)a.push(i[s]);
                 return a;
-            })(e8.trim(), t5 || i3);
+            }(e8.trim(), t5 || i3);
         } else if (e8.nodeType || e8 === a4 || e8 === i3) s2.push(e8);
         else if (Array.isArray(e8)) {
             if (e8 instanceof h1) return e8;
@@ -909,16 +897,14 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 var c = this[u];
                 if (s) for(d = 0; d < p.length; d += 1){
                     var h = p[d];
-                    c.dom7LiveListeners || (c.dom7LiveListeners = {
-                    }), c.dom7LiveListeners[h] || (c.dom7LiveListeners[h] = []), c.dom7LiveListeners[h].push({
+                    c.dom7LiveListeners || (c.dom7LiveListeners = {}), c.dom7LiveListeners[h] || (c.dom7LiveListeners[h] = []), c.dom7LiveListeners[h].push({
                         listener: r,
                         proxyListener: l
                     }), c.addEventListener(h, l, n2);
                 }
                 else for(d = 0; d < p.length; d += 1){
                     var v = p[d];
-                    c.dom7Listeners || (c.dom7Listeners = {
-                    }), c.dom7Listeners[v] || (c.dom7Listeners[v] = []), c.dom7Listeners[v].push({
+                    c.dom7Listeners || (c.dom7Listeners = {}), c.dom7Listeners[v] || (c.dom7Listeners[v] = []), c.dom7Listeners[v].push({
                         listener: r,
                         proxyListener: o
                     }), c.addEventListener(v, o, n2);
@@ -984,8 +970,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         },
         styles: function() {
             var e = l1();
-            return this[0] ? e.getComputedStyle(this[0], null) : {
-            };
+            return this[0] ? e.getComputedStyle(this[0], null) : {};
         },
         offset: function() {
             if (this.length > 0) {
@@ -1176,8 +1161,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             var a = t < 0 || arguments.length <= t ? void 0 : arguments[t];
             if (null != a) for(var i = Object.keys(Object(a)), s = 0, r = i.length; s < r; s += 1){
                 var n = i[s], l = Object.getOwnPropertyDescriptor(a, n);
-                void 0 !== l && l.enumerable && (C1(e[n]) && C1(a[n]) ? S1(e[n], a[n]) : !C1(e[n]) && C1(a[n]) ? (e[n] = {
-                }, S1(e[n], a[n])) : e[n] = a[n]);
+                void 0 !== l && l.enumerable && (C1(e[n]) && C1(a[n]) ? S1(e[n], a[n]) : !C1(e[n]) && C1(a[n]) ? (e[n] = {}, S1(e[n], a[n])) : e[n] = a[n]);
             }
         }
         return e;
@@ -1190,35 +1174,31 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         });
     }
     function z1() {
-        return g1 || (g1 = (function() {
+        return g1 || (g1 = function() {
             var e = l1(), t12 = r1();
             return {
                 touch: !!("ontouchstart" in e || e.DocumentTouch && t12 instanceof e.DocumentTouch),
                 pointerEvents: !!e.PointerEvent && "maxTouchPoints" in e.navigator && e.navigator.maxTouchPoints >= 0,
                 observer: "MutationObserver" in e || "WebkitMutationObserver" in e,
-                passiveListener: (function() {
+                passiveListener: function() {
                     var t = !1;
                     try {
-                        var a = Object.defineProperty({
-                        }, "passive", {
+                        var a = Object.defineProperty({}, "passive", {
                             get: function() {
                                 t = !0;
                             }
                         });
                         e.addEventListener("testPassiveListener", null, a);
-                    } catch (e) {
-                    }
+                    } catch (e) {}
                     return t;
-                })(),
+                }(),
                 gestures: "ongesturestart" in e
             };
-        })()), g1;
+        }()), g1;
     }
     function P1(e15) {
-        return void 0 === e15 && (e15 = {
-        }), y1 || (y1 = (function(e) {
-            var t = (void 0 === e ? {
-            } : e).userAgent, a = z1(), i = l1(), s = i.navigator.platform, r = t || i.navigator.userAgent, n = {
+        return void 0 === e15 && (e15 = {}), y1 || (y1 = function(e) {
+            var t = (void 0 === e ? {} : e).userAgent, a = z1(), i = l1(), s = i.navigator.platform, r = t || i.navigator.userAgent, n = {
                 ios: !1,
                 android: !1
             }, o = i.screen.width, d = i.screen.height, p = r.match(/(Android);?[\s\/]+([\d.]+)?/), u = r.match(/(iPad).*OS\s([\d_]+)/), c = r.match(/(iPod)(.*OS\s([\d_]+))?/), h = !u && r.match(/(iPhone\sOS|iOS)\s([\d_]+)/), v = "Win32" === s, f = "MacIntel" === s;
@@ -1240,17 +1220,17 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 1,
                 "13_0_0"
             ]), f = !1), p && !v && (n.os = "android", n.android = !0), (u || h || c) && (n.os = "ios", n.ios = !0), n;
-        })(e15)), y1;
+        }(e15)), y1;
     }
     function k1() {
-        return w1 || (w1 = (function() {
+        return w1 || (w1 = function() {
             var e, t = l1();
             return {
                 isEdge: !!t.navigator.userAgent.match(/Edge/g),
                 isSafari: (e = t.navigator.userAgent.toLowerCase(), e.indexOf("safari") >= 0 && e.indexOf("chrome") < 0 && e.indexOf("android") < 0),
                 isWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(t.navigator.userAgent)
             };
-        })()), w1;
+        }()), w1;
     }
     Object.keys(b1).forEach(function(e) {
         m1.fn[e] = b1[e];
@@ -1282,8 +1262,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         }
     }, $1 = {
         attach: function(e16, t13) {
-            void 0 === t13 && (t13 = {
-            });
+            void 0 === t13 && (t13 = {});
             var a = l1(), i = this, s = new (a.MutationObserver || a.WebkitMutationObserver)(function(e) {
                 if (1 !== e.length) {
                     var t = function() {
@@ -1323,8 +1302,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         },
         create: function() {
             M1(this, {
-                observer: t1({
-                }, $1, {
+                observer: t1({}, $1, {
                     observers: []
                 })
             });
@@ -1441,7 +1419,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                         t.velocity = f / m, t.velocity /= 2, Math.abs(t.velocity) < i.freeModeMinimumVelocity && (t.velocity = 0), (m > 150 || x1() - h.time > 300) && (t.velocity = 0);
                     } else t.velocity = 0;
                     t.velocity *= i.freeModeMomentumVelocityRatio, a.velocities.length = 0;
-                    var g = 1000 * i.freeModeMomentumRatio, y = t.velocity * g, w = t.translate + y;
+                    var g = 1e3 * i.freeModeMomentumRatio, y = t.velocity * g, w = t.translate + y;
                     r && (w = -w);
                     var b, T, C = !1, S = 20 * Math.abs(t.velocity) * i.freeModeMomentumBounceRatio;
                     if (w < t.maxTranslate()) i.freeModeMomentumBounce ? (w + t.maxTranslate() < -S && (w = t.maxTranslate() - S), b = t.maxTranslate(), C = !0, a.allowMomentumBounce = !0) : w = t.maxTranslate(), i.loop && i.centeredSlides && (T = !0);
@@ -1507,8 +1485,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         (0 === i ? 0 : (e.translate - e.minTranslate()) / i) !== e.progress && e.updateProgress(a ? -e.translate : e.translate), e.emit("setTranslate", e.translate, !1);
     }
     var H1 = !1;
-    function X1() {
-    }
+    function X1() {}
     var Y1 = {
         init: !0,
         direction: "horizontal",
@@ -1532,7 +1509,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         freeModeMomentumBounceRatio: 1,
         freeModeMomentumVelocityRatio: 1,
         freeModeSticky: !1,
-        freeModeMinimumVelocity: 0.02,
+        freeModeMinimumVelocity: .02,
         autoHeight: !1,
         setWrapperSize: !1,
         virtualTranslate: !1,
@@ -1557,7 +1534,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         simulateTouch: !0,
         shortSwipes: !0,
         longSwipes: !0,
-        longSwipesRatio: 0.5,
+        longSwipesRatio: .5,
         longSwipesMs: 300,
         followFinger: !0,
         allowTouchMove: !0,
@@ -1568,7 +1545,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         touchReleaseOnEdges: !1,
         uniqueNavElements: !0,
         resistance: !0,
-        resistanceRatio: 0.85,
+        resistanceRatio: .85,
         watchSlidesProgress: !1,
         watchSlidesVisibility: !1,
         grabCursor: !1,
@@ -1613,12 +1590,10 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 });
             },
             useModules: function(e17) {
-                void 0 === e17 && (e17 = {
-                });
+                void 0 === e17 && (e17 = {});
                 var t = this;
                 t.modules && Object.keys(t.modules).forEach(function(a) {
-                    var i = t.modules[a], s = e17[a] || {
-                    };
+                    var i = t.modules[a], s = e17[a] || {};
                     i.on && t.on && Object.keys(i.on).forEach(function(e) {
                         t.on(e, i.on[e]);
                     }), i.create && i.create.bind(t)(s);
@@ -1626,11 +1601,11 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             }
         },
         eventsEmitter: {
-            on: function(e, t, a) {
+            on: function(e18, t, a) {
                 var i = this;
                 if ("function" != typeof t) return i;
                 var s = a ? "unshift" : "push";
-                return e.split(" ").forEach(function(e) {
+                return e18.split(" ").forEach(function(e) {
                     i.eventsListeners[e] || (i.eventsListeners[e] = []), i.eventsListeners[e][s](t);
                 }), i;
             },
@@ -1656,26 +1631,26 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 var a = t.eventsAnyListeners.indexOf(e);
                 return a >= 0 && t.eventsAnyListeners.splice(a, 1), t;
             },
-            off: function(e, t) {
+            off: function(e19, t) {
                 var a = this;
-                return a.eventsListeners ? (e.split(" ").forEach(function(e) {
+                return a.eventsListeners ? (e19.split(" ").forEach(function(e) {
                     void 0 === t ? a.eventsListeners[e] = [] : a.eventsListeners[e] && a.eventsListeners[e].forEach(function(i, s) {
                         (i === t || i.__emitterProxy && i.__emitterProxy === t) && a.eventsListeners[e].splice(s, 1);
                     });
                 }), a) : a;
             },
             emit: function() {
-                var e18, t, a, i5 = this;
+                var e20, t, a, i5 = this;
                 if (!i5.eventsListeners) return i5;
                 for(var s = arguments.length, r = new Array(s), n = 0; n < s; n++)r[n] = arguments[n];
-                "string" == typeof r[0] || Array.isArray(r[0]) ? (e18 = r[0], t = r.slice(1, r.length), a = i5) : (e18 = r[0].events, t = r[0].data, a = r[0].context || i5), t.unshift(a);
-                var l = Array.isArray(e18) ? e18 : e18.split(" ");
-                return l.forEach(function(e19) {
+                "string" == typeof r[0] || Array.isArray(r[0]) ? (e20 = r[0], t = r.slice(1, r.length), a = i5) : (e20 = r[0].events, t = r[0].data, a = r[0].context || i5), t.unshift(a);
+                var l = Array.isArray(e20) ? e20 : e20.split(" ");
+                return l.forEach(function(e21) {
                     i5.eventsAnyListeners && i5.eventsAnyListeners.length && i5.eventsAnyListeners.forEach(function(i) {
                         i.apply(a, [
-                            e19
+                            e21
                         ].concat(t));
-                    }), i5.eventsListeners && i5.eventsListeners[e19] && i5.eventsListeners[e19].forEach(function(e) {
+                    }), i5.eventsListeners && i5.eventsListeners[e21] && i5.eventsListeners[e21].forEach(function(e) {
                         e.apply(a, t);
                     });
                 }), i5;
@@ -1691,24 +1666,24 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 }));
             },
             updateSlides: function() {
-                var e20 = this, t14 = l1(), a = e20.params, i = e20.$wrapperEl, s = e20.size, r = e20.rtlTranslate, n = e20.wrongRTL, o = e20.virtual && a.virtual.enabled, d = o ? e20.virtual.slides.length : e20.slides.length, p = i.children("." + e20.params.slideClass), u = o ? e20.virtual.slides.length : p.length, c = [], h = [], v = [];
+                var e22 = this, t14 = l1(), a = e22.params, i = e22.$wrapperEl, s = e22.size, r = e22.rtlTranslate, n = e22.wrongRTL, o = e22.virtual && a.virtual.enabled, d = o ? e22.virtual.slides.length : e22.slides.length, p = i.children("." + e22.params.slideClass), u = o ? e22.virtual.slides.length : p.length, c = [], h = [], v = [];
                 function f(e, t) {
                     return !a.cssMode || t !== p.length - 1;
                 }
                 var m = a.slidesOffsetBefore;
-                "function" == typeof m && (m = a.slidesOffsetBefore.call(e20));
+                "function" == typeof m && (m = a.slidesOffsetBefore.call(e22));
                 var g = a.slidesOffsetAfter;
-                "function" == typeof g && (g = a.slidesOffsetAfter.call(e20));
-                var y = e20.snapGrid.length, w = e20.slidesGrid.length, b = a.spaceBetween, E = -m, x = 0, T = 0;
+                "function" == typeof g && (g = a.slidesOffsetAfter.call(e22));
+                var y = e22.snapGrid.length, w = e22.slidesGrid.length, b = a.spaceBetween, E = -m, x = 0, T = 0;
                 if (void 0 !== s) {
                     var C, M;
-                    "string" == typeof b && b.indexOf("%") >= 0 && (b = parseFloat(b.replace("%", "")) / 100 * s), e20.virtualSize = -b, r ? p.css({
+                    "string" == typeof b && b.indexOf("%") >= 0 && (b = parseFloat(b.replace("%", "")) / 100 * s), e22.virtualSize = -b, r ? p.css({
                         marginLeft: "",
                         marginTop: ""
                     }) : p.css({
                         marginRight: "",
                         marginBottom: ""
-                    }), a.slidesPerColumn > 1 && (C = Math.floor(u / a.slidesPerColumn) === u / e20.params.slidesPerColumn ? u : Math.ceil(u / a.slidesPerColumn) * a.slidesPerColumn, "auto" !== a.slidesPerView && "row" === a.slidesPerColumnFill && (C = Math.max(C, a.slidesPerView * a.slidesPerColumn)));
+                    }), a.slidesPerColumn > 1 && (C = Math.floor(u / a.slidesPerColumn) === u / e22.params.slidesPerColumn ? u : Math.ceil(u / a.slidesPerColumn) * a.slidesPerColumn, "auto" !== a.slidesPerView && "row" === a.slidesPerColumnFill && (C = Math.max(C, a.slidesPerView * a.slidesPerColumn)));
                     for(var z, P = a.slidesPerColumn, k = C / P, L = Math.floor(u / a.slidesPerColumn), $ = 0; $ < u; $ += 1){
                         M = 0;
                         var I = p.eq($);
@@ -1724,13 +1699,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                                     order: O
                                 });
                             } else "column" === a.slidesPerColumnFill ? (D = $ - (A = Math.floor($ / P)) * P, (A > L || A === L && D === P - 1) && (D += 1) >= P && (D = 0, A += 1)) : A = $ - (D = Math.floor($ / k)) * k;
-                            I.css("margin-" + (e20.isHorizontal() ? "top" : "left"), 0 !== D && a.spaceBetween && a.spaceBetween + "px");
+                            I.css("margin-" + (e22.isHorizontal() ? "top" : "left"), 0 !== D && a.spaceBetween && a.spaceBetween + "px");
                         }
                         if ("none" !== I.css("display")) {
                             if ("auto" === a.slidesPerView) {
                                 var H = t14.getComputedStyle(I[0], null), X = I[0].style.transform, Y = I[0].style.webkitTransform;
-                                if (X && (I[0].style.transform = "none"), Y && (I[0].style.webkitTransform = "none"), a.roundLengths) M = e20.isHorizontal() ? I.outerWidth(!0) : I.outerHeight(!0);
-                                else if (e20.isHorizontal()) {
+                                if (X && (I[0].style.transform = "none"), Y && (I[0].style.webkitTransform = "none"), a.roundLengths) M = e22.isHorizontal() ? I.outerWidth(!0) : I.outerHeight(!0);
+                                else if (e22.isHorizontal()) {
                                     var V = parseFloat(H.getPropertyValue("width") || 0), F = parseFloat(H.getPropertyValue("padding-left") || 0), R = parseFloat(H.getPropertyValue("padding-right") || 0), W = parseFloat(H.getPropertyValue("margin-left") || 0), q = parseFloat(H.getPropertyValue("margin-right") || 0), j = H.getPropertyValue("box-sizing");
                                     if (j && "border-box" === j) M = V + W + q;
                                     else {
@@ -1746,25 +1721,25 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                                     }
                                 }
                                 X && (I[0].style.transform = X), Y && (I[0].style.webkitTransform = Y), a.roundLengths && (M = Math.floor(M));
-                            } else M = (s - (a.slidesPerView - 1) * b) / a.slidesPerView, a.roundLengths && (M = Math.floor(M)), p[$] && (e20.isHorizontal() ? p[$].style.width = M + "px" : p[$].style.height = M + "px");
-                            p[$] && (p[$].swiperSlideSize = M), v.push(M), a.centeredSlides ? (E = E + M / 2 + x / 2 + b, 0 === x && 0 !== $ && (E = E - s / 2 - b), 0 === $ && (E = E - s / 2 - b), Math.abs(E) < 0.001 && (E = 0), a.roundLengths && (E = Math.floor(E)), T % a.slidesPerGroup == 0 && c.push(E), h.push(E)) : (a.roundLengths && (E = Math.floor(E)), (T - Math.min(e20.params.slidesPerGroupSkip, T)) % e20.params.slidesPerGroup == 0 && c.push(E), h.push(E), E = E + M + b), e20.virtualSize += M + b, x = M, T += 1;
+                            } else M = (s - (a.slidesPerView - 1) * b) / a.slidesPerView, a.roundLengths && (M = Math.floor(M)), p[$] && (e22.isHorizontal() ? p[$].style.width = M + "px" : p[$].style.height = M + "px");
+                            p[$] && (p[$].swiperSlideSize = M), v.push(M), a.centeredSlides ? (E = E + M / 2 + x / 2 + b, 0 === x && 0 !== $ && (E = E - s / 2 - b), 0 === $ && (E = E - s / 2 - b), Math.abs(E) < .001 && (E = 0), a.roundLengths && (E = Math.floor(E)), T % a.slidesPerGroup == 0 && c.push(E), h.push(E)) : (a.roundLengths && (E = Math.floor(E)), (T - Math.min(e22.params.slidesPerGroupSkip, T)) % e22.params.slidesPerGroup == 0 && c.push(E), h.push(E), E = E + M + b), e22.virtualSize += M + b, x = M, T += 1;
                         }
                     }
-                    if (e20.virtualSize = Math.max(e20.virtualSize, s) + g, r && n && ("slide" === a.effect || "coverflow" === a.effect) && i.css({
-                        width: e20.virtualSize + a.spaceBetween + "px"
-                    }), a.setWrapperSize && (e20.isHorizontal() ? i.css({
-                        width: e20.virtualSize + a.spaceBetween + "px"
+                    if (e22.virtualSize = Math.max(e22.virtualSize, s) + g, r && n && ("slide" === a.effect || "coverflow" === a.effect) && i.css({
+                        width: e22.virtualSize + a.spaceBetween + "px"
+                    }), a.setWrapperSize && (e22.isHorizontal() ? i.css({
+                        width: e22.virtualSize + a.spaceBetween + "px"
                     }) : i.css({
-                        height: e20.virtualSize + a.spaceBetween + "px"
-                    })), a.slidesPerColumn > 1 && (e20.virtualSize = (M + a.spaceBetween) * C, e20.virtualSize = Math.ceil(e20.virtualSize / a.slidesPerColumn) - a.spaceBetween, e20.isHorizontal() ? i.css({
-                        width: e20.virtualSize + a.spaceBetween + "px"
+                        height: e22.virtualSize + a.spaceBetween + "px"
+                    })), a.slidesPerColumn > 1 && (e22.virtualSize = (M + a.spaceBetween) * C, e22.virtualSize = Math.ceil(e22.virtualSize / a.slidesPerColumn) - a.spaceBetween, e22.isHorizontal() ? i.css({
+                        width: e22.virtualSize + a.spaceBetween + "px"
                     }) : i.css({
-                        height: e20.virtualSize + a.spaceBetween + "px"
+                        height: e22.virtualSize + a.spaceBetween + "px"
                     }), a.centeredSlides)) {
                         z = [];
                         for(var se = 0; se < c.length; se += 1){
                             var re = c[se];
-                            a.roundLengths && (re = Math.floor(re)), c[se] < e20.virtualSize + c[0] && z.push(re);
+                            a.roundLengths && (re = Math.floor(re)), c[se] < e22.virtualSize + c[0] && z.push(re);
                         }
                         c = z;
                     }
@@ -1772,13 +1747,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                         z = [];
                         for(var ne = 0; ne < c.length; ne += 1){
                             var le = c[ne];
-                            a.roundLengths && (le = Math.floor(le)), c[ne] <= e20.virtualSize - s && z.push(le);
+                            a.roundLengths && (le = Math.floor(le)), c[ne] <= e22.virtualSize - s && z.push(le);
                         }
-                        c = z, Math.floor(e20.virtualSize - s) - Math.floor(c[c.length - 1]) > 1 && c.push(e20.virtualSize - s);
+                        c = z, Math.floor(e22.virtualSize - s) - Math.floor(c[c.length - 1]) > 1 && c.push(e22.virtualSize - s);
                     }
                     if (0 === c.length && (c = [
                         0
-                    ]), 0 !== a.spaceBetween && (e20.isHorizontal() ? r ? p.filter(f).css({
+                    ]), 0 !== a.spaceBetween && (e22.isHorizontal() ? r ? p.filter(f).css({
                         marginLeft: b + "px"
                     }) : p.filter(f).css({
                         marginRight: b + "px"
@@ -1807,17 +1782,17 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                             });
                         }
                     }
-                    S1(e20, {
+                    S1(e22, {
                         slides: p,
                         snapGrid: c,
                         slidesGrid: h,
                         slidesSizesGrid: v
-                    }), u !== d && e20.emit("slidesLengthChange"), c.length !== y && (e20.params.watchOverflow && e20.checkOverflow(), e20.emit("snapGridLengthChange")), h.length !== w && e20.emit("slidesGridLengthChange"), (a.watchSlidesProgress || a.watchSlidesVisibility) && e20.updateSlidesOffset();
+                    }), u !== d && e22.emit("slidesLengthChange"), c.length !== y && (e22.params.watchOverflow && e22.checkOverflow(), e22.emit("snapGridLengthChange")), h.length !== w && e22.emit("slidesGridLengthChange"), (a.watchSlidesProgress || a.watchSlidesVisibility) && e22.updateSlidesOffset();
                 }
             },
-            updateAutoHeight: function(e21) {
+            updateAutoHeight: function(e23) {
                 var t, a = this, i = [], s = 0;
-                if ("number" == typeof e21 ? a.setTransition(e21) : !0 === e21 && a.setTransition(a.params.speed), "auto" !== a.params.slidesPerView && a.params.slidesPerView > 1) {
+                if ("number" == typeof e23 ? a.setTransition(e23) : !0 === e23 && a.setTransition(a.params.speed), "auto" !== a.params.slidesPerView && a.params.slidesPerView > 1) {
                     if (a.params.centeredSlides) a.visibleSlides.each(function(e) {
                         i.push(e);
                     });
@@ -1924,16 +1899,15 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             maxTranslate: function() {
                 return -this.snapGrid[this.snapGrid.length - 1];
             },
-            translateTo: function(e22, t, a, i, s) {
-                void 0 === e22 && (e22 = 0), void 0 === t && (t = this.params.speed), void 0 === a && (a = !0), void 0 === i && (i = !0);
+            translateTo: function(e24, t, a, i, s) {
+                void 0 === e24 && (e24 = 0), void 0 === t && (t = this.params.speed), void 0 === a && (a = !0), void 0 === i && (i = !0);
                 var r = this, n = r.params, l = r.wrapperEl;
                 if (r.animating && n.preventInteractionOnTransition) return !1;
                 var o, d = r.minTranslate(), p = r.maxTranslate();
-                if (o = i && e22 > d ? d : i && e22 < p ? p : e22, r.updateProgress(o), n.cssMode) {
+                if (o = i && e24 > d ? d : i && e24 < p ? p : e24, r.updateProgress(o), n.cssMode) {
                     var u, c = r.isHorizontal();
                     if (0 === t) l[c ? "scrollLeft" : "scrollTop"] = -o;
-                    else if (l.scrollTo) l.scrollTo(((u = {
-                    })[c ? "left" : "top"] = -o, u.behavior = "smooth", u));
+                    else if (l.scrollTo) l.scrollTo(((u = {})[c ? "left" : "top"] = -o, u.behavior = "smooth", u));
                     else l[c ? "scrollLeft" : "scrollTop"] = -o;
                     return !0;
                 }
@@ -1973,14 +1947,14 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             }
         },
         slide: {
-            slideTo: function(e23, t, a, i) {
-                if (void 0 === e23 && (e23 = 0), void 0 === t && (t = this.params.speed), void 0 === a && (a = !0), "number" != typeof e23 && "string" != typeof e23) throw new Error("The 'index' argument cannot have type other than 'number' or 'string'. [" + typeof e23 + "] given.");
-                if ("string" == typeof e23) {
-                    var s = parseInt(e23, 10);
-                    if (!isFinite(s)) throw new Error("The passed-in 'index' (string) couldn't be converted to 'number'. [" + e23 + "] given.");
-                    e23 = s;
+            slideTo: function(e25, t, a, i) {
+                if (void 0 === e25 && (e25 = 0), void 0 === t && (t = this.params.speed), void 0 === a && (a = !0), "number" != typeof e25 && "string" != typeof e25) throw new Error("The 'index' argument cannot have type other than 'number' or 'string'. [" + typeof e25 + "] given.");
+                if ("string" == typeof e25) {
+                    var s = parseInt(e25, 10);
+                    if (!isFinite(s)) throw new Error("The passed-in 'index' (string) couldn't be converted to 'number'. [" + e25 + "] given.");
+                    e25 = s;
                 }
-                var r = this, n = e23;
+                var r = this, n = e25;
                 n < 0 && (n = 0);
                 var l = r.params, o = r.snapGrid, d = r.slidesGrid, p = r.previousIndex, u = r.activeIndex, c = r.rtlTranslate, h = r.wrapperEl;
                 if (r.animating && l.preventInteractionOnTransition) return !1;
@@ -1999,8 +1973,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 if (l.cssMode) {
                     var x, T = r.isHorizontal(), C = -g;
                     if (c && (C = h.scrollWidth - h.offsetWidth - C), 0 === t) h[T ? "scrollLeft" : "scrollTop"] = C;
-                    else if (h.scrollTo) h.scrollTo(((x = {
-                    })[T ? "left" : "top"] = C, x.behavior = "smooth", x));
+                    else if (h.scrollTo) h.scrollTo(((x = {})[T ? "left" : "top"] = C, x.behavior = "smooth", x));
                     else h[T ? "scrollLeft" : "scrollTop"] = C;
                     return !0;
                 }
@@ -2022,8 +1995,8 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 }
                 return i.slideTo(i.activeIndex + n, e, t, a);
             },
-            slidePrev: function(e24, t, a) {
-                void 0 === e24 && (e24 = this.params.speed), void 0 === t && (t = !0);
+            slidePrev: function(e26, t, a) {
+                void 0 === e26 && (e26 = this.params.speed), void 0 === t && (t = !0);
                 var i = this, s = i.params, r = i.animating, n = i.snapGrid, l = i.slidesGrid, o = i.rtlTranslate;
                 if (s.loop) {
                     if (r && s.loopPreventsSlide) return !1;
@@ -2039,13 +2012,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 var c, h = n[u.indexOf(p) - 1];
                 return void 0 === h && s.cssMode && n.forEach(function(e) {
                     !h && p >= e && (h = e);
-                }), void 0 !== h && (c = l.indexOf(h)) < 0 && (c = i.activeIndex - 1), i.slideTo(c, e24, t, a);
+                }), void 0 !== h && (c = l.indexOf(h)) < 0 && (c = i.activeIndex - 1), i.slideTo(c, e26, t, a);
             },
             slideReset: function(e, t, a) {
                 return void 0 === e && (e = this.params.speed), void 0 === t && (t = !0), this.slideTo(this.activeIndex, e, t, a);
             },
             slideToClosest: function(e, t, a, i) {
-                void 0 === e && (e = this.params.speed), void 0 === t && (t = !0), void 0 === i && (i = 0.5);
+                void 0 === e && (e = this.params.speed), void 0 === t && (t = !0), void 0 === i && (i = .5);
                 var s = this, r = s.activeIndex, n = Math.min(s.params.slidesPerGroupSkip, r), l = n + Math.floor((r - n) / s.params.slidesPerGroup), o = s.rtlTranslate ? s.translate : -s.translate;
                 if (o >= s.snapGrid[l]) {
                     var d = s.snapGrid[l];
@@ -2210,10 +2183,10 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         },
         breakpoints: {
             setBreakpoint: function() {
-                var e25 = this, t16 = e25.activeIndex, a = e25.initialized, i = e25.loopedSlides, s = void 0 === i ? 0 : i, r = e25.params, n = e25.$el, l = r.breakpoints;
+                var e27 = this, t16 = e27.activeIndex, a = e27.initialized, i = e27.loopedSlides, s = void 0 === i ? 0 : i, r = e27.params, n = e27.$el, l = r.breakpoints;
                 if (l && (!l || 0 !== Object.keys(l).length)) {
-                    var o = e25.getBreakpoint(l);
-                    if (o && e25.currentBreakpoint !== o) {
+                    var o = e27.getBreakpoint(l);
+                    if (o && e27.currentBreakpoint !== o) {
                         var d = o in l ? l[o] : void 0;
                         d && [
                             "slidesPerView",
@@ -2225,21 +2198,21 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                             var t = d[e];
                             void 0 !== t && (d[e] = "slidesPerView" !== e || "AUTO" !== t && "auto" !== t ? "slidesPerView" === e ? parseFloat(t) : parseInt(t, 10) : "auto");
                         });
-                        var p = d || e25.originalParams, u = r.slidesPerColumn > 1, c = p.slidesPerColumn > 1;
-                        u && !c ? (n.removeClass(r.containerModifierClass + "multirow " + r.containerModifierClass + "multirow-column"), e25.emitContainerClasses()) : !u && c && (n.addClass(r.containerModifierClass + "multirow"), "column" === p.slidesPerColumnFill && n.addClass(r.containerModifierClass + "multirow-column"), e25.emitContainerClasses());
+                        var p = d || e27.originalParams, u = r.slidesPerColumn > 1, c = p.slidesPerColumn > 1;
+                        u && !c ? (n.removeClass(r.containerModifierClass + "multirow " + r.containerModifierClass + "multirow-column"), e27.emitContainerClasses()) : !u && c && (n.addClass(r.containerModifierClass + "multirow"), "column" === p.slidesPerColumnFill && n.addClass(r.containerModifierClass + "multirow-column"), e27.emitContainerClasses());
                         var h = p.direction && p.direction !== r.direction, v = r.loop && (p.slidesPerView !== r.slidesPerView || h);
-                        h && a && e25.changeDirection(), S1(e25.params, p), S1(e25, {
-                            allowTouchMove: e25.params.allowTouchMove,
-                            allowSlideNext: e25.params.allowSlideNext,
-                            allowSlidePrev: e25.params.allowSlidePrev
-                        }), e25.currentBreakpoint = o, e25.emit("_beforeBreakpoint", p), v && a && (e25.loopDestroy(), e25.loopCreate(), e25.updateSlides(), e25.slideTo(t16 - s + e25.loopedSlides, 0, !1)), e25.emit("breakpoint", p);
+                        h && a && e27.changeDirection(), S1(e27.params, p), S1(e27, {
+                            allowTouchMove: e27.params.allowTouchMove,
+                            allowSlideNext: e27.params.allowSlideNext,
+                            allowSlidePrev: e27.params.allowSlidePrev
+                        }), e27.currentBreakpoint = o, e27.emit("_beforeBreakpoint", p), v && a && (e27.loopDestroy(), e27.loopCreate(), e27.updateSlides(), e27.slideTo(t16 - s + e27.loopedSlides, 0, !1)), e27.emit("breakpoint", p);
                     }
                 }
             },
-            getBreakpoint: function(e26) {
+            getBreakpoint: function(e28) {
                 var t17 = l1();
-                if (e26) {
-                    var a8 = !1, i = Object.keys(e26).map(function(e) {
+                if (e28) {
+                    var a8 = !1, i = Object.keys(e28).map(function(e) {
                         if ("string" == typeof e && 0 === e.indexOf("@")) {
                             var a = parseFloat(e.substr(1));
                             return {
@@ -2271,10 +2244,10 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         },
         classes: {
             addClasses: function() {
-                var e27 = this, t = e27.classNames, a = e27.params, i = e27.rtl, s = e27.$el, r = e27.device, n = e27.support, l = [];
+                var e29 = this, t = e29.classNames, a = e29.params, i = e29.rtl, s = e29.$el, r = e29.device, n = e29.support, l = [];
                 l.push("initialized"), l.push(a.direction), n.pointerEvents && !n.touch && l.push("pointer-events"), a.freeMode && l.push("free-mode"), a.autoHeight && l.push("autoheight"), i && l.push("rtl"), a.slidesPerColumn > 1 && (l.push("multirow"), "column" === a.slidesPerColumnFill && l.push("multirow-column")), r.android && l.push("android"), r.ios && l.push("ios"), a.cssMode && l.push("css-mode"), l.forEach(function(e) {
                     t.push(a.containerModifierClass + e);
-                }), s.addClass(t.join(" ")), e27.emitContainerClasses();
+                }), s.addClass(t.join(" ")), e29.emitContainerClasses();
             },
             removeClasses: function() {
                 var e = this, t = e.$el, a = e.classNames;
@@ -2301,17 +2274,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 }
             }
         }
-    }, F1 = {
-    }, R1 = function() {
+    }, F1 = {}, R1 = function() {
         function t18() {
-            for(var e28, a, i8 = arguments.length, s4 = new Array(i8), r = 0; r < i8; r++)s4[r] = arguments[r];
-            if (1 === s4.length && s4[0].constructor && s4[0].constructor === Object ? a = s4[0] : (e28 = s4[0], a = s4[1]), a || (a = {
-            }), a = S1({
-            }, a), e28 && !a.el && (a.el = e28), a.el && m1(a.el).length > 1) {
+            for(var e30, a, i8 = arguments.length, s4 = new Array(i8), r = 0; r < i8; r++)s4[r] = arguments[r];
+            if (1 === s4.length && s4[0].constructor && s4[0].constructor === Object ? a = s4[0] : (e30 = s4[0], a = s4[1]), a || (a = {}), a = S1({}, a), e30 && !a.el && (a.el = e30), a.el && m1(a.el).length > 1) {
                 var n = [];
                 return m1(a.el).each(function(e) {
-                    var i = S1({
-                    }, a, {
+                    var i = S1({}, a, {
                         el: e
                     });
                     n.push(new t18(i));
@@ -2320,9 +2289,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             var l = this;
             l.support = z1(), l.device = P1({
                 userAgent: a.userAgent
-            }), l.browser = k1(), l.eventsListeners = {
-            }, l.eventsAnyListeners = [], void 0 === l.modules && (l.modules = {
-            }), Object.keys(l.modules).forEach(function(e) {
+            }), l.browser = k1(), l.eventsListeners = {}, l.eventsAnyListeners = [], void 0 === l.modules && (l.modules = {}), Object.keys(l.modules).forEach(function(e) {
                 var t = l.modules[e];
                 if (t.params) {
                     var i = Object.keys(t.params)[0], s = t.params[i];
@@ -2335,15 +2302,11 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                     });
                 }
             });
-            var o, d, p = S1({
-            }, Y1);
-            return l.useParams(p), l.params = S1({
-            }, p, F1, a), l.originalParams = S1({
-            }, l.params), l.passedParams = S1({
-            }, a), l.params && l.params.on && Object.keys(l.params.on).forEach(function(e) {
+            var o, d, p = S1({}, Y1);
+            return l.useParams(p), l.params = S1({}, p, F1, a), l.originalParams = S1({}, l.params), l.passedParams = S1({}, a), l.params && l.params.on && Object.keys(l.params.on).forEach(function(e) {
                 l.on(e, l.params.on[e]);
             }), l.params && l.params.onAny && l.onAny(l.params.onAny), l.$ = m1, S1(l, {
-                el: e28,
+                el: e30,
                 classNames: [],
                 slides: m1(),
                 slidesGrid: [],
@@ -2428,9 +2391,9 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 });
                 e.emit("_containerClasses", t19.join(" "));
             }
-        }, r2.getSlideClasses = function(e29) {
+        }, r2.getSlideClasses = function(e31) {
             var t = this;
-            return e29.className.split(" ").filter(function(e) {
+            return e31.className.split(" ").filter(function(e) {
                 return 0 === e.indexOf("swiper-slide") || 0 === e.indexOf(t.params.slideClass);
             }).join(" ");
         }, r2.emitSlidesClasses = function() {
@@ -2468,27 +2431,27 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             return e || (e = "horizontal" === i ? "vertical" : "horizontal"), e === i || "horizontal" !== e && "vertical" !== e || (a.$el.removeClass("" + a.params.containerModifierClass + i).addClass("" + a.params.containerModifierClass + e), a.emitContainerClasses(), a.params.direction = e, a.slides.each(function(t) {
                 "vertical" === e ? t.style.width = "" : t.style.height = "";
             }), a.emit("changeDirection"), t21 && a.update()), a;
-        }, r2.mount = function(e30) {
+        }, r2.mount = function(e32) {
             var t = this;
             if (t.mounted) return !0;
-            var a, i = m1(e30 || t.params.el);
-            return !!(e30 = i[0]) && (e30.swiper = t, e30 && e30.shadowRoot && e30.shadowRoot.querySelector ? (a = m1(e30.shadowRoot.querySelector("." + t.params.wrapperClass))).children = function(e) {
+            var a, i = m1(e32 || t.params.el);
+            return !!(e32 = i[0]) && (e32.swiper = t, e32 && e32.shadowRoot && e32.shadowRoot.querySelector ? (a = m1(e32.shadowRoot.querySelector("." + t.params.wrapperClass))).children = function(e) {
                 return i.children(e);
             } : a = i.children("." + t.params.wrapperClass), S1(t, {
                 $el: i,
-                el: e30,
+                el: e32,
                 $wrapperEl: a,
                 wrapperEl: a[0],
                 mounted: !0,
-                rtl: "rtl" === e30.dir.toLowerCase() || "rtl" === i.css("direction"),
-                rtlTranslate: "horizontal" === t.params.direction && ("rtl" === e30.dir.toLowerCase() || "rtl" === i.css("direction")),
+                rtl: "rtl" === e32.dir.toLowerCase() || "rtl" === i.css("direction"),
+                rtlTranslate: "horizontal" === t.params.direction && ("rtl" === e32.dir.toLowerCase() || "rtl" === i.css("direction")),
                 wrongRTL: "-webkit-box" === a.css("display")
             }), !0);
         }, r2.init = function(e) {
             var t = this;
             return t.initialized || !1 === t.mount(e) || (t.emit("beforeInit"), t.params.breakpoints && t.setBreakpoint(), t.addClasses(), t.params.loop && t.loopCreate(), t.updateSize(), t.updateSlides(), t.params.watchOverflow && t.checkOverflow(), t.params.grabCursor && t.setGrabCursor(), t.params.preloadImages && t.preloadImages(), t.params.loop ? t.slideTo(t.params.initialSlide + t.loopedSlides, 0, t.params.runCallbacksOnInit) : t.slideTo(t.params.initialSlide, 0, t.params.runCallbacksOnInit), t.attachEvents(), t.initialized = !0, t.emit("init"), t.emit("afterInit")), t;
-        }, r2.destroy = function(e31, t) {
-            void 0 === e31 && (e31 = !0), void 0 === t && (t = !0);
+        }, r2.destroy = function(e33, t) {
+            void 0 === e33 && (e33 = !0), void 0 === t && (t = !0);
             var a, i = this, s = i.params, r = i.$el, n = i.$wrapperEl, l = i.slides;
             return void 0 === i.params || i.destroyed || (i.emit("beforeDestroy"), i.initialized = !1, i.detachEvents(), s.loop && i.loopDestroy(), t && (i.removeClasses(), r.removeAttr("style"), n.removeAttr("style"), l && l.length && l.removeClass([
                 s.slideVisibleClass,
@@ -2497,27 +2460,24 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 s.slidePrevClass
             ].join(" ")).removeAttr("style").removeAttr("data-swiper-slide-index")), i.emit("destroy"), Object.keys(i.eventsListeners).forEach(function(e) {
                 i.off(e);
-            }), !1 !== e31 && (i.$el[0].swiper = null, a = i, Object.keys(a).forEach(function(e) {
+            }), !1 !== e33 && (i.$el[0].swiper = null, a = i, Object.keys(a).forEach(function(e) {
                 try {
                     a[e] = null;
-                } catch (e32) {
-                }
+                } catch (e34) {}
                 try {
                     delete a[e];
-                } catch (e33) {
-                }
+                } catch (e35) {}
             })), i.destroyed = !0), null;
         }, t18.extendDefaults = function(e) {
             S1(F1, e);
         }, t18.installModule = function(e) {
-            t18.prototype.modules || (t18.prototype.modules = {
-            });
+            t18.prototype.modules || (t18.prototype.modules = {});
             var a = e.name || Object.keys(t18.prototype.modules).length + "_" + x1();
             t18.prototype.modules[a] = e;
-        }, t18.use = function(e34) {
-            return Array.isArray(e34) ? (e34.forEach(function(e) {
+        }, t18.use = function(e36) {
+            return Array.isArray(e36) ? (e36.forEach(function(e) {
                 return t18.installModule(e);
-            }), t18) : (t18.installModule(e34), t18);
+            }), t18) : (t18.installModule(e36), t18);
         }, a10 = t18, s3 = [
             {
                 key: "extendedDefaults",
@@ -2542,7 +2502,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         I1
     ]);
     var W1 = {
-        update: function(e35) {
+        update: function(e37) {
             var t22 = this, a = t22.params, i = a.slidesPerView, s = a.slidesPerGroup, r = a.centeredSlides, n = t22.params.virtual, l = n.addSlidesBefore, o = n.addSlidesAfter, d = t22.virtual, p = d.from, u = d.to, c = d.slides, h = d.slidesGrid, v = d.renderSlide, f = d.offset;
             t22.updateActiveIndex();
             var m, g, y, w = t22.activeIndex || 0;
@@ -2556,7 +2516,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 to: E,
                 offset: x,
                 slidesGrid: t22.slidesGrid
-            }), p === b && u === E && !e35) return t22.slidesGrid !== h && x !== f && t22.slides.css(m, x + "px"), void t22.updateProgress();
+            }), p === b && u === E && !e37) return t22.slidesGrid !== h && x !== f && t22.slides.css(m, x + "px"), void t22.updateProgress();
             if (t22.params.virtual.renderExternal) return t22.params.virtual.renderExternal.call(t22, {
                 offset: x,
                 from: b,
@@ -2567,9 +2527,9 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 }()
             }), void (t22.params.virtual.renderExternalUpdate && T());
             var C = [], M = [];
-            if (e35) t22.$wrapperEl.find("." + t22.params.slideClass).remove();
+            if (e37) t22.$wrapperEl.find("." + t22.params.slideClass).remove();
             else for(var z = p; z <= u; z += 1)(z < b || z > E) && t22.$wrapperEl.find("." + t22.params.slideClass + '[data-swiper-slide-index="' + z + '"]').remove();
-            for(var P = 0; P < c.length; P += 1)P >= b && P <= E && (void 0 === u || e35 ? M.push(P) : (P > u && M.push(P), P < p && C.push(P)));
+            for(var P = 0; P < c.length; P += 1)P >= b && P <= E && (void 0 === u || e37 ? M.push(P) : (P > u && M.push(P), P < p && C.push(P)));
             M.forEach(function(e) {
                 t22.$wrapperEl.append(v(c[e], e));
             }), C.sort(function(e, t) {
@@ -2590,15 +2550,14 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             else t.virtual.slides.push(e);
             t.virtual.update(!0);
         },
-        prependSlide: function(e) {
+        prependSlide: function(e38) {
             var t23 = this, a11 = t23.activeIndex, i = a11 + 1, s = 1;
-            if (Array.isArray(e)) {
-                for(var r = 0; r < e.length; r += 1)e[r] && t23.virtual.slides.unshift(e[r]);
-                i = a11 + e.length, s = e.length;
-            } else t23.virtual.slides.unshift(e);
+            if (Array.isArray(e38)) {
+                for(var r = 0; r < e38.length; r += 1)e38[r] && t23.virtual.slides.unshift(e38[r]);
+                i = a11 + e38.length, s = e38.length;
+            } else t23.virtual.slides.unshift(e38);
             if (t23.params.virtual.cache) {
-                var n = t23.virtual.cache, l = {
-                };
+                var n = t23.virtual.cache, l = {};
                 Object.keys(n).forEach(function(e) {
                     var t = n[e], a = t.attr("data-swiper-slide-index");
                     a && t.attr("data-swiper-slide-index", parseInt(a, 10) + 1), l[parseInt(e, 10) + s] = t;
@@ -2617,8 +2576,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         },
         removeAllSlides: function() {
             var e = this;
-            e.virtual.slides = [], e.params.virtual.cache && (e.virtual.cache = {
-            }), e.virtual.update(!0), e.slideTo(0, 0);
+            e.virtual.slides = [], e.params.virtual.cache && (e.virtual.cache = {}), e.virtual.update(!0), e.slideTo(0, 0);
         }
     }, q1 = {
         name: "virtual",
@@ -2636,11 +2594,9 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         },
         create: function() {
             M1(this, {
-                virtual: t1({
-                }, W1, {
+                virtual: t1({}, W1, {
                     slides: this.params.virtual.slides,
-                    cache: {
-                    }
+                    cache: {}
                 })
             });
         },
@@ -2738,14 +2694,14 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         lastEventBeforeSnap: void 0,
         recentWheelEvents: [],
         event: function() {
-            return l1().navigator.userAgent.indexOf("firefox") > -1 ? "DOMMouseScroll" : (function() {
+            return l1().navigator.userAgent.indexOf("firefox") > -1 ? "DOMMouseScroll" : function() {
                 var e = r1(), t = "onwheel", a = t in e;
                 if (!a) {
                     var i = e.createElement("div");
                     i.setAttribute(t, "return;"), a = "function" == typeof i.onwheel;
                 }
                 return !a && e.implementation && e.implementation.hasFeature && !0 !== e.implementation.hasFeature("", "") && (a = e.implementation.hasFeature("Events.wheel", "3.0")), a;
-            })() ? "wheel" : "mousewheel";
+            }() ? "wheel" : "mousewheel";
         },
         normalize: function(e) {
             var t = 0, a = 0, i = 0, s = 0;
@@ -2797,13 +2753,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                         var g = f.length ? f[f.length - 1] : void 0, y = f[0];
                         if (f.push(d), g && (d.delta > g.delta || d.direction !== g.direction)) f.splice(0);
                         else if (f.length >= 15 && d.time - y.time < 500 && y.delta - d.delta >= 1 && d.delta <= 6) {
-                            var w = r > 0 ? 0.8 : 0.2;
+                            var w = r > 0 ? .8 : .2;
                             a.mousewheel.lastEventBeforeSnap = d, f.splice(0), a.mousewheel.timeout = E1(function() {
                                 a.slideToClosest(a.params.speed, !0, void 0, w);
                             }, 0);
                         }
                         a.mousewheel.timeout || (a.mousewheel.timeout = E1(function() {
-                            a.mousewheel.lastEventBeforeSnap = d, f.splice(0), a.slideToClosest(a.params.speed, !0, void 0, 0.5);
+                            a.mousewheel.lastEventBeforeSnap = d, f.splice(0), a.slideToClosest(a.params.speed, !0, void 0, .5);
                         }, 500));
                     }
                     if (u || a.emit("scroll", t), a.params.autoplay && a.params.autoplayDisableOnInteraction && a.autoplay.stop(), c === a.minTranslate() || c === a.maxTranslate()) return !0;
@@ -2879,12 +2835,12 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
         }
     }, Z1 = {
         update: function() {
-            var e36 = this, t24 = e36.rtl, a = e36.params.pagination;
-            if (a.el && e36.pagination.el && e36.pagination.$el && 0 !== e36.pagination.$el.length) {
-                var i, s5 = e36.virtual && e36.params.virtual.enabled ? e36.virtual.slides.length : e36.slides.length, r = e36.pagination.$el, n = e36.params.loop ? Math.ceil((s5 - 2 * e36.loopedSlides) / e36.params.slidesPerGroup) : e36.snapGrid.length;
-                if (e36.params.loop ? ((i = Math.ceil((e36.activeIndex - e36.loopedSlides) / e36.params.slidesPerGroup)) > s5 - 1 - 2 * e36.loopedSlides && (i -= s5 - 2 * e36.loopedSlides), i > n - 1 && (i -= n), i < 0 && "bullets" !== e36.params.paginationType && (i = n + i)) : i = void 0 !== e36.snapIndex ? e36.snapIndex : e36.activeIndex || 0, "bullets" === a.type && e36.pagination.bullets && e36.pagination.bullets.length > 0) {
-                    var l, o, d, p = e36.pagination.bullets;
-                    if (a.dynamicBullets && (e36.pagination.bulletSize = p.eq(0)[e36.isHorizontal() ? "outerWidth" : "outerHeight"](!0), r.css(e36.isHorizontal() ? "width" : "height", e36.pagination.bulletSize * (a.dynamicMainBullets + 4) + "px"), a.dynamicMainBullets > 1 && void 0 !== e36.previousIndex && (e36.pagination.dynamicBulletIndex += i - e36.previousIndex, e36.pagination.dynamicBulletIndex > a.dynamicMainBullets - 1 ? e36.pagination.dynamicBulletIndex = a.dynamicMainBullets - 1 : e36.pagination.dynamicBulletIndex < 0 && (e36.pagination.dynamicBulletIndex = 0)), l = i - e36.pagination.dynamicBulletIndex, d = ((o = l + (Math.min(p.length, a.dynamicMainBullets) - 1)) + l) / 2), p.removeClass(a.bulletActiveClass + " " + a.bulletActiveClass + "-next " + a.bulletActiveClass + "-next-next " + a.bulletActiveClass + "-prev " + a.bulletActiveClass + "-prev-prev " + a.bulletActiveClass + "-main"), r.length > 1) p.each(function(e) {
+            var e39 = this, t24 = e39.rtl, a = e39.params.pagination;
+            if (a.el && e39.pagination.el && e39.pagination.$el && 0 !== e39.pagination.$el.length) {
+                var i, s5 = e39.virtual && e39.params.virtual.enabled ? e39.virtual.slides.length : e39.slides.length, r = e39.pagination.$el, n = e39.params.loop ? Math.ceil((s5 - 2 * e39.loopedSlides) / e39.params.slidesPerGroup) : e39.snapGrid.length;
+                if (e39.params.loop ? ((i = Math.ceil((e39.activeIndex - e39.loopedSlides) / e39.params.slidesPerGroup)) > s5 - 1 - 2 * e39.loopedSlides && (i -= s5 - 2 * e39.loopedSlides), i > n - 1 && (i -= n), i < 0 && "bullets" !== e39.params.paginationType && (i = n + i)) : i = void 0 !== e39.snapIndex ? e39.snapIndex : e39.activeIndex || 0, "bullets" === a.type && e39.pagination.bullets && e39.pagination.bullets.length > 0) {
+                    var l, o, d, p = e39.pagination.bullets;
+                    if (a.dynamicBullets && (e39.pagination.bulletSize = p.eq(0)[e39.isHorizontal() ? "outerWidth" : "outerHeight"](!0), r.css(e39.isHorizontal() ? "width" : "height", e39.pagination.bulletSize * (a.dynamicMainBullets + 4) + "px"), a.dynamicMainBullets > 1 && void 0 !== e39.previousIndex && (e39.pagination.dynamicBulletIndex += i - e39.previousIndex, e39.pagination.dynamicBulletIndex > a.dynamicMainBullets - 1 ? e39.pagination.dynamicBulletIndex = a.dynamicMainBullets - 1 : e39.pagination.dynamicBulletIndex < 0 && (e39.pagination.dynamicBulletIndex = 0)), l = i - e39.pagination.dynamicBulletIndex, d = ((o = l + (Math.min(p.length, a.dynamicMainBullets) - 1)) + l) / 2), p.removeClass(a.bulletActiveClass + " " + a.bulletActiveClass + "-next " + a.bulletActiveClass + "-next-next " + a.bulletActiveClass + "-prev " + a.bulletActiveClass + "-prev-prev " + a.bulletActiveClass + "-main"), r.length > 1) p.each(function(e) {
                         var t = m1(e), s = t.index();
                         s === i && t.addClass(a.bulletActiveClass), a.dynamicBullets && (s >= l && s <= o && t.addClass(a.bulletActiveClass + "-main"), s === l && t.prev().addClass(a.bulletActiveClass + "-prev").prev().addClass(a.bulletActiveClass + "-prev-prev"), s === o && t.next().addClass(a.bulletActiveClass + "-next").next().addClass(a.bulletActiveClass + "-next-next"));
                     });
@@ -2892,7 +2848,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                         var u = p.eq(i), c = u.index();
                         if (u.addClass(a.bulletActiveClass), a.dynamicBullets) {
                             for(var h = p.eq(l), v = p.eq(o), f = l; f <= o; f += 1)p.eq(f).addClass(a.bulletActiveClass + "-main");
-                            if (e36.params.loop) {
+                            if (e39.params.loop) {
                                 if (c >= p.length - a.dynamicMainBullets) {
                                     for(var g = a.dynamicMainBullets; g >= 0; g -= 1)p.eq(p.length - g).addClass(a.bulletActiveClass + "-main");
                                     p.eq(p.length - a.dynamicMainBullets - 1).addClass(a.bulletActiveClass + "-prev");
@@ -2901,17 +2857,17 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                         }
                     }
                     if (a.dynamicBullets) {
-                        var y = Math.min(p.length, a.dynamicMainBullets + 4), w = (e36.pagination.bulletSize * y - e36.pagination.bulletSize) / 2 - d * e36.pagination.bulletSize, b = t24 ? "right" : "left";
-                        p.css(e36.isHorizontal() ? b : "top", w + "px");
+                        var y = Math.min(p.length, a.dynamicMainBullets + 4), w = (e39.pagination.bulletSize * y - e39.pagination.bulletSize) / 2 - d * e39.pagination.bulletSize, b = t24 ? "right" : "left";
+                        p.css(e39.isHorizontal() ? b : "top", w + "px");
                     }
                 }
                 if ("fraction" === a.type && (r.find("." + a.currentClass).text(a.formatFractionCurrent(i + 1)), r.find("." + a.totalClass).text(a.formatFractionTotal(n))), "progressbar" === a.type) {
                     var E;
-                    E = a.progressbarOpposite ? e36.isHorizontal() ? "vertical" : "horizontal" : e36.isHorizontal() ? "horizontal" : "vertical";
+                    E = a.progressbarOpposite ? e39.isHorizontal() ? "vertical" : "horizontal" : e39.isHorizontal() ? "horizontal" : "vertical";
                     var x = (i + 1) / n, T = 1, C = 1;
-                    "horizontal" === E ? T = x : C = x, r.find("." + a.progressbarFillClass).transform("translate3d(0,0,0) scaleX(" + T + ") scaleY(" + C + ")").transition(e36.params.speed);
+                    "horizontal" === E ? T = x : C = x, r.find("." + a.progressbarFillClass).transform("translate3d(0,0,0) scaleX(" + T + ") scaleY(" + C + ")").transition(e39.params.speed);
                 }
-                "custom" === a.type && a.renderCustom ? (r.html(a.renderCustom(e36, i + 1, n)), e36.emit("paginationRender", r[0])) : e36.emit("paginationUpdate", r[0]), r[e36.params.watchOverflow && e36.isLocked ? "addClass" : "removeClass"](a.lockClass);
+                "custom" === a.type && a.renderCustom ? (r.html(a.renderCustom(e39, i + 1, n)), e39.emit("paginationRender", r[0])) : e39.emit("paginationUpdate", r[0]), r[e39.params.watchOverflow && e39.isLocked ? "addClass" : "removeClass"](a.lockClass);
             }
         },
         render: function() {
@@ -2955,7 +2911,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 var t = e.scrollbar, a = e.rtlTranslate, i = e.progress, s = t.dragSize, r = t.trackSize, n = t.$dragEl, l = t.$el, o = e.params.scrollbar, d = s, p = (r - s) * i;
                 a ? (p = -p) > 0 ? (d = s - p, p = 0) : -p + s > r && (d = r + p) : p < 0 ? (d = s + p, p = 0) : p + s > r && (d = r - p), e.isHorizontal() ? (n.transform("translate3d(" + p + "px, 0, 0)"), n[0].style.width = d + "px") : (n.transform("translate3d(0px, " + p + "px, 0)"), n[0].style.height = d + "px"), o.hide && (clearTimeout(e.scrollbar.timeout), l[0].style.opacity = 1, e.scrollbar.timeout = setTimeout(function() {
                     l[0].style.opacity = 0, l.transition(400);
-                }, 1000));
+                }, 1e3));
             }
         },
         setTransition: function(e) {
@@ -2997,7 +2953,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             var t = this, a = t.params.scrollbar, i = t.scrollbar, s = t.$wrapperEl, r = i.$el;
             t.scrollbar.isTouched && (t.scrollbar.isTouched = !1, t.params.cssMode && (t.$wrapperEl.css("scroll-snap-type", ""), s.transition("")), a.hide && (clearTimeout(t.scrollbar.dragTimeout), t.scrollbar.dragTimeout = E1(function() {
                 r.css("opacity", 0), r.transition(400);
-            }, 1000)), t.emit("scrollbarDragEnd", e), a.snapOnRelease && t.slideToClosest());
+            }, 1e3)), t.emit("scrollbarDragEnd", e), a.snapOnRelease && t.slideToClosest());
         },
         enableDraggable: function() {
             var e = this;
@@ -3093,7 +3049,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 if ("touchmove" !== e.type || "touchmove" === e.type && e.targetTouches.length < 2) return;
                 s.fakeGestureMoved = !0, r.scaleMove = ee1.getDistanceBetweenTouches(e);
             }
-            r.$imageEl && 0 !== r.$imageEl.length ? (a.gestures ? s.scale = e.scale * s.currentScale : s.scale = r.scaleMove / r.scaleStart * s.currentScale, s.scale > r.maxRatio && (s.scale = r.maxRatio - 1 + Math.pow(s.scale - r.maxRatio + 1, 0.5)), s.scale < i.minRatio && (s.scale = i.minRatio + 1 - Math.pow(i.minRatio - s.scale + 1, 0.5)), r.$imageEl.transform("translate3d(0,0,0) scale(" + s.scale + ")")) : "gesturechange" === e.type && s.onGestureStart(e);
+            r.$imageEl && 0 !== r.$imageEl.length ? (a.gestures ? s.scale = e.scale * s.currentScale : s.scale = r.scaleMove / r.scaleStart * s.currentScale, s.scale > r.maxRatio && (s.scale = r.maxRatio - 1 + Math.pow(s.scale - r.maxRatio + 1, .5)), s.scale < i.minRatio && (s.scale = i.minRatio + 1 - Math.pow(i.minRatio - s.scale + 1, .5)), r.$imageEl.transform("translate3d(0,0,0) scale(" + s.scale + ")")) : "gesturechange" === e.type && s.onGestureStart(e);
         },
         onGestureEnd: function(e) {
             var t = this, a = t.device, i = t.support, s = t.params.zoom, r = t.zoom, n = r.gesture;
@@ -3118,7 +3074,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                         if (t.isHorizontal() && (Math.floor(s.minX) === Math.floor(s.startX) && s.touchesCurrent.x < s.touchesStart.x || Math.floor(s.maxX) === Math.floor(s.startX) && s.touchesCurrent.x > s.touchesStart.x)) return void (s.isTouched = !1);
                         if (!t.isHorizontal() && (Math.floor(s.minY) === Math.floor(s.startY) && s.touchesCurrent.y < s.touchesStart.y || Math.floor(s.maxY) === Math.floor(s.startY) && s.touchesCurrent.y > s.touchesStart.y)) return void (s.isTouched = !1);
                     }
-                    e.cancelable && e.preventDefault(), e.stopPropagation(), s.isMoved = !0, s.currentX = s.touchesCurrent.x - s.touchesStart.x + s.startX, s.currentY = s.touchesCurrent.y - s.touchesStart.y + s.startY, s.currentX < s.minX && (s.currentX = s.minX + 1 - Math.pow(s.minX - s.currentX + 1, 0.8)), s.currentX > s.maxX && (s.currentX = s.maxX - 1 + Math.pow(s.currentX - s.maxX + 1, 0.8)), s.currentY < s.minY && (s.currentY = s.minY + 1 - Math.pow(s.minY - s.currentY + 1, 0.8)), s.currentY > s.maxY && (s.currentY = s.maxY - 1 + Math.pow(s.currentY - s.maxY + 1, 0.8)), r.prevPositionX || (r.prevPositionX = s.touchesCurrent.x), r.prevPositionY || (r.prevPositionY = s.touchesCurrent.y), r.prevTime || (r.prevTime = Date.now()), r.x = (s.touchesCurrent.x - r.prevPositionX) / (Date.now() - r.prevTime) / 2, r.y = (s.touchesCurrent.y - r.prevPositionY) / (Date.now() - r.prevTime) / 2, Math.abs(s.touchesCurrent.x - r.prevPositionX) < 2 && (r.x = 0), Math.abs(s.touchesCurrent.y - r.prevPositionY) < 2 && (r.y = 0), r.prevPositionX = s.touchesCurrent.x, r.prevPositionY = s.touchesCurrent.y, r.prevTime = Date.now(), i.$imageWrapEl.transform("translate3d(" + s.currentX + "px, " + s.currentY + "px,0)");
+                    e.cancelable && e.preventDefault(), e.stopPropagation(), s.isMoved = !0, s.currentX = s.touchesCurrent.x - s.touchesStart.x + s.startX, s.currentY = s.touchesCurrent.y - s.touchesStart.y + s.startY, s.currentX < s.minX && (s.currentX = s.minX + 1 - Math.pow(s.minX - s.currentX + 1, .8)), s.currentX > s.maxX && (s.currentX = s.maxX - 1 + Math.pow(s.currentX - s.maxX + 1, .8)), s.currentY < s.minY && (s.currentY = s.minY + 1 - Math.pow(s.minY - s.currentY + 1, .8)), s.currentY > s.maxY && (s.currentY = s.maxY - 1 + Math.pow(s.currentY - s.maxY + 1, .8)), r.prevPositionX || (r.prevPositionX = s.touchesCurrent.x), r.prevPositionY || (r.prevPositionY = s.touchesCurrent.y), r.prevTime || (r.prevTime = Date.now()), r.x = (s.touchesCurrent.x - r.prevPositionX) / (Date.now() - r.prevTime) / 2, r.y = (s.touchesCurrent.y - r.prevPositionY) / (Date.now() - r.prevTime) / 2, Math.abs(s.touchesCurrent.x - r.prevPositionX) < 2 && (r.x = 0), Math.abs(s.touchesCurrent.y - r.prevPositionY) < 2 && (r.y = 0), r.prevPositionX = s.touchesCurrent.x, r.prevPositionY = s.touchesCurrent.y, r.prevTime = Date.now(), i.$imageWrapEl.transform("translate3d(" + s.currentX + "px, " + s.currentY + "px,0)");
                 }
             }
         },
@@ -3191,13 +3147,13 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             }
         }
     }, te1 = {
-        loadInSlide: function(e37, t28) {
+        loadInSlide: function(e40, t28) {
             void 0 === t28 && (t28 = !0);
             var a = this, i = a.params.lazy;
-            if (void 0 !== e37 && 0 !== a.slides.length) {
-                var s = a.virtual && a.params.virtual.enabled ? a.$wrapperEl.children("." + a.params.slideClass + '[data-swiper-slide-index="' + e37 + '"]') : a.slides.eq(e37), r3 = s.find("." + i.elementClass + ":not(." + i.loadedClass + "):not(." + i.loadingClass + ")");
-                !s.hasClass(i.elementClass) || s.hasClass(i.loadedClass) || s.hasClass(i.loadingClass) || r3.push(s[0]), 0 !== r3.length && r3.each(function(e38) {
-                    var r = m1(e38);
+            if (void 0 !== e40 && 0 !== a.slides.length) {
+                var s = a.virtual && a.params.virtual.enabled ? a.$wrapperEl.children("." + a.params.slideClass + '[data-swiper-slide-index="' + e40 + '"]') : a.slides.eq(e40), r3 = s.find("." + i.elementClass + ":not(." + i.loadedClass + "):not(." + i.loadingClass + ")");
+                !s.hasClass(i.elementClass) || s.hasClass(i.loadedClass) || s.hasClass(i.loadingClass) || r3.push(s[0]), 0 !== r3.length && r3.each(function(e41) {
+                    var r = m1(e41);
                     r.addClass(i.loadingClass);
                     var n = r.attr("data-background"), l = r.attr("data-src"), o = r.attr("data-srcset"), d = r.attr("data-sizes"), p = r.parent("picture");
                     a.loadImage(r[0], l || n, o, d, !1, function() {
@@ -3206,12 +3162,12 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                                 var t = m1(e);
                                 t.attr("data-srcset") && (t.attr("srcset", t.attr("data-srcset")), t.removeAttr("data-srcset"));
                             }), l && (r.attr("src", l), r.removeAttr("data-src"))), r.addClass(i.loadedClass).removeClass(i.loadingClass), s.find("." + i.preloaderClass).remove(), a.params.loop && t28) {
-                                var e39 = s.attr("data-swiper-slide-index");
+                                var e42 = s.attr("data-swiper-slide-index");
                                 if (s.hasClass(a.params.slideDuplicateClass)) {
-                                    var u = a.$wrapperEl.children('[data-swiper-slide-index="' + e39 + '"]:not(.' + a.params.slideDuplicateClass + ")");
+                                    var u = a.$wrapperEl.children('[data-swiper-slide-index="' + e42 + '"]:not(.' + a.params.slideDuplicateClass + ")");
                                     a.lazy.loadInSlide(u.index(), !1);
                                 } else {
-                                    var c = a.$wrapperEl.children("." + a.params.slideDuplicateClass + '[data-swiper-slide-index="' + e39 + '"]');
+                                    var c = a.$wrapperEl.children("." + a.params.slideDuplicateClass + '[data-swiper-slide-index="' + e42 + '"]');
                                     a.lazy.loadInSlide(c.index(), !1);
                                 }
                             }
@@ -3222,7 +3178,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             }
         },
         load: function() {
-            var e41 = this, t29 = e41.$wrapperEl, a15 = e41.params, i = e41.slides, s = e41.activeIndex, r = e41.virtual && a15.virtual.enabled, n = a15.lazy, l = a15.slidesPerView;
+            var e44 = this, t29 = e44.$wrapperEl, a15 = e44.params, i = e44.slides, s = e44.activeIndex, r = e44.virtual && a15.virtual.enabled, n = a15.lazy, l = a15.slidesPerView;
             function o(e) {
                 if (r) {
                     if (t29.children("." + a15.slideClass + '[data-swiper-slide-index="' + e + '"]').length) return !0;
@@ -3232,21 +3188,21 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             function d(e) {
                 return r ? m1(e).attr("data-swiper-slide-index") : m1(e).index();
             }
-            if ("auto" === l && (l = 0), e41.lazy.initialImageLoaded || (e41.lazy.initialImageLoaded = !0), e41.params.watchSlidesVisibility) t29.children("." + a15.slideVisibleClass).each(function(t) {
+            if ("auto" === l && (l = 0), e44.lazy.initialImageLoaded || (e44.lazy.initialImageLoaded = !0), e44.params.watchSlidesVisibility) t29.children("." + a15.slideVisibleClass).each(function(t) {
                 var a = r ? m1(t).attr("data-swiper-slide-index") : m1(t).index();
-                e41.lazy.loadInSlide(a);
+                e44.lazy.loadInSlide(a);
             });
-            else if (l > 1) for(var p = s; p < s + l; p += 1)o(p) && e41.lazy.loadInSlide(p);
-            else e41.lazy.loadInSlide(s);
+            else if (l > 1) for(var p = s; p < s + l; p += 1)o(p) && e44.lazy.loadInSlide(p);
+            else e44.lazy.loadInSlide(s);
             if (n.loadPrevNext) {
                 if (l > 1 || n.loadPrevNextAmount && n.loadPrevNextAmount > 1) {
-                    for(var u = n.loadPrevNextAmount, c = l, h = Math.min(s + c + Math.max(u, c), i.length), v = Math.max(s - Math.max(c, u), 0), f = s + l; f < h; f += 1)o(f) && e41.lazy.loadInSlide(f);
-                    for(var g = v; g < s; g += 1)o(g) && e41.lazy.loadInSlide(g);
+                    for(var u = n.loadPrevNextAmount, c = l, h = Math.min(s + c + Math.max(u, c), i.length), v = Math.max(s - Math.max(c, u), 0), f = s + l; f < h; f += 1)o(f) && e44.lazy.loadInSlide(f);
+                    for(var g = v; g < s; g += 1)o(g) && e44.lazy.loadInSlide(g);
                 } else {
                     var y = t29.children("." + a15.slideNextClass);
-                    y.length > 0 && e41.lazy.loadInSlide(d(y));
+                    y.length > 0 && e44.lazy.loadInSlide(d(y));
                     var w = t29.children("." + a15.slidePrevClass);
-                    w.length > 0 && e41.lazy.loadInSlide(d(w));
+                    w.length > 0 && e44.lazy.loadInSlide(d(w));
                 }
             }
         },
@@ -3283,12 +3239,12 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             }
         }
     }, ae1 = {
-        LinearSpline: function(e42, t30) {
+        LinearSpline: function(e45, t30) {
             var a, i, s, r, n, l = function(e, t) {
                 for(i = -1, a = e.length; a - i > 1;)e[s = a + i >> 1] <= t ? i = s : a = s;
                 return a;
             };
-            return this.x = e42, this.y = t30, this.lastIndex = e42.length - 1, this.interpolate = function(e) {
+            return this.x = e45, this.y = t30, this.lastIndex = e45.length - 1, this.interpolate = function(e) {
                 return e ? (n = l(this.x, e), r = n - 1, (e - this.x[r]) * (this.y[n] - this.y[r]) / (this.x[n] - this.x[r]) + this.y[r]) : 0;
             }, this;
         },
@@ -3296,7 +3252,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             var t = this;
             t.controller.spline || (t.controller.spline = t.params.loop ? new ae1.LinearSpline(t.slidesGrid, e.slidesGrid) : new ae1.LinearSpline(t.snapGrid, e.snapGrid));
         },
-        setTranslate: function(e43, t31) {
+        setTranslate: function(e46, t31) {
             var a, i, s = this, r = s.controller.control, n = s.constructor;
             function l(e) {
                 var t = s.rtlTranslate ? -s.translate : s.translate;
@@ -3411,8 +3367,8 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             var e = this;
             e.history.paths = se1.getPathValues(e.params.url), e.history.scrollToSlide(e.params.speed, e.history.paths.value, !1);
         },
-        getPathValues: function(e44) {
-            var t = l1(), a = (e44 ? new URL(e44) : t.location).pathname.slice(1).split("/").filter(function(e) {
+        getPathValues: function(e47) {
+            var t = l1(), a = (e47 ? new URL(e47) : t.location).pathname.slice(1).split("/").filter(function(e) {
                 return "" !== e;
             }), i = a.length;
             return {
@@ -3530,9 +3486,9 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 }).transform("translate3d(" + s + "px, " + r + "px, 0px)");
             }
         },
-        setTransition: function(e45) {
+        setTransition: function(e48) {
             var t = this, a17 = t.slides, i = t.$wrapperEl;
-            if (a17.transition(e45), t.params.virtualTranslate && 0 !== e45) {
+            if (a17.transition(e48), t.params.virtualTranslate && 0 !== e48) {
                 var s = !1;
                 a17.transitionEnd(function() {
                     if (!s && t && !t.destroyed) {
@@ -3596,9 +3552,9 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 s.transform("translate3d(" + o + "px, " + d + "px, 0px) rotateX(" + l + "deg) rotateY(" + n + "deg)");
             }
         },
-        setTransition: function(e46) {
+        setTransition: function(e49) {
             var t = this, a18 = t.slides, i = t.activeIndex, s = t.$wrapperEl;
-            if (a18.transition(e46).find(".swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left").transition(e46), t.params.virtualTranslate && 0 !== e46) {
+            if (a18.transition(e49).find(".swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left").transition(e49), t.params.virtualTranslate && 0 !== e49) {
                 var r = !1;
                 a18.eq(i).transitionEnd(function() {
                     if (!r && t && !t.destroyed) {
@@ -3617,7 +3573,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                 var h = i.eq(u), v = s[u], f = (o - h[0].swiperSlideOffset - v / 2) / v * r.modifier, g = n ? d * f : 0, y = n ? 0 : d * f, w = -p * Math.abs(f), b = r.stretch;
                 "string" == typeof b && -1 !== b.indexOf("%") && (b = parseFloat(r.stretch) / 100 * v);
                 var E = n ? 0 : b * f, x = n ? b * f : 0, T = 1 - (1 - r.scale) * Math.abs(f);
-                Math.abs(x) < 0.001 && (x = 0), Math.abs(E) < 0.001 && (E = 0), Math.abs(w) < 0.001 && (w = 0), Math.abs(g) < 0.001 && (g = 0), Math.abs(y) < 0.001 && (y = 0), Math.abs(T) < 0.001 && (T = 0);
+                Math.abs(x) < .001 && (x = 0), Math.abs(E) < .001 && (E = 0), Math.abs(w) < .001 && (w = 0), Math.abs(g) < .001 && (g = 0), Math.abs(y) < .001 && (y = 0), Math.abs(T) < .001 && (T = 0);
                 var C = "translate3d(" + x + "px," + E + "px," + w + "px)  rotateX(" + y + "deg) rotateY(" + g + "deg) scale(" + T + ")";
                 if (h.transform(C), h[0].style.zIndex = 1 - Math.abs(Math.round(f)), r.slideShadows) {
                     var S = n ? h.find(".swiper-slide-shadow-left") : h.find(".swiper-slide-shadow-top"), M = n ? h.find(".swiper-slide-shadow-right") : h.find(".swiper-slide-shadow-bottom");
@@ -3640,8 +3596,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             }), S1(e.thumbs.swiper.params, {
                 watchSlidesProgress: !0,
                 slideToClickedSlide: !1
-            })) : C1(t.swiper) && (e.thumbs.swiper = new a(S1({
-            }, t.swiper, {
+            })) : C1(t.swiper) && (e.thumbs.swiper = new a(S1({}, t.swiper, {
                 watchSlidesVisibility: !0,
                 watchSlidesProgress: !0,
                 slideToClickedSlide: !1
@@ -3738,8 +3693,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    navigation: t1({
-                    }, K1)
+                    navigation: t1({}, K1)
                 });
             },
             on: {
@@ -3881,8 +3835,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    parallax: t1({
-                    }, Q1)
+                    parallax: t1({}, Q1)
                 });
             },
             on: {
@@ -3941,10 +3894,8 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                             height: void 0,
                             startX: void 0,
                             startY: void 0,
-                            touchesStart: {
-                            },
-                            touchesCurrent: {
-                            }
+                            touchesStart: {},
+                            touchesCurrent: {}
                         },
                         velocity: {
                             x: void 0,
@@ -4095,8 +4046,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    a11y: t1({
-                    }, ie1, {
+                    a11y: t1({}, ie1, {
                         liveRegion: m1('<span class="' + this.params.a11y.notificationClass + '" aria-live="assertive" aria-atomic="true"></span>')
                     })
                 });
@@ -4130,8 +4080,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    history: t1({
-                    }, se1)
+                    history: t1({}, se1)
                 });
             },
             on: {
@@ -4185,7 +4134,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             params: {
                 autoplay: {
                     enabled: !1,
-                    delay: 3000,
+                    delay: 3e3,
                     waitForTransition: !0,
                     disableOnInteraction: !0,
                     stopOnLastSlide: !1,
@@ -4194,8 +4143,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    autoplay: t1({
-                    }, ne1, {
+                    autoplay: t1({}, ne1, {
                         running: !1,
                         paused: !1
                     })
@@ -4228,8 +4176,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    fadeEffect: t1({
-                    }, le1)
+                    fadeEffect: t1({}, le1)
                 });
             },
             on: {
@@ -4262,13 +4209,12 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
                     slideShadows: !0,
                     shadow: !0,
                     shadowOffset: 20,
-                    shadowScale: 0.94
+                    shadowScale: .94
                 }
             },
             create: function() {
                 M1(this, {
-                    cubeEffect: t1({
-                    }, oe1)
+                    cubeEffect: t1({}, oe1)
                 });
             },
             on: {
@@ -4306,8 +4252,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    flipEffect: t1({
-                    }, de1)
+                    flipEffect: t1({}, de1)
                 });
             },
             on: {
@@ -4347,8 +4292,7 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
             },
             create: function() {
                 M1(this, {
-                    coverflowEffect: t1({
-                    }, pe1)
+                    coverflowEffect: t1({}, pe1)
                 });
             },
             on: {
@@ -4413,6 +4357,6 @@ const swiperOtzovy = new _swiperBundleMinJsDefault.default('.otzovy__swiper', {
     return R1.use(ce), R1;
 }); //# sourceMappingURL=swiper-bundle.min.js.map
 
-},{}]},["id6kT","rrgcw"], "rrgcw", "parcelRequirec448")
+},{}]},["iGZ1Y","rrgcw"], "rrgcw", "parcelRequirec448")
 
 //# sourceMappingURL=index.ef759d86.js.map

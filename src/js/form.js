@@ -16,7 +16,7 @@ elements.forEach(e => {
 /*
 * Обработка формы и отправка в Битрикс24
 */
-const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/cx9amt3xavhz0zjb/'
+const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/j0a30odz6zzkluly/'
 const bitrix_method = 'crm.lead.add.json'
 
 const forms = document.querySelectorAll('form')
@@ -32,7 +32,7 @@ forms.forEach(el => {
       {
         "TITLE": "Новая заявка с сайта",
         "OPENED": "Y",
-        "ASSIGNED_BY_ID": 3677,
+        "ASSIGNED_BY_ID": 4179,
         "SOURCE_DESCRIPTION": `Заполненная форма: ${btn.textContent == 'Скачать прайс-лист' ? input.placeholder + '. Отправить прайс' : btn.textContent}`,
         "PHONE": [{ "VALUE": input.value, "VALUE_TYPE": "WORK" }]
       },
