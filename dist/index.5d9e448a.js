@@ -555,6 +555,11 @@ forms.forEach((el)=>{
         e.preventDefault();
         const input = e.target.elements[0];
         const btn = e.target.elements[1];
+        // validation
+        if (!input.value.length || input.value.length < 16) {
+            console.log("\u041E\u0448\u0438\u0431\u043A\u0430 \u0432\u0430\u043B\u0438\u0434\u0430\u0446\u0438\u0438 \u0444\u043E\u0440\u043C\u044B");
+            return;
+        }
         const dataForm = {
             fields: {
                 "TITLE": "\u041D\u043E\u0432\u0430\u044F \u0437\u0430\u044F\u0432\u043A\u0430 \u0441 \u0441\u0430\u0439\u0442\u0430",

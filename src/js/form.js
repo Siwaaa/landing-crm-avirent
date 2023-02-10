@@ -27,6 +27,12 @@ forms.forEach(el => {
     const input = e.target.elements[0];
     const btn = e.target.elements[1];
 
+    // validation
+    if (!input.value.length || input.value.length < 16) {
+      console.log('Ошибка валидации формы');
+      return
+    }
+
     const dataForm = {
       fields:
       {
