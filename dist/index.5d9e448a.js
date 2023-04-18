@@ -547,7 +547,7 @@ elements.forEach((e)=>{
 });
 /*
 * Обработка формы и отправка в Битрикс24
-*/ const url = "https://script.google.com/macros/s/AKfycbzosC1cfa2D_I-hgfCBaRzB-jdC84hbez7jz9MjejYC7rmgGjAnt6dfERd2oFL6Qjw/exec";
+*/ const url = "https://script.google.com/macros/s/AKfycbxhGD7h1nOjB0zttKKPBMBoU6Nx-z71gOMm0Kir9tUrUS9WKKGkHs6rGFF8fo3YtKxx/exec";
 const forms = document.querySelectorAll("form");
 forms.forEach((el)=>{
     el.addEventListener("submit", async (e)=>{
@@ -564,22 +564,27 @@ forms.forEach((el)=>{
             placeholder: input.placeholder,
             btn: btn.textContent
         };
+        btn.textContent = "\u041E\u0442\u043F\u0440\u0430\u0432\u043A\u0430...";
+        btn.disabled = true;
         sendForm(dataForm).then((d)=>{
-            if (btn.textContent != "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u0440\u0430\u0439\u0441-\u043B\u0438\u0441\u0442") window.location.href = "https://crm.avirent.ru/company/register";
+            if (dataForm.btn != "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u0440\u0430\u0439\u0441-\u043B\u0438\u0441\u0442") window.location.href = "https://crm.avirent.ru/company/register";
             else (0, _modalJs.openModal)(3) // открываем модальное окно, если запросили прайс
             ;
+            btn.textContent = dataForm.btn;
+            btn.disabled = false;
         }).catch((er)=>alert("\u041E\u0448\u0438\u0431\u043A\u0430 \u043E\u0442\u043F\u0440\u0430\u0432\u043A\u0438 \u0434\u0430\u043D\u043D\u044B\u0445\n" + er));
     });
 });
 async function sendForm(data) {
     const res = await fetch(url, {
         method: "POST",
+        mode: "no-cors",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
     });
-    return await res.json();
+    return res;
 }
 
 },{"./imask.min.js":"3EAgC","./modal.js":"aHHgN","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3EAgC":[function(require,module,exports) {

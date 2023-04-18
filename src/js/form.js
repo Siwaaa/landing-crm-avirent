@@ -16,7 +16,7 @@ elements.forEach(e => {
 /*
 * Обработка формы и отправка в Битрикс24
 */
-const url = 'https://script.google.com/macros/s/AKfycbzosC1cfa2D_I-hgfCBaRzB-jdC84hbez7jz9MjejYC7rmgGjAnt6dfERd2oFL6Qjw/exec';
+const url = 'https://script.google.com/macros/s/AKfycbxhGD7h1nOjB0zttKKPBMBoU6Nx-z71gOMm0Kir9tUrUS9WKKGkHs6rGFF8fo3YtKxx/exec';
 
 const forms = document.querySelectorAll('form')
 forms.forEach(el => {
@@ -38,13 +38,18 @@ forms.forEach(el => {
       btn: btn.textContent
     }
 
+    btn.textContent = 'Отправка...';
+    btn.disabled = true;
+
     sendForm(dataForm)
       .then((d) => {
-        if(btn.textContent != 'Скачать прайс-лист') {
+        if(dataForm.btn != 'Скачать прайс-лист') {
           window.location.href = "https://crm.avirent.ru/company/register";
         } else {
           openModal(3) // открываем модальное окно, если запросили прайс
         }
+        btn.textContent = dataForm.btn;
+        btn.disabled = false;
       })
       .catch(er => alert('Ошибка отправки данных\n' + er))
   })
@@ -53,10 +58,11 @@ forms.forEach(el => {
 async function sendForm(data) {
   const res = await fetch(url, {
     method: 'POST',
+    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   })
-  return await res.json()
+  return res
 }
