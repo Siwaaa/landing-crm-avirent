@@ -16,8 +16,7 @@ elements.forEach(e => {
 /*
 * Обработка формы и отправка в Битрикс24
 */
-const bitrix_api = 'https://avirent.bitrix24.ru/rest/3213/tjfr1jicdg510l64/'
-const bitrix_method = 'crm.lead.add.json'
+const url = 'https://script.google.com/macros/s/AKfycbzosC1cfa2D_I-hgfCBaRzB-jdC84hbez7jz9MjejYC7rmgGjAnt6dfERd2oFL6Qjw/exec';
 
 const forms = document.querySelectorAll('form')
 forms.forEach(el => {
@@ -34,20 +33,13 @@ forms.forEach(el => {
     }
 
     const dataForm = {
-      fields:
-      {
-        "TITLE": "Новая заявка с сайта",
-        "OPENED": "Y",
-        "ASSIGNED_BY_ID": 4179,
-        "SOURCE_DESCRIPTION": `Заполненная форма: ${btn.textContent == 'Скачать прайс-лист' ? input.placeholder + '. Отправить прайс' : btn.textContent}`,
-        "PHONE": [{ "VALUE": input.value, "VALUE_TYPE": "WORK" }]
-      },
-      params: { "REGISTER_SONET_EVENT": "Y" }
+      phone: input.value,
+      placeholder: input.placeholder,
+      btn: btn.textContent
     }
 
     sendForm(dataForm)
-      .then((data) => {
-        console.log(data);
+      .then((d) => {
         if(btn.textContent != 'Скачать прайс-лист') {
           window.location.href = "https://crm.avirent.ru/company/register";
         } else {
@@ -59,7 +51,7 @@ forms.forEach(el => {
 })
 
 async function sendForm(data) {
-  const res = await fetch(bitrix_api + bitrix_method, {
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

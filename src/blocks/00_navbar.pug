@@ -11,7 +11,7 @@ include ../components/button.pug
     button(type="button" data-open-modal_2) Заказать звонок
   .navpanel__login 
     +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white', 'flare')
-    +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register', 'orange', 'flare')
+    +button('Попробовать бесплатно', 's', 'button', '', 'orange', 'flare')(data-open-modal_1)
   .navpanel__mobile 
     +button('', 's', 'link', 'https://crm.avirent.ru/company/login', 'orange', 0, './img/enter.svg')
     .navpanel__burger 
@@ -34,5 +34,5 @@ include ../components/button.pug
         img(src="./img/icon_tel.svg")
         a(href="tel:+74951184046") +7 (495) 118-40-46 
       button(type="button" data-open-modal_2) Заказать звонок
-    +button('Попробовать бесплатно', 's', 'link', 'https://crm.avirent.ru/company/register', 'orange', 'flare')
+    +button('Попробовать бесплатно', 's', 'button', '', 'orange', 'flare')(data-open-modal_1)
     +button('Войти', 's', 'link', 'https://crm.avirent.ru/company/login', 'white', 'flare')

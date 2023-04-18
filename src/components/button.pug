@@ -1,6 +1,6 @@
 mixin button(title, size="m", type="button", href, color="orange", flareEffect, imgPath)
   if type!="link"
-    button(type=type, class=`btn btn-${color} btn-${size}` )= title
+    button(type=type, class=`btn btn-${color} btn-${size}`)&attributes(attributes)= title
       if imgPath 
         img(src=imgPath)
       else if flareEffect

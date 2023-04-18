@@ -547,8 +547,7 @@ elements.forEach((e)=>{
 });
 /*
 * Обработка формы и отправка в Битрикс24
-*/ const bitrix_api = "https://avirent.bitrix24.ru/rest/3213/tjfr1jicdg510l64/";
-const bitrix_method = "crm.lead.add.json";
+*/ const url = "https://script.google.com/macros/s/AKfycbzosC1cfa2D_I-hgfCBaRzB-jdC84hbez7jz9MjejYC7rmgGjAnt6dfERd2oFL6Qjw/exec";
 const forms = document.querySelectorAll("form");
 forms.forEach((el)=>{
     el.addEventListener("submit", async (e)=>{
@@ -561,24 +560,11 @@ forms.forEach((el)=>{
             return;
         }
         const dataForm = {
-            fields: {
-                "TITLE": "\u041D\u043E\u0432\u0430\u044F \u0437\u0430\u044F\u0432\u043A\u0430 \u0441 \u0441\u0430\u0439\u0442\u0430",
-                "OPENED": "Y",
-                "ASSIGNED_BY_ID": 4179,
-                "SOURCE_DESCRIPTION": `Заполненная форма: ${btn.textContent == "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u0440\u0430\u0439\u0441-\u043B\u0438\u0441\u0442" ? input.placeholder + ". \u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u0440\u0430\u0439\u0441" : btn.textContent}`,
-                "PHONE": [
-                    {
-                        "VALUE": input.value,
-                        "VALUE_TYPE": "WORK"
-                    }
-                ]
-            },
-            params: {
-                "REGISTER_SONET_EVENT": "Y"
-            }
+            phone: input.value,
+            placeholder: input.placeholder,
+            btn: btn.textContent
         };
-        sendForm(dataForm).then((data)=>{
-            console.log(data);
+        sendForm(dataForm).then((d)=>{
             if (btn.textContent != "\u0421\u043A\u0430\u0447\u0430\u0442\u044C \u043F\u0440\u0430\u0439\u0441-\u043B\u0438\u0441\u0442") window.location.href = "https://crm.avirent.ru/company/register";
             else (0, _modalJs.openModal)(3) // открываем модальное окно, если запросили прайс
             ;
@@ -586,7 +572,7 @@ forms.forEach((el)=>{
     });
 });
 async function sendForm(data) {
-    const res = await fetch(bitrix_api + bitrix_method, {
+    const res = await fetch(url, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
