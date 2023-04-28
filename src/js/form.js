@@ -16,7 +16,7 @@ elements.forEach(e => {
 /*
 * Обработка формы и отправка в Битрикс24
 */
-const url = 'https://script.google.com/macros/s/AKfycbxhGD7h1nOjB0zttKKPBMBoU6Nx-z71gOMm0Kir9tUrUS9WKKGkHs6rGFF8fo3YtKxx/exec';
+const url = 'https://script.google.com/macros/s/AKfycbxBhNUXWfZeHwvHBBigeFt4JDEcYGP7gYEanmmSwV975M65miHxweR3ABNQ50KxtrGu/exec';
 
 const forms = document.querySelectorAll('form')
 forms.forEach(el => {
@@ -43,6 +43,8 @@ forms.forEach(el => {
 
     sendForm(dataForm)
       .then((d) => {
+        ym(88639713,'reachGoal','submitForm');
+
         if(dataForm.btn != 'Скачать прайс-лист') {
           window.location.href = "https://crm.avirent.ru/company/register";
         } else {
