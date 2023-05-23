@@ -14,9 +14,9 @@ elements.forEach(e => {
 })
 
 /*
-* Обработка формы и отправка в Битрикс24
+* Обработка формы и отправка в AmoCRM
 */
-const url = 'https://script.google.com/macros/s/AKfycbxBhNUXWfZeHwvHBBigeFt4JDEcYGP7gYEanmmSwV975M65miHxweR3ABNQ50KxtrGu/exec';
+const url = 'https://hook.eu1.make.com/requdunstrtjubudysoouvmehtfmdp9a';
 
 const forms = document.querySelectorAll('form')
 forms.forEach(el => {
@@ -60,7 +60,6 @@ forms.forEach(el => {
 async function sendForm(data) {
   const res = await fetch(url, {
     method: 'POST',
-    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json'
     },
